@@ -872,25 +872,16 @@ async function apiFetch(endpoint, options = {}) {
 
 // ==================== SESSION MANAGEMENT ====================
 async function checkAuthState() {
-    const savedToken = localStorage.getItem('khayber_token');
-    const savedUser = localStorage.getItem('khayber_currentUser');
 
-    if (savedToken && savedUser) {
-        authToken = savedToken;
-        currentUser = JSON.parse(savedUser);
+    authToken = null;
+    currentUser = null;
 
-        // Verify token is still valid by calling a protected endpoint
-        try {
-            await apiFetch('/rates'); // simple protected call
-            // Token is valid → auto login
-            console.log('%c[Auth] Auto-login successful', 'color:#22c55e');
-        } catch (err) {
-            // Token expired or invalid
-            console.log('%c[Auth] Token invalid, logging out', 'color:#ef4444');
-            logout();
-            return;
-        }
-    }
+    localStorage.removeItem('khayber_token');
+
+    localStorage.removeItem('khayber_currentUser');
+
+    localStorage.removeItem('hawala_currentUser');
+
 }
 
 // Call this when page loads
@@ -3648,14 +3639,20 @@ async function rejectKYC(docId, btn) {
         // ==================== INITIALIZATION ====================
     
         function initializeWebsite() {
-        // Try to restore previous session (from backend login)
-        const savedToken = localStorage.getItem('khayber_token');
-        const savedUser = localStorage.getItem('khayber_currentUser');
-        
-        if (savedToken && savedUser) {
-            authToken = savedToken;
-            currentUser = JSON.parse(savedUser);
+        const rememberMe = localStorage.getItem('khayber_remember_me');
+
+        if (rememberMe === 'true') {
+            const savedToken = localStorage.getItem('khayber_token');
+            const savedUser = localStorage.getItem('khayber_currentUser');
+
+            if (savedToken && savedUser) {
+
+                authToken = savedToken;
+                currentUser = JSON.parse(savedUser);
+
+            }
         }
+}
 
         // ✅ REMOVED: seedMockData();   ← We deleted this old function
 
