@@ -895,7 +895,11 @@ async function checkAuthState() {
 
 // Call this when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    checkAuthState();
+    localStorage.removeItem('khayber_token');
+    localStorage.removeItem('khayber_currentUser');
+    authToken = null;
+    currentUser = null;
+
     renderRatesTable(); // Load live rates on homepage
 });
 
