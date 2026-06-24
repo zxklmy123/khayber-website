@@ -8,7 +8,7 @@ const login = (req, res) => {
         id: 1,
         name: 'Demo User',
         email: email || 'test@test.com',
-        role: role || 'admin'
+        role: 'customer', // Public registrations are always customers
     };
 
     const token = jwt.sign(user, JWT_SECRET, { expiresIn: '1d' });

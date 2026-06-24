@@ -623,7 +623,7 @@
                         <span class="font-extrabold text-white text-xl tracking-tighter">Khayber</span>
                     </div>
                     <div class="text-[10px] leading-snug">Sydney's trusted bridge to global corridors.</div>
-                    <div class="text-[10px] leading-snug">Developed by 44 Technologies.</div>
+                    <div class="text-[10px] leading-snug">Developed by 46 Technologies.</div>
                 </div>
                 
                 <div>
@@ -680,19 +680,9 @@
             </div>
             
             <div class="p-8">
-                <!-- Role Selection -->
+                <!-- Customer login only -->
                 <div class="mb-5">
-                    <div class="text-xs font-extrabold tracking-widest text-slate-500 mb-2">LOGIN AS</div>
-                    <div class="flex gap-2">
-                        <div onclick="selectLoginRole(this, 'customer')" class="login-role-option flex-1 text-center py-3 border-2 border-[#C9A227] bg-amber-50 rounded-2xl cursor-pointer">
-                            <i class="fa-solid fa-user fa-fw text-[#C9A227]"></i>
-                            <div class="font-bold text-sm mt-1">Customer</div>
-                        </div>
-                        <div onclick="selectLoginRole(this, 'admin')" class="login-role-option flex-1 text-center py-3 border border-slate-200 hover:border-slate-300 rounded-2xl cursor-pointer">
-                            <i class="fa-solid fa-user-tie fa-fw text-slate-600"></i>
-                            <div class="font-bold text-sm mt-1">Staff / Admin</div>
-                        </div>
-                    </div>
+                    <div class="text-xs font-extrabold tracking-widest text-slate-500 mb-2">CUSTOMER LOGIN</div>
                 </div>
                 
                 <form id="login-form" onsubmit="handleLogin(event)">
@@ -1278,12 +1268,12 @@ async function handleLogin(e) {
     e.preventDefault();
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
-    const selectedRole = window.selectedLoginRole || 'customer';
+    const selectedRole = 'customer';
 
     try {
         const result = await apiFetch('/auth/login', {
             method: 'POST',
-            body: JSON.stringify({ email, password, role: selectedRole })
+            body: JSON.stringify({ email, password })
         });
 
         authToken = result.token;
