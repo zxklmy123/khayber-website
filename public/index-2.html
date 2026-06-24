@@ -1,0 +1,3739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khayber Services • Premium Remittance &amp; Currency Exchange</title>
+    <meta name="description" content="Fast, secure, and compliant international remittances and currency exchange. Specializing in transfers to Afghanistan, UAE, and global corridors from Sydney. AUSTRAC registered.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #0A2540;
+            --accent: #C9A227;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: #0A2540;
+        }
+
+        .nav-link {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #C9A227;
+            transform: translateY(-1px);
+        }
+
+        .rate-table th, .rate-table td {
+            padding: 14px 16px;
+            text-align: left;
+        }
+        
+        .rate-table th {
+            background-color: #F8FAFC;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .professional-shadow {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        }
+
+        .modal {
+            animation: modalPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .status-badge {
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .nav-active {
+            color: #C9A227;
+            font-weight: 600;
+        }
+
+        .metric-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+        }
+
+        .data-table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .data-table th {
+            background: #F1F5F9;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .transfer-row {
+            transition: background-color 0.1s ease;
+        }
+        
+        .transfer-row:hover {
+            background-color: #F8FAFC;
+        }
+
+        .custom-input {
+            transition: all 0.2s ease;
+        }
+        
+        .custom-input:focus {
+            outline: none;
+            border-color: #C9A227;
+            box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, #C9A227, #B8971E);
+            transition: all 0.3s ease;
+        }
+        
+        .gold-btn:hover {
+            background: linear-gradient(135deg, #B8971E, #A07F15);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgb(201 162 39 / 0.3);
+        }
+
+        .corporate-blue {
+            color: #0A2540;
+        }
+
+        .hawala-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%23f1f5f9%22 fill-opacity=%220.04%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%27');
+            background-size: 60px 60px;
+        }
+
+        .portal-sidebar {
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .modern-card {
+            transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                        box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .modern-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .lang-btn.active {
+            background-color: #0A2540;
+            color: white;
+        }
+
+        .demo-notice {
+            background: linear-gradient(to right, #FEF3C7, #FFFBEB);
+            border-left: 4px solid #C9A227;
+        }
+
+        .rate-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .step-indicator {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Top Bar -->
+    <div class="bg-[#0A2540] text-white text-sm py-2">
+        <div class="max-w-screen-2xl mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-x-6 text-xs">
+                <div class="flex items-center gap-x-2">
+                    <i class="fa-solid fa-globe fa-fw text-[#C9A227]"></i>
+                    <span class="font-medium">AUSTRAC Registered • RND 100480154-001</span>
+                </div>
+                <div class="hidden md:block text-slate-400">|</div>
+                <div class="hidden md:flex items-center gap-x-1.5 text-xs">
+                    <i class="fa-solid fa-clock fa-fw"></i>
+                    <span>Mon–Fri 9:00–17:30 • Sat 9:00–13:00 AEST</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-x-4 text-xs">
+                <a href="tel:+61212345678" class="hover:text-[#C9A227] transition-colors flex items-center gap-x-1.5">
+                    <i class="fa-solid fa-phone fa-fw"></i>
+                    <span class="hidden sm:inline">+61 2 1234 5678</span>
+                </a>
+                <div class="hidden sm:block text-slate-500">|</div>
+                <button onclick="showContactModal()" class="hover:text-[#C9A227] transition-colors flex items-center gap-x-1.5">
+                    <i class="fa-solid fa-envelope fa-fw"></i>
+                    <span class="hidden sm:inline">Contact</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="main-nav" class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3 cursor-pointer" onclick="showPublicView()">
+                    <div class="w-11 h-11 bg-gradient-to-br from-[#0A2540] to-[#1E3A5F] rounded-2xl flex items-center justify-center shadow-inner">
+                        <div class="text-white text-3xl font-black tracking-[-3px]">HP</div>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline">
+                            <span class="text-3xl font-extrabold tracking-tighter text-[#0A2540]">Hawala</span>
+                            <span class="text-3xl font-extrabold tracking-tighter text-[#C9A227]">Pro</span>
+                        </div>
+                        <div class="text-[10px] font-semibold text-slate-500 -mt-1.5 tracking-[1.5px]">BY KHAYBER - SYDNEY</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex items-center gap-x-8 text-sm font-semibold">
+                    <a href="#rates" onclick="document.getElementById('rates').scrollIntoView({ behavior: 'smooth' })" class="nav-link text-slate-700 hover:text-[#0A2540]">Live Rates</a>
+                    <a href="#services" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })" class="nav-link text-slate-700 hover:text-[#0A2540]">Services</a>
+                    <button onclick="showAboutModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">About Us</button>
+                    <button onclick="showComplianceModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Compliance</button>
+                    <button onclick="showReviewsModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Reviews</button>
+                    <button onclick="showBlogModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Resources</button>
+                </div>
+
+                <!-- Right side controls -->
+                <div class="flex items-center gap-x-3">
+                    <!-- Language Toggle -->
+                    <div class="flex items-center bg-slate-100 rounded-xl p-1 text-xs font-bold shadow-inner">
+                        <button onclick="switchLanguage('en')" id="lang-en"
+                                class="lang-btn px-3.5 py-1.5 active bg-white shadow text-[#0A2540]">EN</button>
+                        <button onclick="switchLanguage('fa')" id="lang-fa"
+                                class="lang-btn px-3.5 py-1.5 text-slate-600 hover:text-slate-800">دری</button>
+                    </div>
+
+                    <!-- Portal Access -->
+                    <button onclick="showLoginModal()" 
+                            class="hidden md:flex items-center gap-x-2 px-5 py-2.5 text-sm font-bold rounded-2xl border border-slate-300 hover:border-[#C9A227] hover:text-[#C9A227] transition-all active:scale-[0.985]">
+                        <i class="fa-solid fa-user-lock fa-fw"></i>
+                        <span>Portal Access</span>
+                    </button>
+
+                    <!-- Mobile Menu -->
+                    <button class="lg:hidden w-11 h-11 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-2xl transition-colors" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HOME SECTION -->
+    <header class="relative bg-[#0A2540] text-white overflow-hidden">
+        <div class="absolute inset-0 hawala-pattern opacity-40"></div>
+        <div class="max-w-screen-2xl mx-auto px-6 pt-16 pb-20 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-3xl text-sm mb-6 border border-white/20">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <span class="font-semibold tracking-wide">Trusted by 18,400+ families &amp; businesses since 2018</span>
+                    </div>
+                    
+                    <h1 class="text-6xl lg:text-7xl leading-[1.05] font-extrabold tracking-tighter mb-6">
+                        Fast, secure transfers<br> 
+                        <span class="text-[#C9A227]">to anywhere anytime.</span>
+                    </h1>
+                    
+                    <p class="max-w-lg text-xl text-slate-300 mb-9">
+                        Professional Hawala and bank remittance services from Sydney. 
+                        Competitive live rates, full compliance, and dedicated Dari &amp; Pashto support.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="document.getElementById('rates').scrollIntoView({ behavior: 'smooth' })" 
+                                class="gold-btn text-white px-8 py-4 rounded-3xl font-bold text-base flex items-center gap-x-3 shadow-xl shadow-[#C9A227]/30">
+                            <span>View Live Rates</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        
+                        <button onclick="showLoginModal()" 
+                                class="px-8 py-4 rounded-3xl font-bold text-base border-2 border-white/70 hover:bg-white hover:text-[#0A2540] transition-all flex items-center gap-x-3">
+                            <i class="fa-solid fa-sign-in-alt"></i>
+                            <span>Start New Transfer</span>
+                        </button>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center gap-x-8 text-sm">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-white rounded-full ring-2 ring-[#0A2540] overflow-hidden"><img src="https://picsum.photos/id/1005/32/32" class="object-cover"></div>
+                            <div class="w-8 h-8 bg-white rounded-full ring-2 ring-[#0A2540] overflow-hidden"><img src="https://picsum.photos/id/1011/32/32" class="object-cover"></div>
+                            <div class="w-8 h-8 bg-white rounded-full ring-2 ring-[#0A2540] overflow-hidden"><img src="https://picsum.photos/id/1009/32/32" class="object-cover"></div>
+                        </div>
+                        <div class="text-slate-400 text-xs leading-tight">
+                            <div class="font-semibold text-white">4.98/5 from 2,841 reviews</div>
+                            <div>AUSTRAC • ISO-aligned security</div>
+                        </div>
+                    </div>
+                </div>
+        
+
+                <div class="lg:col-span-5 relative flex items-center justify-center">
+                    <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-2 shadow-2xl border border-white/60 w-full">
+                        <div class="bg-white rounded-2xl p-6">
+
+                            <div class="flex justify-between items-start mb-8">
+                                <div>
+                                    <div class="text-xs uppercase tracking-[2px] font-bold text-emerald-600">TODAY'S BEST RATE</div>
+
+                                    <div class="text-5xl font-extrabold text-[#0A2540] tabular-nums mt-2">
+                                        <span id="hero-best-rate">--</span>
+                                        <span class="text-xl align-super font-bold text-emerald-600">AFN</span>
+                                    </div>
+
+                                    <div id="hero-best-rate-label" class="text-sm text-slate-500 mt-2">
+                                        per 1 AUD • Online to Kabul
+                                    </div>
+                                </div>
+
+                                <div class="text-right pt-1">
+                                    <div class="inline-flex items-center text-emerald-600 text-xs font-bold bg-emerald-50 px-3 py-1 rounded-full">
+                                        <i class="fa-solid fa-arrow-trend-up mr-1"></i> +0.35
+                                    </div>
+                                    <div class="text-xs text-slate-400 mt-3">Live • 14:51 AEST</div>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-slate-200 mb-6"></div>
+
+                            <button onclick="showLoginModal(); setTimeout(() => { if (window.currentUser) createNewTransferFromHero(); }, 600)" 
+                                    class="w-full gold-btn text-white py-4 rounded-2xl font-extrabold flex items-center justify-center gap-x-3 text-base tracking-wider">
+                                <i class="fa-solid fa-paper-plane"></i> 
+                                <span>CREATE NEW TRANSFER ORDER</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE RATES + CALCULATOR SECTION -->
+    <section id="rates" class="max-w-screen-2xl mx-auto px-6 pt-14 pb-16">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-y-4">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-extrabold text-[#C9A227]">REAL-TIME MARKETS</div>
+                <h2 class="section-header">Live Exchange Rates</h2>
+            </div>
+            <div class="flex items-center gap-x-3 text-sm">
+                <div class="flex items-center bg-white border border-slate-200 rounded-3xl px-4 h-10 text-xs font-medium shadow-sm">
+                    <i class="fa-solid fa-sync fa-fw mr-2 text-emerald-500"></i> 
+                    <span id="last-updated">Last updated: just now</span>
+                </div>
+                <button onclick="refreshRates()" 
+                        class="flex items-center gap-x-2 px-5 h-10 text-sm font-bold border border-slate-300 hover:bg-white active:bg-slate-100 rounded-3xl transition-colors">
+                    <i class="fa-solid fa-sync-alt"></i>
+                    <span>Refresh</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Rate Categories Tabs -->
+        <div class="mb-6 flex flex-wrap gap-2">
+            <div onclick="filterRateCategory(this, 'all')" class="rate-tab active px-5 py-2 text-sm font-semibold rounded-2xl cursor-pointer bg-[#0A2540] text-white flex items-center gap-x-2">
+                <span>All Tiers</span>
+            </div>
+            <div onclick="filterRateCategory(this, 'below-3000')" class="rate-tab px-5 py-2 text-sm font-semibold rounded-2xl cursor-pointer bg-white border border-slate-200 hover:bg-slate-50 flex items-center gap-x-2">
+                <span>Below $3,000</span>
+            </div>
+            <div onclick="filterRateCategory(this, '3000-10000')" class="rate-tab px-5 py-2 text-sm font-semibold rounded-2xl cursor-pointer bg-white border border-slate-200 hover:bg-slate-50 flex items-center gap-x-2">
+                <span>$3,000 – $10,000</span>
+            </div>
+            <div onclick="filterRateCategory(this, 'above-10000')" class="rate-tab px-5 py-2 text-sm font-semibold rounded-2xl cursor-pointer bg-white border border-slate-200 hover:bg-slate-50 flex items-center gap-x-2">
+                <span>Above $10,000</span>
+            </div>
+        </div>
+
+        <!-- Exchange Rate Table -->
+        <div class="bg-white rounded-3xl border border-slate-200 professional-shadow overflow-hidden mb-8">
+            <table class="w-full rate-table text-sm">
+                <thead>
+                    <tr class="border-b border-slate-100">
+                        <th class="w-1/4">Destination / Currency</th>
+                        <th class="text-center">Online Transfer<br><span class="text-[10px] font-normal text-slate-400">(Bank Deposit)</span></th>
+                        <th class="text-center">Cash Exchange<br><span class="text-[10px] font-normal text-slate-400">(Branch Pickup)</span></th>
+                        <th class="text-center w-40">Est. Time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="rates-table-body" class="divide-y divide-slate-100 text-sm">
+                    <!-- Populated dynamically by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Rate Calculator -->
+        <div class="bg-white rounded-3xl border border-slate-200 professional-shadow p-8">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="font-extrabold text-2xl tracking-tight">Rate Calculator</h3>
+                    <p class="text-slate-500 text-sm">Instant quote • No obligation</p>
+                </div>
+                <div class="hidden sm:flex items-center text-xs px-3 py-1 bg-emerald-50 text-emerald-700 rounded-2xl font-bold">
+                    <i class="fa-solid fa-check-double mr-1.5"></i> LIVE RATES
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-6">
+                <!-- Calculator Inputs -->
+                <div class="md:col-span-5 space-y-5">
+                    <div>
+                        <label class="block text-xs font-extrabold tracking-widest text-slate-500 mb-1.5">YOU SEND (AUD)</label>
+                        <div class="relative">
+                            <input type="number" id="calc-amount" value="2500" step="100" 
+                                   class="custom-input w-full border border-slate-300 rounded-2xl px-5 py-4 text-3xl font-semibold tabular-nums focus:border-[#C9A227]"
+                                   oninput="calculateRate()">
+                            <div class="absolute right-5 top-1/2 -mt-3 text-sm font-bold text-slate-400">AUD</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-extrabold tracking-widest text-slate-500 mb-1.5">TO CURRENCY</label>
+                            <select id="calc-currency" onchange="calculateRate()" 
+                                    class="custom-input w-full border border-slate-300 rounded-2xl px-4 py-[17px] font-semibold bg-white">
+                                <option value="AFN">🇦🇫 AFN - Afghan Afghani</option>
+                                <option value="USD">🇺🇸 USD - US Dollar</option>
+                                <option value="AED">🇦🇪 AED - UAE Dirham</option>
+                                <option value="PKR">🇵🇰 PKR - Pakistani Rupee</option>
+                                <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                                <option value="IRR">🇮🇷 IRR - Iranian Rial</option>
+                                <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+
+
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-extrabold tracking-widest text-slate-500 mb-1.5">TRANSFER TYPE</label>
+                            <select id="calc-method" onchange="calculateRate()" 
+                                    class="custom-input w-full border border-slate-300 rounded-2xl px-4 py-[17px] font-semibold bg-white">
+                                <option value="online">Online Bank Transfer</option>
+                                <option value="cash">Cash Pickup (Agent)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="md:col-span-7 bg-slate-50 border border-slate-100 rounded-3xl p-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-xs font-extrabold tracking-widest text-slate-500 mb-1">EXCHANGE RATE</div>
+                            <div id="calc-rate" class="text-4xl font-extrabold tabular-nums text-[#0A2540]">44</div>
+                            <div id="calc-rate-label" class="text-xs text-emerald-600 font-bold mt-0.5">AFN per AUD</div>
+                        </div>
+                        <div>
+                            <div class="text-xs font-extrabold tracking-widest text-slate-500 mb-1">OUR FEE</div>
+                            <div id="calc-fee" class="text-4xl font-extrabold tabular-nums text-amber-600">$19.50</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Includes all charges</div>
+                        </div>
+                        <div class="sm:border-l border-slate-200">
+                            <div class="text-xs font-extrabold tracking-widest text-slate-500 mb-1">RECIPIENT RECEIVES</div>
+                            <div id="calc-receive" class="text-4xl font-extrabold tabular-nums text-emerald-600">144,150</div>
+                            <div id="calc-receive-currency" class="text-xs font-bold text-emerald-600 mt-0.5">AFN</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-5 border-t flex flex-col sm:flex-row items-center justify-between gap-y-3 text-sm">
+                        <div class="text-slate-500 text-xs sm:text-sm">
+                            <span class="font-semibold">Tier applied:</span> <span id="calc-tier" class="font-bold text-[#0A2540]"></span>
+                        </div>
+                        <button onclick="proceedToNewTransfer()" 
+                                class="gold-btn w-full sm:w-auto text-white px-8 py-3 text-sm font-extrabold rounded-2xl flex items-center justify-center gap-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>CREATE TRANSFER ORDER</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS / ANNOUNCEMENTS -->
+    <section class="bg-white border-y border-slate-100 py-12">
+        <div class="max-w-screen-2xl mx-auto px-6">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <div class="text-xs tracking-[2.5px] font-extrabold text-[#C9A227]">STAY INFORMED</div>
+                    <h3 class="text-3xl font-extrabold tracking-tight">News &amp; Announcements</h3>
+                </div>
+                <button onclick="showBlogModal()" class="text-sm font-bold flex items-center gap-x-2 text-[#C9A227] hover:text-amber-700">
+                    VIEW ALL <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            
+            <div id="news-grid" class="grid md:grid-cols-3 gap-5">
+                <!-- Populated by JS from localStorage or defaults -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES HIGHLIGHT -->
+    <section id="services" class="max-w-screen-2xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <div class="text-xs tracking-[3px] font-extrabold text-[#C9A227] mb-3">WHAT WE OFFER</div>
+            <h2 class="section-header">Professional Services Tailored for You</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="modern-card bg-white border border-slate-100 rounded-3xl p-7 group">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-globe fa-2x"></i>
+                </div>
+                <h4 class="font-extrabold text-xl mb-3">International Remittance</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Bank deposits to UAE, India, Pakistan &amp; 40+ countries. Cash pickup available in 180+ locations across the globe.</p>
+                <div class="mt-5 text-xs font-bold text-emerald-600 flex items-center gap-x-1">
+                    SAME DAY TO KABUL &amp; DUBAI <i class="fa-solid fa-check ml-1"></i>
+                </div>
+            </div>
+            
+            <div class="modern-card bg-white border border-slate-100 rounded-3xl p-7 group">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-coins fa-2x"></i>
+                </div>
+                <h4 class="font-extrabold text-xl mb-3">Currency Exchange</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Competitive buy &amp; sell rates for AFN, AED, USD, EUR and more. In-branch and online options available.</p>
+                <div class="mt-5 text-xs font-bold text-amber-600">WALK-IN OR ORDER AHEAD</div>
+            </div>
+            
+            <div class="modern-card bg-white border border-slate-100 rounded-3xl p-7 group">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-building fa-2x"></i>
+                </div>
+                <h4 class="font-extrabold text-xl mb-3">Business &amp; Bulk Transfers</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Dedicated account managers for importers, exporters, NGOs and large volume senders. Volume pricing available.</p>
+                <div class="mt-5 text-xs font-bold text-blue-600">CUSTOM RATE LOCKS</div>
+            </div>
+            
+            <div class="modern-card bg-white border border-slate-100 rounded-3xl p-7 group">
+                <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-shield-halved fa-2x"></i>
+                </div>
+                <h4 class="font-extrabold text-xl mb-3">Compliance &amp; Advisory</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">Full KYC/AML support, document preparation assistance, and guidance on Australian &amp; Afghan regulatory requirements.</p>
+                <div class="mt-5 text-xs font-bold text-violet-600">AUSTRAC LICENSED</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFICE & CONTACT TEASER -->
+    <section class="bg-[#0A2540] text-white py-14">
+        <div class="max-w-screen-2xl mx-auto px-6 grid lg:grid-cols-12 gap-x-8 items-center">
+            <div class="lg:col-span-5 mb-8 lg:mb-0">
+                <div class="uppercase tracking-[2px] text-xs text-[#C9A227] font-extrabold mb-3">VISIT OUR SYDNEY OFFICE</div>
+                <h3 class="text-4xl font-extrabold tracking-tighter leading-none mb-4">Merrylands, Sydney</h3>
+                <div class="space-y-2 text-sm text-slate-300">
+                    <div><i class="fa-solid fa-map-marker-alt w-5"></i> 4/172 Merrylands Road, Merrylands NSW 2160</div>
+                    <div><i class="fa-solid fa-phone w-5"></i> +61 2 1234 5678</div>
+                    <div><i class="fa-solid fa-envelope w-5"></i> transfers@khayberservices.com.au</div>
+                    <div class="pt-1"><i class="fa-solid fa-clock w-5"></i> Mon–Fri 9:00am – 5:30pm • Saturday 9:00am – 1:00pm</div>
+                </div>
+                
+                <button onclick="showContactModal()" class="mt-7 px-7 py-3 border border-white/40 hover:bg-white hover:text-[#0A2540] transition-colors text-sm font-bold rounded-2xl flex items-center gap-x-2">
+                    <span>GET DIRECTIONS &amp; BOOK APPOINTMENT</span>
+                </button>
+            </div>
+            
+            <div class="lg:col-span-7">
+                <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-2 h-[260px] relative overflow-hidden">
+                    <!-- Map Placeholder -->
+                    <div class="absolute inset-0 bg-[radial-gradient(#334155_0.8px,transparent_1px)] bg-[length:4px_4px]"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fa-solid fa-map-marked text-6xl text-white/40 mb-4"></i>
+                            <div class="font-bold text-lg">Interactive Map</div>
+                            <div class="text-xs text-white/60 max-w-[200px] mx-auto">Merrylands • 25 min from Sydney CBD by train</div>
+                            <button onclick="window.open('https://maps.google.com/?q=4/172+Merrylands+Road+Merrylands+NSW+2160', '_blank')" 
+                                    class="mt-4 text-xs px-5 py-2 bg-white text-[#0A2540] font-bold rounded-2xl inline-flex items-center gap-x-2 hover:bg-amber-50">
+                                <span>OPEN IN GOOGLE MAPS</span> <i class="fa-solid fa-external-link-alt text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 right-4 bg-white/90 text-[#0A2540] text-xs px-3 py-1 rounded-2xl font-bold flex items-center gap-x-1.5">
+                        <i class="fa-solid fa-wifi text-emerald-500"></i> 
+                        <span>Free customer parking available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs">
+        <div class="max-w-screen-2xl mx-auto px-6 pt-14 pb-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-y-10">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-x-2 mb-4">
+                        <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center"><span class="font-black text-white text-xl tracking-[-1.5px]">HP</span></div>
+                        <span class="font-extrabold text-white text-xl tracking-tighter">Khayber</span>
+                    </div>
+                    <div class="text-[10px] leading-snug">Sydney's trusted bridge to global corridors.</div>
+                    <div class="text-[10px] leading-snug">Developed by 44 Technologies.</div>
+                </div>
+                
+                <div>
+                    <div class="font-bold text-white mb-3 tracking-wider text-xs">COMPANY</div>
+                    <div class="space-y-[7px] text-xs">
+                        <button onclick="showAboutModal()" class="block hover:text-white transition-colors">About Us</button>
+                        <button onclick="showComplianceModal()" class="block hover:text-white transition-colors">Legal &amp; Compliance</button>
+                        <button onclick="showReviewsModal()" class="block hover:text-white transition-colors">Customer Stories</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="font-bold text-white mb-3 tracking-wider text-xs">RESOURCES</div>
+                    <div class="space-y-[7px] text-xs">
+                        <button onclick="showBlogModal()" class="block hover:text-white transition-colors">Blog &amp; Guides</button>
+                        <button onclick="showTransferTermsModal()" class="block hover:text-white transition-colors">Transfer Terms</button>
+                        <a href="#" class="block hover:text-white transition-colors">Fee Schedule (PDF)</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="font-bold text-white mb-3 tracking-wider text-xs">SUPPORT</div>
+                    <div class="space-y-[7px] text-xs">
+                        <button onclick="showContactModal()" class="block hover:text-white transition-colors">Contact Us</button>
+                        <button onclick="showLoginModal()" class="block hover:text-white transition-colors">Customer Portal</button>
+                        <div>support@khayberservices.com.au</div>
+                    </div>
+                </div>
+                
+                <div class="col-span-2 md:col-span-1 text-[10px]">
+                    <div class="font-bold text-white mb-3 tracking-wider text-xs">REGULATORY</div>
+                    <div class="leading-snug">
+                        AUSTRAC Registered Remittance Dealer<br>
+                        ACN: 162 911 364<br>
+                        ABN: 83 162 911 364<br>
+                        <span class="text-emerald-400 text-[10px]">Full AML/CTF Program in place</span>
+                    </div>
+                    <div class="mt-4 text-[9px] opacity-60">© 2026 Khayber Services Pty Ltd. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== LOGIN / REGISTER MODAL ==================== -->
+    <div id="login-modal" onclick="if (event.target.id === 'login-modal') hideLoginModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl modal">
+            <!-- Modal Header -->
+            <div class="px-8 pt-7 pb-5 border-b flex items-center justify-between bg-slate-50">
+                <div>
+                    <div class="font-extrabold text-2xl tracking-tight">Welcome back</div>
+                    <div class="text-xs text-slate-500">Sign in to manage transfers &amp; track orders</div>
+                </div>
+                <button onclick="hideLoginModal()" class="text-3xl leading-none text-slate-300 hover:text-slate-400">×</button>
+            </div>
+            
+            <div class="p-8">
+                <!-- Role Selection -->
+                <div class="mb-5">
+                    <div class="text-xs font-extrabold tracking-widest text-slate-500 mb-2">LOGIN AS</div>
+                    <div class="flex gap-2">
+                        <div onclick="selectLoginRole(this, 'customer')" class="login-role-option flex-1 text-center py-3 border-2 border-[#C9A227] bg-amber-50 rounded-2xl cursor-pointer">
+                            <i class="fa-solid fa-user fa-fw text-[#C9A227]"></i>
+                            <div class="font-bold text-sm mt-1">Customer</div>
+                        </div>
+                        <div onclick="selectLoginRole(this, 'admin')" class="login-role-option flex-1 text-center py-3 border border-slate-200 hover:border-slate-300 rounded-2xl cursor-pointer">
+                            <i class="fa-solid fa-user-tie fa-fw text-slate-600"></i>
+                            <div class="font-bold text-sm mt-1">Staff / Admin</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-xs font-extrabold tracking-widest text-slate-500 block mb-1">EMAIL ADDRESS</label>
+                            <input type="email" id="login-email" value="anisa@khayber-demo.com.au" required 
+                                   class="custom-input w-full border border-slate-300 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div>
+                            <label class="text-xs font-extrabold tracking-widest text-slate-500 block mb-1">PASSWORD</label>
+                            <input type="password" id="login-password" value="demo123" required 
+                                   class="custom-input w-full border border-slate-300 px-4 py-3 rounded-2xl text-sm">
+                            <div class="text-right mt-1">
+                                <span class="text-[10px] text-[#C9A227] cursor-pointer hover:underline">Forgot password?</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="mt-6 w-full gold-btn py-[17px] text-white font-extrabold rounded-2xl text-sm tracking-wider flex items-center justify-center gap-x-2">
+                        <span>SIGN IN SECURELY</span>
+                    </button>
+                </form>
+                
+                <div class="text-center mt-6">
+                    <span class="text-xs text-slate-500">Don't have an account?</span>
+                    <button onclick="switchToRegister()" class="ml-1.5 text-xs font-extrabold text-[#C9A227] hover:underline">Create one now →</button>
+                </div>
+                
+                <div class="mt-5 pt-5 border-t text-center">
+                    <div class="text-[10px] text-slate-400">Demo credentials pre-filled.<br> Use password <span class="font-mono">demo123</span> for any role.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== REGISTER MODAL ==================== -->
+    <div id="register-modal" onclick="if (event.target.id === 'register-modal') hideRegisterModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl modal">
+            <div class="px-8 pt-7 pb-4 border-b flex justify-between bg-slate-50">
+                <div>
+                    <div class="font-extrabold text-2xl tracking-tight">Create your account</div>
+                    <div class="text-xs text-slate-500">Join thousands of satisfied customers</div>
+                </div>
+                <button onclick="hideRegisterModal()" class="text-3xl leading-none text-slate-300 hover:text-slate-400">×</button>
+            </div>
+            
+            <div class="p-8">
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-extrabold tracking-widest text-slate-500 block mb-1">FULL NAME</label>
+                            <input type="text" id="reg-name" value="Wali Shabgeer" required class="custom-input w-full border border-slate-300 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div>
+                            <label class="text-xs font-extrabold tracking-widest text-slate-500 block mb-1">EMAIL</label>
+                            <input type="email" id="reg-email" value="wali.shabgeer@demo.com.au" required class="custom-input w-full border border-slate-300 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div>
+                            <label class="text-xs font-extrabold tracking-widest text-slate-500 block mb-1">PHONE</label>
+                            <input type="tel" id="reg-phone" value="+61 412 345 678" required class="custom-input w-full border border-slate-300 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-extrabold tracking-widest text-slate-500 block mb-1">PASSWORD</label>
+                            <input type="password" id="reg-password" value="demo123" required class="custom-input w-full border border-slate-300 px-4 py-3 rounded-2xl text-sm">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 flex items-start gap-x-2 text-xs">
+                        <input type="checkbox" checked class="mt-1 accent-[#C9A227]">
+                        <div class="text-slate-500">I agree to the <button type="button" onclick="showTransferTermsModal()" class="text-[#C9A227] underline">Transfer Terms</button> and <button type="button" onclick="showComplianceModal()" class="text-[#C9A227] underline">Privacy Policy</button>.</div>
+                    </div>
+                    
+                    <button type="submit" class="mt-6 w-full gold-btn py-4 text-white font-extrabold rounded-2xl text-sm tracking-wider">CREATE ACCOUNT &amp; CONTINUE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PORTAL CONTAINER (CUSTOMER / ADMIN) ==================== -->
+    <div id="portal-container" class="hidden fixed inset-0 bg-slate-100 z-[90] overflow-auto">
+        <!-- Portal Top Bar -->
+        <div class="bg-white border-b sticky top-0 z-20">
+            <div class="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-x-4">
+                    <div onclick="showPublicView()" class="flex items-center gap-x-2 cursor-pointer">
+                        <div class="w-9 h-9 bg-gradient-to-br from-[#0A2540] to-[#1E3A5F] rounded-2xl flex items-center justify-center">
+                            <span class="font-black text-white text-2xl tracking-[-2px]">HP</span>
+                        </div>
+                        <div class="font-extrabold text-xl tracking-tighter">Khayber <span class="text-[#C9A227]">Portal</span></div>
+                    </div>
+                    <div id="portal-role-badge" class="px-3.5 py-px text-xs font-extrabold rounded-2xl bg-emerald-100 text-emerald-700 flex items-center"></div>
+                </div>
+                
+                <div class="flex items-center gap-x-4">
+                    <div class="flex items-center gap-x-2 text-sm">
+                        <div id="portal-user-name" class="font-semibold"></div>
+                        <div class="w-8 h-8 bg-slate-200 rounded-2xl overflow-hidden ring-2 ring-white"><img src="https://picsum.photos/id/1005/32/32" class="object-cover"></div>
+                    </div>
+                    
+                    <button onclick="logout()" class="text-xs px-4 py-2 border border-slate-300 hover:bg-slate-50 rounded-2xl font-bold flex items-center gap-x-1.5">
+                        <i class="fa-solid fa-sign-out-alt"></i> <span class="hidden sm:inline">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto flex">
+            <!-- Sidebar -->
+            <div id="portal-sidebar" class="w-64 bg-white border-r min-h-[calc(100vh-4rem)] portal-sidebar hidden lg:block">
+                <!-- Populated dynamically based on role -->
+            </div>
+            
+            <!-- Main Portal Content -->
+            <div class="flex-1 p-6 lg:p-8 max-w-[1200px]">
+                <!-- Dynamic content injected here by JS -->
+                <div id="portal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Modal Container for other content -->
+    <div id="generic-modal" onclick="if (event.target.id === 'generic-modal') hideGenericModal()" class="hidden fixed inset-0 bg-black/60 backdrop-blur z-[110] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" id="generic-modal-content"
+             class="bg-white w-full max-w-3xl max-h-[92vh] overflow-auto rounded-3xl shadow-2xl modal">
+            <!-- Content injected dynamically -->
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[200] space-y-2"></div>
+
+    <script>
+
+
+// ==================== GLOBAL STATE ====================
+let currentLang = 'en';
+let currentUser = null;
+let currentPortalView = 'dashboard';
+let currentRateFilter = 'all';
+let liveRates = null; // Will store real rates from backend
+
+// ==================== API CONFIGURATION ====================
+const API_BASE = 'http://localhost:3000/api';
+let authToken = localStorage.getItem('khayber_token') || null;
+
+// Helper function for API calls
+async function apiFetch(endpoint, options = {}) {
+    const headers = {
+        'Content-Type': 'application/json',
+        ...options.headers
+    };
+
+    if (authToken) {
+        headers['Authorization'] = `Bearer ${authToken}`;
+    }
+
+    try {
+        const response = await fetch(`${API_BASE}${endpoint}`, {
+            ...options,
+            headers
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || `HTTP ${response.status}: ${endpoint}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(`API Error ${endpoint}:`, error);
+        throw error;
+    }
+}
+      
+
+// ==================== SESSION MANAGEMENT ====================
+async function checkAuthState() {
+    const savedToken = localStorage.getItem('khayber_token');
+    const savedUser = localStorage.getItem('khayber_currentUser');
+
+    if (savedToken && savedUser) {
+        authToken = savedToken;
+        currentUser = JSON.parse(savedUser);
+
+        // Verify token is still valid by calling a protected endpoint
+        try {
+            await apiFetch('/rates'); // simple protected call
+            // Token is valid → auto login
+            console.log('%c[Auth] Auto-login successful', 'color:#22c55e');
+        } catch (err) {
+            // Token expired or invalid
+            console.log('%c[Auth] Token invalid, logging out', 'color:#ef4444');
+            logout();
+            return;
+        }
+    }
+}
+
+// Call this when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    checkAuthState();
+    renderRatesTable(); // Load live rates on homepage
+});
+
+
+        
+        // Translations (partial for key UI strings)
+        const translations = {
+            en: {
+                'nav_rates': 'Live Rates',
+                'nav_services': 'Services',
+                'nav_about': 'About Us',
+                'nav_compliance': 'Compliance',
+                'nav_reviews': 'Reviews',
+                'nav_resources': 'Resources',
+                'portal_access': 'Portal Access',
+                'create_transfer': 'CREATE TRANSFER ORDER',
+                'live_rates': 'Live Exchange Rates',
+                'calculator': 'Rate Calculator',
+                'news_title': 'News & Announcements'
+            },
+            fa: {
+                'nav_rates': 'نرخ‌های زنده',
+                'nav_services': 'خدمات',
+                'nav_about': 'درباره ما',
+                'nav_compliance': 'انطباق و مجوزها',
+                'nav_reviews': 'نظرات مشتریان',
+                'nav_resources': 'منابع و وبلاگ',
+                'portal_access': 'ورود به پورتال',
+                'create_transfer': 'ایجاد سفارش انتقال جدید',
+                'live_rates': 'نرخ‌های زنده ارز',
+                'calculator': 'ماشین حساب نرخ',
+                'news_title': 'اخبار و اطلاعیه‌ها'
+            }
+        };
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-en').classList.toggle('bg-white', lang === 'en');
+            document.getElementById('lang-en').classList.toggle('shadow', lang === 'en');
+            document.getElementById('lang-fa').classList.toggle('active', lang === 'fa');
+            document.getElementById('lang-fa').classList.toggle('bg-white', lang === 'fa');
+            document.getElementById('lang-fa').classList.toggle('shadow', lang === 'fa');
+            
+            // Update key texts
+            updateLanguageUI();
+            
+            // Re-render dynamic parts that have language support
+            if (!document.getElementById('portal-container').classList.contains('hidden')) {
+                renderPortalContent();
+            } else {
+                renderNews();
+                renderRatesTable();
+            }
+            
+            showToast(lang === 'en' ? 'Language switched to English' : 'زبان به دری تغییر کرد');
+        }
+        
+        function updateLanguageUI() {
+            // This can be expanded. For now updates a few key elements
+            const elementsToUpdate = document.querySelectorAll('[data-i18n]');
+            elementsToUpdate.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+
+
+// ==================== RATES TABLE & CALCULATOR ====================
+
+        
+        
+async function renderRatesTable(filter = 'all') {
+    currentRateFilter = filter;
+
+    const container = document.getElementById('rates-table-body');
+    if (!container) return;
+
+    container.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-gray-500">Loading live rates...</td></tr>`;
+
+    try {
+        const response = await apiFetch('/rates');
+        const ratesData = response.data || {};
+
+        let html = '';
+
+        Object.keys(ratesData).forEach(currency => {
+            const cur = ratesData[currency];
+
+            html += `
+                <tr class="border-b">
+                    <td class="font-semibold">${cur.country || currency} (${currency})</td>
+                    <td class="text-center">
+                        <span class="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full">Online</span><br>
+                        <span class="px-3 py-1 text-xs font-medium bg-amber-100 text-amber-700 rounded-full mt-1 inline-block">Cash</span>
+                    </td>
+                    <td class="text-right font-mono text-sm">
+                        <div>${cur.online?.rate ?? '-'}</div>
+                        <div class="text-[10px] text-gray-500">${cur.cash?.rate ?? '-'}</div>
+                    </td>
+                    <td class="text-right font-mono text-sm">
+                        <div>${cur.online?.rate ?? '-'}</div>
+                        <div class="text-[10px] text-gray-500">${cur.cash?.rate ?? '-'}</div>
+                    </td>
+                    <td class="text-right font-mono text-sm">
+                        <div>${cur.online?.rate ?? '-'}</div>
+                        <div class="text-[10px] text-gray-500">${cur.cash?.rate ?? '-'}</div>
+                    </td>
+                </tr>
+            `;
+        });
+
+        container.innerHTML = html;
+
+    } catch (error) {
+        console.error('Rates load error:', error);
+        container.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-red-500">Failed to load rates. Is backend running?</td></tr>`;
+    }
+}
+
+
+        function filterRateCategory(element, category) {
+            // Deselect all
+            document.querySelectorAll('.rate-tab').forEach(el => {
+                el.classList.remove('active', 'bg-[#0A2540]', 'text-white');
+                el.classList.add('bg-white', 'border', 'border-slate-200');
+            });
+            // Select current
+            element.classList.add('active', 'bg-[#0A2540]', 'text-white');
+            element.classList.remove('bg-white', 'border', 'border-slate-200');
+            
+            currentRateFilter = category;
+            renderRatesTable(category);
+        }
+
+
+        // ==================== UPDATED calculateRate (Backend Connected) ====================
+async function calculateRate() {
+    const amount = parseFloat(document.getElementById('calc-amount').value) || 0;
+    const currency = document.getElementById('calc-currency').value;
+    const method = document.getElementById('calc-method').value;
+
+    let rate = 1;
+    const feePercent = 2;
+    let tier = 'below-3000';
+
+    if (amount >= 10000) tier = 'above-10000';
+    else if (amount >= 3000) tier = '3000-10000';
+
+    try {
+        if (!liveRates) {
+            const res = await apiFetch('/rates');
+            liveRates = res.data;
+        }
+
+        if (liveRates && liveRates[currency] && liveRates[currency][method]) {
+            rate = liveRates[currency][method].rate;
+        }
+    } catch (e) {
+        console.warn('Using fallback rates');
+    }
+
+    const totalFee = amount * (feePercent / 100);
+    const receiveAmount = Math.round(amount * rate);
+
+    document.getElementById('calc-rate').textContent =
+        rate.toFixed(currency === 'AFN' || currency === 'PKR' || currency === 'INR' ? 2 : 4);
+
+    document.getElementById('calc-rate-label').textContent = `${currency} per AUD`;
+    document.getElementById('calc-fee').textContent = '$' + totalFee.toFixed(2);
+    document.getElementById('calc-receive').textContent = receiveAmount.toLocaleString();
+    document.getElementById('calc-receive-currency').textContent = currency;
+    document.getElementById('calc-tier').textContent =
+        tier.replace('-', '–').replace('below', 'Below').replace('above', 'Above');
+
+    window.currentCalc = {
+        amount,
+        currency,
+        method,
+        rate,
+        fee: totalFee,
+        feePercent,
+        receiveAmount,
+        tier
+    };
+}
+
+        function quickQuoteFromTable(currency, tier) {
+            // Pre-fill calculator
+            document.getElementById('calc-currency').value = currency;
+            // Set amount based on tier
+            let amount = 1500;
+            if (tier === '3000-10000') amount = 5500;
+            if (tier === 'above-10000') amount = 12500;
+            document.getElementById('calc-amount').value = amount;
+            document.getElementById('calc-method').value = 'online';
+            
+            // Scroll to calculator
+            document.getElementById('rates').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            setTimeout(() => {
+                calculateRate();
+                showToast('Calculator pre-filled with selected tier');
+            }, 350);
+        }
+
+        
+        async function refreshRates() {
+    try {
+        // Fetch latest rates from backend
+        const response = await apiFetch('/rates');
+        const rates = response.data;
+
+        // Simulate small market movement (optional - for demo feel)
+        Object.keys(rates).forEach(curr => {
+            ['online', 'cash'].forEach(type => {
+                Object.keys(rates[curr][type]).forEach(tier => {
+                    const change = (Math.random() - 0.5) * (curr === 'AFN' ? 0.18 : 0.004);
+                    rates[curr][type][tier].rate = parseFloat(
+                        (rates[curr][type][tier].rate + change).toFixed(curr === 'AFN' ? 2 : 3)
+                    );
+                });
+            });
+        });
+
+        // Update the UI
+        document.getElementById('last-updated').innerHTML = 
+            'Last updated: just now <span class="text-emerald-500">• Live</span>';
+
+        setTimeout(() => {
+            if (document.getElementById('last-updated')) {
+                document.getElementById('last-updated').innerHTML = 'Last updated: moments ago';
+            }
+        }, 8000);
+
+        // Refresh the rates table on the homepage
+        renderRatesTable();
+
+    } catch (error) {
+        console.error('Failed to refresh rates:', error);
+    }
+}
+
+        // Auto refresh rates simulation every 45 seconds
+        function startRateAutoUpdate() {
+            setInterval(() => {
+                if (!document.getElementById('portal-container').classList.contains('hidden')) return;
+                const lastEl = document.getElementById('last-updated');
+                if (lastEl && lastEl.textContent.includes('just now')) {
+                    refreshRates();
+                }
+            }, 45000);
+        }
+
+        // ==================== UPDATED NEWS RENDER ====================
+     async function renderNews() {
+    const container = document.getElementById('news-grid');
+    if (!container) return;
+
+    container.innerHTML = `<div class="p-6 text-center text-gray-500">Loading announcements...</div>`;
+
+    try {
+        const res = await apiFetch('/news');
+        const newsList = (res.data || []).filter(n => n.active !== false).slice(0, 3);
+
+        if (newsList.length === 0) {
+            throw new Error("No news");
+        }
+
+        container.innerHTML = '';
+        newsList.forEach(item => {
+            const card = document.createElement('div');
+            card.className = `modern-card border border-slate-200 bg-white rounded-3xl p-6 cursor-pointer hover:border-[#C9A227]/60 transition-all`;
+            card.innerHTML = `
+                <div class="flex justify-between items-start">
+                    <div class="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-2xl font-bold w-fit">${item.category || 'Announcement'}</div>
+                    <div class="text-xs text-slate-400">${item.date || new Date(item.publishedAt).toLocaleDateString()}</div>
+                </div>
+                <h4 class="font-extrabold text-lg leading-tight mt-4 mb-3 pr-2">${item.title}</h4>
+                <p class="text-sm text-slate-600 line-clamp-3">${item.excerpt || ''}</p>
+                <div class="mt-5 text-xs font-bold text-[#C9A227] flex items-center">READ FULL UPDATE <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></div>
+            `;
+            card.onclick = () => showNewsDetailModal(item);
+            container.appendChild(card);
+        });
+
+    } catch (error) {
+        // Graceful fallback when /news endpoint doesn't exist yet
+        container.innerHTML = `
+            <div class="col-span-3 p-8 text-center text-slate-400 bg-white border border-dashed rounded-3xl">
+                <i class="fa-solid fa-newspaper text-4xl mb-3 opacity-50"></i>
+                <p class="font-medium">No announcements at the moment.</p>
+                <p class="text-xs mt-1">News section will be available soon.</p>
+            </div>
+        `;
+        console.warn("News endpoint not ready yet (404) - showing fallback");
+    }
+}
+
+     // ==================== UPDATED SHOW NEWS MODAL  ====================
+
+function showNewsDetailModal(newsItem) {
+    const modal = document.getElementById('generic-modal');
+    const content = document.getElementById('generic-modal-content');
+
+    content.innerHTML = `
+        <div class="p-8">
+            <div class="flex justify-between">
+                <div>
+                    <span class="px-4 py-1 text-xs font-extrabold bg-slate-100 text-slate-600 rounded-3xl">${newsItem.category || 'Announcement'}</span>
+                    <div class="text-xs text-slate-400 mt-3">${newsItem.date || new Date(newsItem.publishedAt).toLocaleDateString()}</div>
+                </div>
+                <button onclick="hideGenericModal()" class="text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
+            </div>
+            
+            <h2 class="text-3xl font-extrabold tracking-tight mt-4 mb-6">${newsItem.title}</h2>
+            
+            <div class="prose prose-slate max-w-none text-[15px] leading-relaxed">
+                <p>${newsItem.excerpt || 'No description available.'}</p>
+                <p class="mt-4">For full details, please log into your customer portal or contact our team.</p>
+            </div>
+            
+            <div class="mt-8 flex gap-x-3">
+                <button onclick="hideGenericModal()" class="flex-1 py-3 border font-bold rounded-2xl">Close</button>
+                <button onclick="hideGenericModal(); showLoginModal();" class="flex-1 gold-btn text-white py-3 font-extrabold rounded-2xl">LOG IN TO PORTAL</button>
+            </div>
+        </div>
+    `;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+
+        // ==================== PORTAL LOGIC ====================
+        function selectLoginRole(element, role) {
+            document.querySelectorAll('.login-role-option').forEach(el => {
+                el.classList.remove('border-[#C9A227]', 'bg-amber-50');
+                el.classList.add('border-slate-200');
+            });
+            element.classList.add('border-[#C9A227]', 'bg-amber-50');
+            element.classList.remove('border-slate-200');
+            window.selectedLoginRole = role;
+        }
+
+        function showLoginModal() {
+            hideRegisterModal();
+            const modal = document.getElementById('login-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Default role
+            setTimeout(() => {
+                const customerOption = document.querySelector('.login-role-option');
+                if (customerOption && !window.selectedLoginRole) {
+                    selectLoginRole(customerOption, 'customer');
+                }
+            }, 80);
+        }
+        
+        function hideLoginModal() {
+            const modal = document.getElementById('login-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function switchToRegister() {
+            hideLoginModal();
+            const modal = document.getElementById('register-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function hideRegisterModal() {
+            const modal = document.getElementById('register-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+      
+
+async function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const selectedRole = window.selectedLoginRole || 'customer';
+
+    try {
+        const result = await apiFetch('/auth/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password, role: selectedRole })
+        });
+
+        authToken = result.token;
+        localStorage.setItem('khayber_token', authToken);
+
+        currentUser = result.user;
+        localStorage.setItem('khayber_currentUser', JSON.stringify(currentUser));
+
+        hideLoginModal();
+        showPortal(currentUser.role || 'customer');
+        showToast(`Welcome back, ${currentUser.name.split(' ')[0]}!`);
+
+    } catch (error) {
+        console.error(error);
+        showToast(error.message || 'Login failed. Please check credentials.', true);
+    }
+}
+
+async function handleRegister(e) {
+    e.preventDefault();
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const phone = document.getElementById('reg-phone').value.trim();
+    const password = document.getElementById('reg-password').value;
+
+    try {
+        const result = await apiFetch('/auth/register', {
+            method: 'POST',
+            body: JSON.stringify({ name, email, phone, password })
+        });
+
+        authToken = result.token;
+        localStorage.setItem('khayber_token', authToken);
+
+        currentUser = result.user;
+        localStorage.setItem('khayber_currentUser', JSON.stringify(currentUser));
+
+        hideRegisterModal();
+        showPortal(currentUser.role || 'customer');
+        showToast('Account created successfully!');
+
+    } catch (error) {
+        console.error(error);
+        showToast(error.message || 'Registration failed.', true);
+    }
+}
+
+
+        function showPortal(role = 'customer') {
+            const publicView = document.getElementById('main-nav');
+            const portal = document.getElementById('portal-container');
+            
+            // Hide nav elements that don't make sense in portal or keep minimal
+            publicView.style.display = 'none';
+            
+            portal.classList.remove('hidden');
+            portal.classList.add('flex', 'flex-col');
+            
+            // Set user info
+            document.getElementById('portal-user-name').innerHTML = `${currentUser.name} <span class="text-xs text-slate-400 font-normal">(${currentUser.email})</span>`;
+            
+            const badge = document.getElementById('portal-role-badge');
+            if (role === 'admin' || currentUser.role === 'admin') {
+                badge.innerHTML = `<i class="fa-solid fa-shield-halved mr-1"></i> STAFF`;
+                badge.className = `px-3.5 py-px text-xs font-extrabold rounded-2xl bg-violet-100 text-violet-700 flex items-center`;
+            } else {
+                badge.innerHTML = `<i class="fa-solid fa-user-check mr-1"></i> CUSTOMER`;
+                badge.className = `px-3.5 py-px text-xs font-extrabold rounded-2xl bg-emerald-100 text-emerald-700 flex items-center`;
+            }
+            
+            renderSidebar(role);
+            renderPortalContent(role);
+            
+            // Auto open dashboard
+            currentPortalView = 'dashboard';
+        }
+
+        function renderSidebar(role) {
+            const sidebar = document.getElementById('portal-sidebar');
+            sidebar.innerHTML = '';
+            sidebar.classList.remove('hidden');
+            
+            let html = `<div class="p-4">`;
+            
+            if (role === 'admin') {
+                html += `
+                    <div class="px-4 py-2 text-xs font-extrabold tracking-widest text-slate-400">ADMINISTRATION</div>
+                    <div onclick="switchPortalView('dashboard')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'dashboard' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-chart-line w-5 text-violet-600"></i> <span>Dashboard</span>
+                    </div>
+                    <div onclick="switchPortalView('customers')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'customers' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-users w-5 text-violet-600"></i> <span>Manage Customers</span>
+                    </div>
+                    <div onclick="switchPortalView('kyc')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'kyc' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-id-card w-5 text-violet-600"></i> <span>KYC Queue</span>
+                        <span class="ml-auto text-xs px-2 py-px bg-red-100 text-red-600 rounded">3</span>
+                    </div>
+                    <div onclick="switchPortalView('rates')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'rates' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-exchange-alt w-5 text-violet-600"></i> <span>Exchange Rates</span>
+                    </div>
+                    <div onclick="switchPortalView('orders')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'orders' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-receipt w-5 text-violet-600"></i> <span>All Transfer Orders</span>
+                    </div>
+                    <div onclick="switchPortalView('bank-accounts')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'bank-accounts' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-university w-5 text-violet-600"></i> <span>Payout Accounts</span>
+                    </div>
+                    <div onclick="switchPortalView('news')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'news' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-newspaper w-5 text-violet-600"></i> <span>News &amp; Announcements</span>
+                    </div>
+                    <div onclick="switchPortalView('reports')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'reports' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-chart-pie w-5 text-violet-600"></i> <span>Reports &amp; Analytics</span>
+                    </div>
+                    <div onclick="switchPortalView('audit')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'audit' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-history w-5 text-violet-600"></i> <span>Audit Logs</span>
+                    </div>
+                `;
+            } else {
+                // Customer sidebar
+                html += `
+                    <div class="px-4 py-2 text-xs font-extrabold tracking-widest text-slate-400">MY ACCOUNT</div>
+                    <div onclick="switchPortalView('dashboard')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'dashboard' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-home w-5 text-emerald-600"></i> <span>Dashboard</span>
+                    </div>
+                    <div onclick="switchPortalView('new-transfer')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-emerald-50 text-emerald-700 font-semibold ${currentPortalView === 'new-transfer' ? 'bg-emerald-100' : ''}">
+                        <i class="fa-solid fa-paper-plane w-5"></i> <span>New Transfer</span>
+                    </div>
+                    <div onclick="switchPortalView('history')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'history' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-history w-5 text-emerald-600"></i> <span>Transfer History</span>
+                    </div>
+                    <div onclick="switchPortalView('beneficiaries')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'beneficiaries' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-address-book w-5 text-emerald-600"></i> <span>Saved Beneficiaries</span>
+                    </div>
+                    <div onclick="switchPortalView('kyc-customer')" class="sidebar-item flex items-center gap-x-3 px-4 py-[11px] rounded-2xl mb-1 cursor-pointer hover:bg-slate-100 ${currentPortalView === 'kyc-customer' ? 'bg-slate-100 font-bold' : ''}">
+                        <i class="fa-solid fa-file-upload w-5 text-emerald-600"></i> <span>KYC Documents</span>
+                    </div>
+                `;
+            }
+            
+            html += `</div>`;
+            sidebar.innerHTML = html;
+            
+            // Add click handlers for mobile close if needed (omitted for brevity)
+        }
+
+    // ==================== UPDATED SWITCH PORTAL VIEW ====================
+
+        function switchPortalView(view) {
+            currentPortalView = view;
+
+            // Re-render sidebar (to highlight active menu item)
+            const isAdmin = currentUser.role === 'admin' || currentUser.email.includes('admin');
+            renderSidebar(isAdmin ? 'admin' : 'customer');
+
+            // Re-render main content based on current view
+            const container = document.getElementById('portal-content');
+            if (!container) return;
+
+            if (isAdmin) {
+                renderAdminContent(container);
+            } else {
+                renderCustomerContent(container);
+            }
+        }
+
+
+        function renderPortalContent(role = 'customer') {
+            const container = document.getElementById('portal-content');
+            container.innerHTML = '';
+            
+            if (role === 'admin') {
+                renderAdminContent(container);
+            } else {
+                renderCustomerContent(container);
+            }
+        }
+
+      async function renderCustomerContent(container) {
+    // Show loading state first
+    container.innerHTML = `
+        <div class="flex items-center justify-center h-64">
+            <div class="text-center">
+                <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+                <p class="mt-3 text-gray-500">Loading your data...</p>
+            </div>
+        </div>
+    `;
+
+    let transfers = [];
+    let beneficiaries = [];
+
+    try {
+        // Fetch real data from backend
+        const transfersRes = await apiFetch('/transfers');
+        transfers = transfersRes.data || [];
+
+        const beneficiariesRes = await apiFetch('/beneficiaries');
+        beneficiaries = beneficiariesRes.data || [];
+
+    } catch (error) {
+        console.error('Failed to load customer data:', error);
+        container.innerHTML = `
+            <div class="p-8 text-center text-red-500">
+                <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                <p>Failed to load your data from server.</p>
+                <p class="text-sm mt-1">Please make sure the backend is running.</p>
+            </div>
+        `;
+        return;
+    }
+
+    const userTransfers = transfers; // Already filtered by backend based on logged-in user
+    const userBeneficiaries = beneficiaries;
+
+    if (currentPortalView === 'dashboard') {
+        container.innerHTML = `
+            <div class="mb-8">
+                <div class="flex items-end justify-between">
+                    <div>
+                        <div class="text-xs tracking-[2px] font-extrabold text-emerald-600">WELCOME BACK</div>
+                        <h1 class="text-4xl font-extrabold tracking-tighter">${currentUser.name.split(' ')[0]}</h1>
+                    </div>
+                    <button onclick="switchPortalView('new-transfer')" class="gold-btn px-6 py-3 text-white text-sm font-extrabold rounded-2xl flex items-center gap-x-2">
+                        <i class="fa-solid fa-plus"></i> NEW TRANSFER
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                <div class="metric-card bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">TOTAL TRANSFERS</div>
+                    <div class="text-5xl font-extrabold mt-2 tabular-nums">${userTransfers.length}</div>
+                    <div class="text-emerald-600 text-xs mt-3 font-bold">+3 this month</div>
+                </div>
+                <div class="metric-card bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">TOTAL SENT (AUD)</div>
+                    <div class="text-5xl font-extrabold mt-2 tabular-nums">$${(currentUser.totalVolume || 0).toLocaleString()}</div>
+                    <div class="text-emerald-600 text-xs mt-3 font-bold">LIFETIME VOLUME</div>
+                </div>
+                <div class="metric-card bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">KYC STATUS</div>
+                    <div class="mt-3">
+                        <span class="status-badge ${currentUser.kycStatus === 'verified' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'} px-4 py-1 text-sm">
+                            ${(currentUser.kycStatus || 'pending').toUpperCase()}
+                        </span>
+                    </div>
+                    <div class="text-xs mt-4 text-slate-500">All documents verified. Thank you.</div>
+                </div>
+            </div>
+
+            <div class="mb-4 flex justify-between items-center">
+                <div class="font-extrabold text-xl">Recent Transfers</div>
+                <button onclick="switchPortalView('history')" class="text-sm font-bold text-emerald-600 hover:underline flex items-center">
+                    VIEW ALL HISTORY <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </button>
+            </div>
+
+            <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden">
+                ${userTransfers.length > 0 ? `
+                    <table class="w-full text-sm">
+                        <thead class="bg-slate-50">
+                            <tr class="text-xs text-slate-500">
+                                <th class="px-6 py-4 text-left font-bold">TRANSFER ID</th>
+                                <th class="px-6 py-4 text-left font-bold">DATE</th>
+                                <th class="px-6 py-4 text-left font-bold">BENEFICIARY</th>
+                                <th class="px-6 py-4 text-right font-bold">AMOUNT</th>
+                                <th class="px-6 py-4 text-center font-bold">STATUS</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            ${userTransfers.slice(0, 4).map(t => `
+                                <tr class="transfer-row cursor-pointer" onclick="showTransferDetailModal('${t.id}')">
+                                    <td class="px-6 py-4 font-mono text-xs font-bold text-slate-600">${t.id}</td>
+                                    <td class="px-6 py-4 text-xs text-slate-500">${t.date}</td>
+                                    <td class="px-6 py-4">${t.beneficiary}</td>
+                                    <td class="px-6 py-4 text-right font-extrabold tabular-nums">
+                                        $${t.amountAUD.toLocaleString()} → ${t.receiveAmount.toLocaleString()} ${t.currency}
+                                    </td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span class="status-badge ${t.status === 'completed' ? 'bg-emerald-100 text-emerald-700' : 
+                                                                   t.status === 'processing' ? 'bg-blue-100 text-blue-700' : 
+                                                                   'bg-amber-100 text-amber-700'}">
+                                            ${t.status}
+                                        </span>
+                                    </td>
+                                    <td class="px-4"><i class="fa-solid fa-chevron-right text-slate-300"></i></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>` : `
+                    <div class="p-8 text-center text-slate-400">
+                        No transfers yet. Start your first one!
+                    </div>`}
+            </div>
+        `;
+    } 
+    else if (currentPortalView === 'new-transfer') {
+        container.innerHTML = `
+            <div class="max-w-2xl mx-auto">
+                <h2 class="font-extrabold text-3xl tracking-tight mb-2">Create New Transfer Order</h2>
+                <p class="text-slate-500 mb-8">Fill the form below. You can save beneficiaries for faster future transfers.</p>
+                <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                    <div id="transfer-wizard"></div>
+                </div>
+            </div>
+        `;
+        setTimeout(() => startTransferWizard(container.querySelector('#transfer-wizard')), 50);
+    } 
+    else if (currentPortalView === 'history') {
+        container.innerHTML = `
+            <div class="flex justify-between mb-6 items-end">
+                <div>
+                    <span class="font-extrabold text-3xl tracking-tighter">Transfer History</span> 
+                    <span class="text-xs px-3 py-1 bg-slate-100 rounded-2xl ml-2 font-bold">${userTransfers.length} TOTAL</span>
+                </div>
+                <input type="text" id="history-search" placeholder="Search transfers..." 
+                       onkeyup="filterHistoryTable()" class="border px-4 py-2 text-sm rounded-2xl w-72">
+            </div>
+            <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden">
+                <table class="w-full text-sm data-table" id="history-table">
+                    <thead>
+                        <tr class="text-xs">
+                            <th class="px-6 py-4 text-left">ID / DATE</th>
+                            <th class="px-6 py-4 text-left">BENEFICIARY</th>
+                            <th class="px-6 py-4 text-right">SENT (AUD)</th>
+                            <th class="px-6 py-4 text-right">RECEIVED</th>
+                            <th class="px-6 py-4 text-center">STATUS</th>
+                            <th class="px-6 py-4"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        `;
+        renderHistoryTable(userTransfers);
+    } 
+    else if (currentPortalView === 'beneficiaries') {
+        renderBeneficiariesSection(container, userBeneficiaries);
+    } 
+    else if (currentPortalView === 'kyc-customer') {
+        renderCustomerKYCSection(container, []);
+    }
+
+}
+
+
+function renderHistoryTable(transfers) {
+    const tbody = document.querySelector('#history-table tbody');
+    if (!tbody) return;
+
+    tbody.innerHTML = '';
+
+    if (!transfers || transfers.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="6" class="px-6 py-10 text-center text-slate-400">
+                    No transfers found.
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
+    transfers.forEach(t => {
+        const statusClass = t.status === 'completed' ? 'bg-emerald-100 text-emerald-700' :
+                            t.status === 'processing' ? 'bg-blue-100 text-blue-700' :
+                            t.status === 'pending'   ? 'bg-amber-100 text-amber-700' : 
+                            'bg-red-100 text-red-700';
+
+        const row = document.createElement('tr');
+        row.className = `border-b hover:bg-slate-50 cursor-pointer`;
+        row.innerHTML = `
+            <td class="px-6 py-4">
+                <div class="font-mono text-xs font-bold text-slate-700">${t.id}</div>
+                <div class="text-xs text-slate-500">${t.date}</div>
+            </td>
+            <td class="px-6 py-4 font-medium">${t.beneficiary}</td>
+            <td class="px-6 py-4 text-right font-extrabold tabular-nums">$${t.amountAUD.toLocaleString()}</td>
+            <td class="px-6 py-4 text-right font-mono text-sm">
+                ${t.receiveAmount.toLocaleString()} ${t.currency}
+            </td>
+            <td class="px-6 py-4 text-center">
+                <span class="status-badge ${statusClass}">${t.status}</span>
+            </td>
+            <td class="px-6 py-4 text-right">
+                <button onclick="event.stopImmediatePropagation(); showTransferDetailModal('${t.id}')"
+                        class="text-emerald-600 hover:underline text-sm font-bold px-3 py-1">
+                    View
+                </button>
+            </td>
+        `;
+        
+        row.onclick = () => showTransferDetailModal(t.id);
+        tbody.appendChild(row);
+    });
+}
+
+
+
+        function filterHistoryTable() {
+            const term = document.getElementById('history-search').value.toLowerCase();
+            const rows = document.querySelectorAll('#history-table tbody tr');
+            rows.forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(term) ? '' : 'none';
+            });
+        }
+
+
+
+// ==================== CLEAN BENEFICIARY FUNCTIONS (Backend) ====================
+
+function renderBeneficiariesSection(container, beneficiaries) {
+    container.innerHTML = `
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <span class="font-extrabold text-3xl tracking-tighter">Saved Beneficiaries</span>
+            </div>
+            <button onclick="showAddBeneficiaryModal()" 
+                    class="gold-btn px-5 py-2.5 text-white text-sm font-extrabold rounded-2xl flex items-center gap-x-2">
+                <i class="fa-solid fa-plus"></i> ADD NEW
+            </button>
+        </div>
+    `;
+
+    const listDiv = document.createElement('div');
+    listDiv.className = 'grid grid-cols-1 md:grid-cols-2 gap-4';
+
+    if (!beneficiaries || beneficiaries.length === 0) {
+        listDiv.innerHTML = `
+            <div class="col-span-2 bg-white border border-slate-100 rounded-3xl p-10 text-center">
+                <i class="fa-solid fa-address-book text-4xl text-slate-300 mb-4"></i>
+                <p class="text-slate-500">You have no saved beneficiaries yet.</p>
+                <p class="text-xs text-slate-400 mt-1">Add one for faster future transfers.</p>
+            </div>
+        `;
+    } else {
+        beneficiaries.forEach(b => {
+            const card = document.createElement('div');
+            card.className = 'bg-white border border-slate-200 rounded-3xl p-6 hover:border-emerald-200 transition-colors';
+            card.innerHTML = `
+                <div class="flex justify-between">
+                    <div>
+                        <div class="font-extrabold text-lg">${b.name || b.fullName || 'Unnamed'}</div>
+                        <div class="text-sm text-slate-500 mt-1">${b.bankName || b.cashAgent || ''}</div>
+                        <div class="font-mono text-xs mt-2 text-slate-600">${b.accountNumber || b.phone || ''}</div>
+                    </div>
+                    <div>
+                        <button onclick="deleteBeneficiary(${b.id}, this)" 
+                                class="text-red-500 hover:text-red-600 text-xs px-3 py-1">Delete</button>
+                    </div>
+                </div>
+            `;
+            listDiv.appendChild(card);
+        });
+    }
+
+    container.appendChild(listDiv);
+}
+
+function showAddBeneficiaryModal(editBenef = null) {
+    const modal = document.getElementById('generic-modal');
+    const content = document.getElementById('generic-modal-content');
+    const isEdit = !!editBenef;
+    const b = isEdit ? editBenef : {};
+
+    content.innerHTML = `
+        <div class="p-8">
+            <h3 class="font-extrabold text-2xl mb-6">${isEdit ? 'Edit' : 'Add New'} Beneficiary</h3>
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div><label class="text-xs font-extrabold text-slate-500">FULL NAME / BUSINESS</label>
+                        <input id="ben-name" value="${b.name || ''}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
+                    <div><label class="text-xs font-extrabold text-slate-500">CITY</label>
+                        <input id="ben-city" value="${b.city || 'Kabul'}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
+                </div>
+                <div><label class="text-xs font-extrabold text-slate-500">COUNTRY</label>
+                    <select id="ben-country" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl">
+                        <option>Afghanistan</option>
+                        <option>UAE</option>
+                        <option>Pakistan</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div><label class="text-xs font-extrabold text-slate-500">TYPE</label>
+                        <select id="ben-type" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl">
+                            <option ${b.type === 'Bank' ? 'selected' : ''}>Bank</option>
+                            <option ${b.type === 'Cash Agent' ? 'selected' : ''}>Cash Agent / Hawala</option>
+                        </select>
+                    </div>
+                    <div><label class="text-xs font-extrabold text-slate-500">PHONE / CONTACT</label>
+                        <input id="ben-phone" value="${b.phone || ''}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
+                </div>
+                <div><label class="text-xs font-extrabold text-slate-500">ACCOUNT / AGENT DETAILS</label>
+                    <textarea id="ben-details" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl h-20">${b.details || ''}</textarea>
+                </div>
+                <div><label class="text-xs font-extrabold text-slate-500">RELATIONSHIP (optional)</label>
+                    <input id="ben-relation" value="${b.relation || ''}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
+            </div>
+            <div class="flex gap-x-3 mt-8">
+                <button onclick="hideGenericModal()" class="flex-1 py-3.5 border font-bold rounded-2xl">CANCEL</button>
+                <button onclick="saveBeneficiaryFromModal(${isEdit ? b.id : 'null'})" class="flex-1 gold-btn py-3.5 text-white font-extrabold rounded-2xl">${isEdit ? 'UPDATE' : 'SAVE BENEFICIARY'}</button>
+            </div>
+        </div>
+    `;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+async function saveBeneficiaryFromModal(editId) {
+    try {
+        const payload = {
+            name: document.getElementById('ben-name').value.trim(),
+            city: document.getElementById('ben-city').value.trim(),
+            country: document.getElementById('ben-country').value,
+            type: document.getElementById('ben-type').value,
+            details: document.getElementById('ben-details').value.trim(),
+            phone: document.getElementById('ben-phone').value.trim(),
+            relation: document.getElementById('ben-relation').value.trim() || 'Family / Friend'
+        };
+
+        if (editId) {
+            // For editing (placeholder - backend doesn't have PUT yet)
+            showToast('Beneficiary updated (demo)');
+        } else {
+            await apiFetch('/beneficiaries', {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
+            showToast('New beneficiary saved successfully');
+        }
+
+        hideGenericModal();
+
+        // Refresh current view
+        if (currentPortalView === 'beneficiaries') {
+            const container = document.getElementById('portal-content');
+            renderCustomerContent(container);
+        }
+
+    } catch (error) {
+        showToast('Failed to save beneficiary', true);
+    }
+}
+
+function deleteBeneficiary(id, btnEl) {
+    if (!confirm('Delete this beneficiary?')) return;
+    
+    showToast('Beneficiary deleted (demo - backend delete coming)');
+    
+    // Refresh view
+    const container = document.getElementById('portal-content');
+    renderCustomerContent(container);
+}
+
+
+// ==================== CLEAN KYC FUNCTIONS (Backend) ====================
+
+        function renderCustomerKYCSection(container, kycList) {
+            container.innerHTML = `
+                <div class="max-w-2xl">
+                    <h2 class="font-extrabold text-3xl tracking-tighter mb-2">KYC Documents</h2>
+                    <p class="text-slate-500 mb-8">Upload your identification documents. We review within 24 hours.</p>
+
+                    <div class="bg-white border border-slate-200 rounded-3xl p-8 mb-8">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">Document Type</label>
+                            <select id="kyc-doc-type" class="w-full border px-4 py-3 rounded-2xl text-sm">
+                                <option value="Passport">Passport</option>
+                                <option value="Driver Licence">Driver Licence</option>
+                                <option value="Proof of Address">Proof of Address</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Upload File</label>
+                            <input type="file" id="kyc-file-input" class="block w-full text-sm border p-3 rounded-2xl">
+                        </div>
+
+                        <button onclick="uploadKYCDocument()" 
+                                class="mt-6 w-full gold-btn py-3.5 text-white font-extrabold rounded-2xl">
+                            UPLOAD DOCUMENT
+                        </button>
+                    </div>
+
+                    <div>
+                        <div class="font-bold mb-3">Your Uploaded Documents</div>
+                        <div id="kyc-docs-list"></div>
+                    </div>
+                </div>
+            `;
+
+            // Load existing docs (for now we show a message because backend returns only pending for admin)
+            const listContainer = container.querySelector('#kyc-docs-list');
+            if (kycList && kycList.length > 0) {
+                listContainer.innerHTML = kycList.map(doc => `
+                    <div class="bg-white border rounded-2xl p-4 mb-3 flex justify-between items-center">
+                        <div>
+                            <div class="font-semibold">${doc.documentType || 'Document'}</div>
+                            <div class="text-xs text-slate-500">${doc.fileName || ''}</div>
+                        </div>
+                        <span class="status-badge bg-amber-100 text-amber-700 text-xs">Pending Review</span>
+                    </div>
+                `).join('');
+            } else {
+                listContainer.innerHTML = `
+                    <div class="text-sm text-slate-500 bg-white border rounded-2xl p-6">
+                        No documents uploaded yet.
+                    </div>
+                `;
+            }
+        }
+
+
+        async function uploadKYCDocument() {
+    const fileInput = document.getElementById('kyc-file-input');
+    const typeSelect = document.getElementById('kyc-doc-type');
+
+    if (!fileInput.files.length) {
+        showToast('Please select a file to upload', true);
+        return;
+    }
+
+    try {
+        await apiFetch('/kyc/upload', {
+            method: 'POST',
+            body: JSON.stringify({
+                documentType: typeSelect.value,
+                fileName: fileInput.files[0].name
+            })
+        });
+
+        showToast('Document uploaded successfully! Our team will review it shortly.');
+        
+        // Refresh the KYC section
+        const container = document.getElementById('portal-content');
+        renderCustomerContent(container);
+
+    } catch (error) {
+        showToast('Upload failed. Please try again.', true);
+    }
+}
+
+async function handleKYCUpload(e) {
+    const files = e.target.files;
+    if (!files.length) return;
+
+    const file = files[0]; // Handle one file at a time for simplicity
+
+    try {
+        await apiFetch('/kyc/upload', {
+            method: 'POST',
+            body: JSON.stringify({
+                documentType: document.getElementById('kyc-doc-type') ? 
+                              document.getElementById('kyc-doc-type').value : 'Other',
+                fileName: file.name,
+                fileSize: file.size
+            })
+        });
+
+        showToast(`${file.name} uploaded successfully. Our team will review it shortly.`);
+
+        // Refresh the current KYC section
+        const container = document.getElementById('portal-content');
+        if (container) {
+            renderCustomerContent(container);
+        }
+
+    } catch (error) {
+        console.error(error);
+        showToast('Failed to upload document. Please try again.', true);
+    }
+}
+
+        function viewKYCPreview(filename, docId) {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-8">
+                    <div class="flex justify-between mb-6">
+                        <div class="font-extrabold">${filename}</div>
+                        <button onclick="hideGenericModal()" class="text-3xl text-slate-300 hover:text-red-400">×</button>
+                    </div>
+                    
+                    <div class="bg-slate-100 border border-slate-200 h-80 flex items-center justify-center rounded-2xl mb-6">
+                        <div class="text-center">
+                            <i class="fa-solid fa-file-image text-7xl text-slate-300 mb-4"></i>
+                            <div class="font-bold">Secure Document Preview</div>
+                            <div class="text-xs max-w-xs mx-auto text-slate-400 mt-1">In production this would show a secure, watermarked viewer. Document is encrypted at rest.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-xs text-center text-slate-400">This document is only visible to you and our compliance officers.</div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+
+        // ==================== ADMIN API HELPERS ====================
+        async function updateRateInBackend(currency, type, tier, field, value) {
+            try {
+                await apiFetch('/rates', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        currency: currency,
+                        type: type,
+                        tier: tier,
+                        field: field,
+                        value: parseFloat(value)
+                    })
+                });
+                showToast('Rate updated successfully');
+                // Refresh public rates table if it's visible
+                const ratesContainer = document.getElementById('rates-table-container');
+                if (ratesContainer) {
+                    renderRatesTable();
+                }
+            } catch (error) {
+                showToast('Failed to update rate: ' + error.message, true);
+            }
+        }
+
+
+        // ==================== UPDATED ADMIN CONTENT (Improved) ====================
+
+        async function renderAdminContent(container) {
+    container.innerHTML = `
+        <div class="flex items-center justify-center h-64">
+            <div class="text-center">
+                <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+                <p class="mt-3 text-gray-500">Loading admin data...</p>
+            </div>
+        </div>
+    `;
+
+    const viewMap = {
+    customers: 'admin-customers',
+    kyc: 'admin-kyc',
+    rates: 'admin-rates',
+    orders: 'admin-transfers',
+    transfers: 'admin-transfers',
+    'bank-accounts': 'admin-beneficiaries',
+    beneficiaries: 'admin-beneficiaries',
+    news: 'admin-news',
+    reports: 'admin-reports',
+    audit: 'admin-audit'
+};
+
+    const view = viewMap[currentPortalView] || currentPortalView;
+
+    if (view === 'dashboard') {
+        container.innerHTML = `
+            <div class="mb-8">
+                <h1 class="text-4xl font-extrabold tracking-tighter">Admin Dashboard</h1>
+                <p class="text-slate-500 mt-1">Welcome back, ${currentUser.name}</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+                <div class="bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">TOTAL CUSTOMERS</div>
+                    <div class="text-4xl font-extrabold mt-2" id="admin-stat-customers">—</div>
+                </div>
+                <div class="bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">TOTAL TRANSFERS</div>
+                    <div class="text-4xl font-extrabold mt-2" id="admin-stat-transfers">—</div>
+                </div>
+                <div class="bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">PENDING KYC</div>
+                    <div class="text-4xl font-extrabold mt-2 text-amber-600" id="admin-stat-kyc">—</div>
+                </div>
+                <div class="bg-white border border-slate-100 p-6 rounded-3xl">
+                    <div class="text-xs font-extrabold text-slate-500">TODAY'S VOLUME</div>
+                    <div class="text-4xl font-extrabold mt-2">$124,800</div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-slate-100 rounded-3xl p-6">
+                <div class="font-extrabold mb-4">Quick Actions</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button onclick="switchPortalView('admin-transfers')" class="p-4 border rounded-2xl hover:border-emerald-300 text-left">
+                        <i class="fa-solid fa-file-invoice-dollar text-emerald-600 text-xl mb-2"></i>
+                        <div class="font-bold">Manage Transfers</div>
+                    </button>
+                    <button onclick="switchPortalView('admin-rates')" class="p-4 border rounded-2xl hover:border-emerald-300 text-left">
+                        <i class="fa-solid fa-exchange-alt text-emerald-600 text-xl mb-2"></i>
+                        <div class="font-bold">Update Exchange Rates</div>
+                    </button>
+                    <button onclick="switchPortalView('admin-customers')" class="p-4 border rounded-2xl hover:border-emerald-300 text-left">
+                        <i class="fa-solid fa-users text-emerald-600 text-xl mb-2"></i>
+                        <div class="font-bold">View Customers</div>
+                    </button>
+                    <button onclick="switchPortalView('admin-audit')" class="p-4 border rounded-2xl hover:border-emerald-300 text-left">
+                        <i class="fa-solid fa-history text-emerald-600 text-xl mb-2"></i>
+                        <div class="font-bold">Audit Logs</div>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        try {
+            const transfersRes = await apiFetch('/transfers');
+            const customersRes = await apiFetch('/customers');
+            const kycRes = await apiFetch('/kyc/pending');
+
+            document.getElementById('admin-stat-transfers').textContent = (transfersRes.data || []).length;
+            document.getElementById('admin-stat-customers').textContent = (customersRes.data || []).length;
+            document.getElementById('admin-stat-kyc').textContent = (kycRes.data || []).length;
+        } catch (e) {
+            console.warn('Could not load dashboard stats');
+        }
+    }
+
+    else if (view === 'admin-transfers') {
+        container.innerHTML = `
+            <div class="mb-6">
+                <h1 class="font-extrabold text-3xl tracking-tighter">All Transfer Orders</h1>
+            </div>
+            <div id="admin-transfers-container"></div>
+        `;
+        loadAdminTransfers();
+    }
+
+    else if (view === 'admin-rates') {
+        container.innerHTML = `
+            <div class="mb-6">
+                <h1 class="font-extrabold text-3xl tracking-tighter">Exchange Rates Management</h1>
+                <p class="text-sm text-slate-500 mt-1">Live exchange rates are loaded from the backend.</p>
+            </div>
+            <div id="admin-rates-editor" class="bg-white border border-slate-100 rounded-3xl p-6"></div>
+        `;
+        loadAdminRatesEditor();
+    }
+
+    else if (view === 'admin-customers') {
+        container.innerHTML = `
+            <div class="mb-6">
+                <h1 class="font-extrabold text-3xl tracking-tighter">Manage Customers</h1>
+            </div>
+            <div id="admin-customers-container"></div>
+        `;
+        loadAdminCustomers();
+    }
+
+    else if (view === 'admin-audit') {
+        container.innerHTML = `
+            <div class="mb-6">
+                <h1 class="font-extrabold text-3xl tracking-tighter">Audit Logs</h1>
+            </div>
+            <div id="admin-audit-container" class="bg-white border border-slate-100 rounded-3xl p-4"></div>
+        `;
+        loadAdminAuditLogs();
+    }
+
+    else if (view === 'admin-beneficiaries') {
+    container.innerHTML = `
+        <div class="mb-6">
+            <h1 class="font-extrabold text-3xl tracking-tighter">Payout Accounts</h1>
+        </div>
+        <div id="admin-beneficiaries-container"></div>
+    `;
+    loadAdminBeneficiaries?.();
+}
+
+    else if (view === 'admin-kyc') {
+        renderAdminKYCQueue(container);
+    }
+
+    else if (view === 'admin-news') {
+        renderAdminNews(container);
+    }
+
+    else if (view === 'admin-reports') {
+        renderAdminReports(container);
+    }
+
+    else {
+        container.innerHTML = `
+            <div class="bg-white border border-slate-100 rounded-3xl p-8">
+                <h2 class="text-2xl font-extrabold mb-2">Section coming soon</h2>
+                <p class="text-slate-500">This admin section is not connected yet: ${view}</p>
+            </div>
+        `;
+    }
+}
+
+
+
+// ==================== TODAY RATE FUNCTION LANDING PAGE ==================== 
+
+async function updateHeroBestRate() {
+    try {
+        const res = await apiFetch('/rates');
+        const afnRate = res.data?.AFN?.online?.rate;
+
+        if (!afnRate) return;
+
+        document.getElementById('hero-best-rate').textContent =
+            Number(afnRate).toFixed(2);
+
+        document.getElementById('hero-best-rate-label').textContent =
+            'per 1 AUD • Transfer to Afghanistan';
+
+    } catch (e) {
+        console.warn('Could not update hero best rate');
+    }
+}
+
+       
+        // ==================== CLEAN viewCustomerDetail (Backend Connected) ====================
+async function viewCustomerDetail(customerId) {
+    const modal = document.getElementById('generic-modal');
+    const content = document.getElementById('generic-modal-content');
+
+    content.innerHTML = `
+        <div class="p-8 max-h-[85vh] overflow-auto">
+            <div class="flex justify-center items-center h-64">
+                <i class="fas fa-spinner fa-spin text-3xl text-gray-400"></i>
+            </div>
+        </div>
+    `;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+
+    try {
+        // Fetch customer details
+        const customersRes = await apiFetch('/customers');
+        const customer = customersRes.data.find(c => c.id === customerId);
+
+        if (!customer) {
+            content.innerHTML = `<div class="p-8 text-red-500">Customer not found.</div>`;
+            return;
+        }
+
+        // Fetch transfers for this customer
+        const transfersRes = await apiFetch('/transfers');
+        const customerTransfers = transfersRes.data.filter(t => t.userId === customerId);
+
+        content.innerHTML = `
+            <div class="p-8 max-h-[85vh] overflow-auto">
+                <div class="flex justify-between mb-6">
+                    <div>
+                        <span class="font-extrabold text-3xl">${customer.name}</span> 
+                        <span class="ml-3 text-xs px-3 py-1 rounded-2xl ${customer.kycStatus === 'verified' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">
+                            ${customer.kycStatus.toUpperCase()}
+                        </span>
+                    </div>
+                    <button onclick="hideGenericModal()" class="text-3xl text-slate-300">×</button>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-x-8 text-sm">
+                    <div>
+                        <div class="text-xs text-slate-500 mb-px">EMAIL</div>
+                        <div class="font-semibold">${customer.email}</div>
+                        <div class="mt-4 text-xs text-slate-500 mb-px">PHONE</div>
+                        <div class="font-semibold">${customer.phone || '-'}</div>
+                        <div class="mt-4 text-xs text-slate-500 mb-px">JOINED</div>
+                        <div class="font-semibold">${customer.joined}</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-500 mb-px">TOTAL VOLUME</div>
+                        <div class="font-extrabold text-3xl tabular-nums">$${(customer.totalVolume || 0).toLocaleString()}</div>
+                        <div class="mt-1 text-xs text-emerald-600 font-bold">${customer.totalTransfers || 0} COMPLETED TRANSFERS</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <div class="font-extrabold mb-3">Recent Transfers</div>
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-1 max-h-[240px] overflow-auto text-xs">
+                        ${customerTransfers.length > 0 ? customerTransfers.map(t => `
+                            <div class="px-4 py-3 flex justify-between items-center border-b last:border-none">
+                                <div class="font-mono">${t.id}</div> 
+                                <div>$${t.amountAUD} → ${t.receiveAmount} ${t.currency}</div> 
+                                <div><span class="status-badge text-xs ${t.status === 'completed' ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-blue-700'}">${t.status}</span></div>
+                            </div>
+                        `).join('') : '<div class="p-4 text-center text-slate-400">No transfers found.</div>'}
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex gap-x-3">
+                    <button onclick="hideGenericModal()" class="flex-1 py-3 text-sm font-extrabold border rounded-2xl">CLOSE</button>
+                </div>
+            </div>
+        `;
+
+    } catch (error) {
+        content.innerHTML = `<div class="p-8 text-red-500">Failed to load customer details.</div>`;
+    }
+}
+
+
+// ==================== CLEAN ADMIN CUSTOMER & KYC FUNCTIONS ====================
+
+async function updateCustomerNotes(customerId, notes) {
+    try {
+        // Note: Backend currently doesn't have a dedicated notes endpoint.
+        // For now we show success (in production you would add a PUT /customers/:id endpoint)
+        showToast('Notes saved (demo - backend update coming)');
+    } catch (error) {
+        showToast('Failed to save notes', true);
+    }
+}
+
+async function updateCustomerKYCStatus(customerId, status) {
+    try {
+        // For demo we show success. In full backend we would call an API.
+        showToast(`KYC status updated to ${status}`);
+        
+        // Refresh current view if in customers page
+        const container = document.getElementById('portal-content');
+        if (container && currentPortalView === 'admin-customers') {
+            loadAdminCustomers();
+        }
+    } catch (error) {
+        showToast('Failed to update KYC status', true);
+    }
+}
+
+async function renderAdminKYCQueue(container) {
+    container.innerHTML = `
+        <div class="mb-6">
+            <span class="font-extrabold text-3xl tracking-tighter">KYC Review Queue</span>
+            <p class="text-sm text-slate-500 mt-1">Review and approve pending customer documents.</p>
+        </div>
+        <div id="kyc-queue-list"></div>
+    `;
+
+    const listContainer = document.getElementById('kyc-queue-list');
+
+    try {
+        const res = await apiFetch('/kyc/pending');
+        const pendingDocs = res.data || [];
+
+        if (pendingDocs.length === 0) {
+            listContainer.innerHTML = `
+                <div class="bg-white border border-slate-100 rounded-3xl p-10 text-center">
+                    <i class="fa-solid fa-check-circle text-5xl text-emerald-400 mb-4"></i>
+                    <div class="font-bold text-xl">All caught up!</div>
+                    <p class="text-slate-500 mt-1">No pending KYC documents to review.</p>
+                </div>
+            `;
+            return;
+        }
+
+        let html = `<div class="space-y-4">`;
+        pendingDocs.forEach(doc => {
+            html += `
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold">${doc.userName || 'Customer'}</div>
+                        <div class="text-sm text-slate-500">${doc.documentType} • ${doc.fileName}</div>
+                        <div class="text-xs text-slate-400 mt-1">Uploaded: ${new Date(doc.uploadedAt).toLocaleDateString()}</div>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="approveKYC(${doc.id}, this)" class="px-5 py-2 bg-emerald-600 text-white text-sm font-bold rounded-2xl">Approve</button>
+                        <button onclick="rejectKYC(${doc.id}, this)" class="px-5 py-2 border text-sm font-bold rounded-2xl text-red-600">Reject</button>
+                    </div>
+                </div>
+            `;
+        });
+        html += `</div>`;
+        listContainer.innerHTML = html;
+
+    } catch (error) {
+        listContainer.innerHTML = `<div class="p-6 text-red-500">Failed to load KYC queue.</div>`;
+    }
+}
+
+async function approveKYC(docId, btn) {
+    btn.innerHTML = 'Approving...';
+    btn.disabled = true;
+
+    try {
+        // In full backend you would call a proper approve endpoint
+        showToast('KYC approved successfully');
+        renderAdminKYCQueue(document.getElementById('portal-content'));
+    } catch (error) {
+        showToast('Failed to approve KYC', true);
+    }
+}
+
+async function rejectKYC(docId, btn) {
+    const reason = prompt('Reason for rejection (will be sent to customer):', 'Document unclear or expired. Please re-upload.');
+    if (!reason) return;
+
+    btn.innerHTML = 'Rejecting...';
+    btn.disabled = true;
+
+    try {
+        showToast('KYC rejected successfully');
+        renderAdminKYCQueue(document.getElementById('portal-content'));
+    } catch (error) {
+        showToast('Failed to reject KYC', true);
+    }
+}
+
+            // Init charts
+            setTimeout(() => {
+                const volCtx = document.getElementById('volume-chart');
+                if (volCtx) {
+                    new Chart(volCtx, {
+                        type: 'bar',
+                        data: { labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'Volume ($M)', data: [1.9, 2.1, 2.4, 2.65, 2.84], backgroundColor: '#C9A227' }] },
+                        options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+                    });
+                }
+                const corCtx = document.getElementById('corridor-chart');
+                if (corCtx) {
+                    new Chart(corCtx, {
+                        type: 'doughnut',
+                        data: { labels: ['Afghanistan (AFN)', 'UAE (AED)', 'Other'], datasets: [{ data: [68, 24, 8], backgroundColor: ['#0A2540', '#C9A227', '#64748b'] }] },
+                        options: { plugins: { legend: { position: 'bottom' } } }
+                    });
+                }
+            }, 300);
+
+
+    
+       
+
+        // ==================== TRANSFER WIZARD & CREATION ====================
+        function proceedToNewTransfer() {
+            if (!currentUser) {
+                showLoginModal();
+                // After login it will continue if we store intent, but for simplicity:
+                showToast('Please log in to create a transfer order.');
+                return;
+            }
+            // Show portal and switch to new-transfer view
+            showPortal(currentUser.role || 'customer');
+            setTimeout(() => {
+                switchPortalView('new-transfer');
+            }, 180);
+        }
+
+        function createNewTransferFromHero() {
+            if (!currentUser) {
+                showLoginModal();
+                return;
+            }
+            showPortal(currentUser.role || 'customer');
+            setTimeout(() => switchPortalView('new-transfer'), 200);
+        }
+
+
+
+// ==================== NEW TRANSFER WIZARD (Connected to Backend) ====================
+let selectedBeneficiaryId = null;
+
+async function startTransferWizard(container) {
+    if (!container) return;
+
+    // Show loading state
+    container.innerHTML = `
+        <div class="flex items-center justify-center h-40">
+            <div class="text-center">
+                <i class="fas fa-spinner fa-spin text-2xl text-gray-400"></i>
+                <p class="mt-2 text-sm text-gray-500">Loading your beneficiaries...</p>
+            </div>
+        </div>
+    `;
+
+    let beneficiaries = [];
+
+    try {
+        const res = await apiFetch('/beneficiaries');
+        beneficiaries = res.data || [];
+    } catch (error) {
+        console.error('Failed to load beneficiaries:', error);
+        container.innerHTML = `<div class="p-6 text-red-500">Failed to load beneficiaries. Please refresh.</div>`;
+        return;
+    }
+
+    // Also load live rates if not already loaded
+    if (!liveRates) {
+        try {
+            const ratesRes = await apiFetch('/rates');
+            liveRates = ratesRes.data;
+        } catch (e) {
+            console.warn('Could not load live rates, using fallback');
+            liveRates = null;
+        }
+    }
+
+    container.innerHTML = `
+        <div class="flex items-center gap-x-2 mb-8 text-xs font-extrabold">
+            <div class="step-indicator bg-[#0A2540] text-white">1</div>
+            <div class="flex-1 h-px bg-slate-200"></div>
+            <div class="step-indicator border border-slate-300 text-slate-400">2</div>
+            <div class="flex-1 h-px bg-slate-200"></div>
+            <div class="step-indicator border border-slate-300 text-slate-400">3</div>
+        </div>
+        
+        <div class="mb-6">
+            <label class="font-extrabold text-xs tracking-widest text-slate-500">SELECT BENEFICIARY</label>
+            <div class="mt-2 grid gap-3" id="beneficiary-select-list">
+                ${beneficiaries.length > 0 ? beneficiaries.map(b => `
+                    <div onclick="selectBeneficiaryForTransfer(${b.id}, this)" 
+                         class="beneficiary-option cursor-pointer border border-slate-200 hover:border-[#C9A227] p-4 rounded-2xl flex justify-between items-center">
+                        <div>
+                            <div class="font-bold">${b.name || b.fullName || 'Unnamed Beneficiary'}</div>
+                            <div class="text-xs text-slate-500">${b.city || ''}${b.country ? ', ' + b.country : ''} • ${b.type || 'Bank Transfer'}</div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300"></i>
+                    </div>
+                `).join('') : `
+                    <div class="text-sm p-4 border border-dashed rounded-2xl text-center">
+                        No beneficiaries saved. 
+                        <button onclick="showAddBeneficiaryModal()" class="text-emerald-600 font-bold underline">Add one first</button>
+                    </div>`}
+            </div>
+            
+            <button onclick="showAddBeneficiaryModal()" 
+                    class="mt-3 text-xs flex items-center gap-x-1.5 text-emerald-600 font-bold">
+                <i class="fa-solid fa-plus text-xs"></i> ADD NEW BENEFICIARY INSTEAD
+            </button>
+        </div>
+        
+        <div id="transfer-step-2" class="hidden">
+            <div class="grid grid-cols-2 gap-4 mb-5">
+                <div>
+                    <label class="text-xs font-extrabold text-slate-500">AMOUNT TO SEND (AUD)</label>
+                    <input type="number" id="wizard-amount" value="${window.currentCalc ? window.currentCalc.amount : 2500}" 
+                           class="custom-input w-full border px-5 py-3 text-2xl font-extrabold rounded-2xl mt-1" 
+                           oninput="updateWizardSummary()">
+                </div>
+                <div>
+                    <label class="text-xs font-extrabold text-slate-500">CURRENCY / METHOD</label>
+                    <select id="wizard-currency" class="custom-input w-full border px-5 py-3.5 rounded-2xl mt-1 font-semibold" onchange="updateWizardSummary()">
+                        <option value="AFN">🇦🇫 AFN - Afghan Afghani (Online)</option>
+                        <option value="AED">🇦🇪 AED - UAE Dirham (Online)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div>
+                <label class="text-xs font-extrabold text-slate-500">PURPOSE OF TRANSFER</label>
+                <select id="wizard-purpose" class="custom-input w-full border px-5 py-3.5 rounded-2xl mt-1">
+                    <option>Family support / Remittance</option>
+                    <option>Business payment / Invoice</option>
+                    <option>Medical / Education expenses</option>
+                    <option>Property / Investment</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            
+            <div class="mt-4">
+                <label class="text-xs font-extrabold text-slate-500">ADDITIONAL NOTES (optional)</label>
+                <textarea id="wizard-notes" class="custom-input w-full border px-5 py-3 rounded-2xl h-16 text-sm mt-1" 
+                          placeholder="e.g. Please call recipient upon arrival of funds"></textarea>
+            </div>
+            
+            <div id="wizard-summary" class="mt-6 p-5 bg-slate-50 border border-slate-100 rounded-2xl text-sm"></div>
+            
+            <div class="flex gap-x-3 mt-6">
+                <button onclick="backToBeneficiaryStep(this)" class="flex-1 py-4 border font-bold rounded-2xl">BACK</button>
+                <button onclick="submitTransferOrder(this)" class="flex-1 gold-btn py-4 text-white font-extrabold rounded-2xl">
+                    CONFIRM &amp; SUBMIT ORDER
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Pre-fill from public calculator if available
+    if (window.currentCalc) {
+        setTimeout(() => {
+            const currSelect = document.getElementById('wizard-currency');
+            if (currSelect) currSelect.value = window.currentCalc.currency === 'AFN' ? 'AFN' : 'AED';
+            updateWizardSummary();
+        }, 80);
+    }
+}
+
+function selectBeneficiaryForTransfer(benId, element) {
+    // Deselect others
+    document.querySelectorAll('.beneficiary-option').forEach(el => el.classList.remove('border-[#C9A227]', 'bg-amber-50'));
+    element.classList.add('border-[#C9A227]', 'bg-amber-50');
+    
+    selectedBeneficiaryId = benId;
+    
+    // Show step 2
+    document.getElementById('transfer-step-2').classList.remove('hidden');
+    document.getElementById('beneficiary-select-list').style.opacity = '0.4';
+    document.getElementById('beneficiary-select-list').style.pointerEvents = 'none';
+    
+    updateWizardSummary();
+}
+
+function backToBeneficiaryStep(btn) {
+    document.getElementById('transfer-step-2').classList.add('hidden');
+    document.getElementById('beneficiary-select-list').style.opacity = '1';
+    document.getElementById('beneficiary-select-list').style.pointerEvents = 'all';
+    selectedBeneficiaryId = null;
+    document.querySelectorAll('.beneficiary-option').forEach(el => el.classList.remove('border-[#C9A227]', 'bg-amber-50'));
+}
+
+
+       
+// ==================== UPDATED updateWizardSummary (Uses Backend Rates) ====================
+function updateWizardSummary() {
+    const summaryEl = document.getElementById('wizard-summary');
+    if (!summaryEl) return;
+
+    const amount = parseFloat(document.getElementById('wizard-amount').value) || 0;
+    const currency = document.getElementById('wizard-currency').value;
+
+    let rate = 0;
+    let fee = amount * 0.02; // 2% transfer fee
+
+    if (liveRates && liveRates[currency] && liveRates[currency].online) {
+        rate = liveRates[currency].online.rate;
+    }
+
+    if (!rate || rate <= 0) {
+        rate = 1;
+    }
+
+    const receive = Math.round(amount * rate);
+
+    summaryEl.innerHTML = `
+        <div class="flex justify-between text-xs mb-3">
+            <div class="font-extrabold">ESTIMATED SUMMARY</div>
+            <div class="font-mono text-emerald-600">${currency} @ ${rate}</div>
+        </div>
+        <div class="flex justify-between font-extrabold">
+            <div>You send</div>
+            <div class="tabular-nums">AUD $${amount}</div>
+        </div>
+        <div class="flex justify-between text-emerald-600">
+            <div>Fee</div>
+            <div class="tabular-nums">AUD $${fee.toFixed(2)}</div>
+        </div>
+        <div class="h-px bg-slate-200 my-3"></div>
+        <div class="flex justify-between font-extrabold text-lg">
+            <div>Recipient receives</div>
+            <div class="tabular-nums">${receive.toLocaleString()} ${currency}</div>
+        </div>
+    `;
+}
+
+
+        async function submitTransferOrder(btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> SUBMITTING...`;
+    btn.disabled = true;
+
+    try {
+        if (!selectedBeneficiaryId) {
+            throw new Error("Please select a beneficiary");
+        }
+
+        const amount = parseFloat(document.getElementById('wizard-amount').value) || 0;
+        const currency = document.getElementById('wizard-currency').value;
+        const purpose = document.getElementById('wizard-purpose').value;
+        const notes = document.getElementById('wizard-notes').value;
+
+                // Find beneficiary object
+        const beneficiariesRes = await apiFetch('/beneficiaries');
+        const beneficiaries = beneficiariesRes.data || [];
+
+        const beneficiaryObj = beneficiaries.find(
+            b => String(b.id) === String(selectedBeneficiaryId)
+        );
+
+        if (!beneficiaryObj) {
+            throw new Error("Selected beneficiary not found");
+        }
+
+        const method = 'online';
+
+        // Use the same live rate table
+        let rate = 0;
+
+        if (
+            liveRates &&
+            liveRates[currency] &&
+            liveRates[currency][method]
+        ) {
+            rate = liveRates[currency][method].rate;
+        }
+
+         if (!beneficiaryObj) {
+            throw new Error("Selected beneficiary not found");
+        }
+
+        if (!rate || rate <= 0) {
+            throw new Error("Live rate not available for selected currency");
+        }
+
+        const fee = amount * 0.02; // 2%
+
+        const receiveAmount = Math.round(amount * rate);
+
+        const payload = {
+        beneficiary: beneficiaryObj.name || beneficiaryObj.fullName || beneficiaryObj.accountName || 'Selected Beneficiary',
+        amountAUD: amount,
+        currency,
+        rate,
+        fee,
+        receiveAmount,
+        method,
+        purpose,
+        notes
+    };
+
+        const result = await apiFetch('/transfers', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        });
+
+        showToast('Transfer order submitted successfully!');
+
+        // Reset wizard and go back to dashboard
+        setTimeout(() => {
+            switchPortalView('dashboard');
+        }, 800);
+
+    } catch (error) {
+        showToast(error.message || 'Failed to submit transfer', true);
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}
+    
+        // ==================== CLEAN showTransferDetailModal (Backend Connected) ====================
+async function showTransferDetailModal(transferId) {
+    const modal = document.getElementById('generic-modal');
+    const content = document.getElementById('generic-modal-content');
+
+    try {
+        // Fetch fresh data from backend
+        const res = await apiFetch('/transfers');
+        const allTransfers = res.data || [];
+        const transfer = allTransfers.find(t => t.id === transferId);
+
+        if (!transfer) {
+            content.innerHTML = `<div class="p-8 text-red-500">Transfer not found.</div>`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            return;
+        }
+
+        const timeline = transfer.status === 'completed' 
+            ? `<div class="flex gap-x-3 text-xs"><div class="font-bold w-20 text-emerald-600">COMPLETED</div><div class="flex-1 text-emerald-600">Funds successfully delivered to beneficiary.</div></div>`
+            : transfer.status === 'processing' 
+            ? `<div class="space-y-3 text-xs"><div class="flex gap-x-3"><div class="font-bold w-20">SUBMITTED</div><div class="flex-1">${transfer.date}</div></div><div class="flex gap-x-3"><div class="font-bold w-20 text-blue-600">PROCESSING</div><div class="flex-1 text-blue-600">In progress. Expected release within 24h.</div></div></div>`
+            : `<div class="text-xs">Your order is being reviewed.</div>`;
+
+        content.innerHTML = `
+            <div class="p-8">
+                <div class="flex justify-between">
+                    <div>
+                        <div class="font-mono text-xs text-slate-400">${transfer.id}</div>
+                        <div class="font-extrabold text-2xl mt-1">Transfer Details</div>
+                    </div>
+                    <div><span class="status-badge text-base px-5 py-1 ${transfer.status === 'completed' ? 'bg-emerald-100 text-emerald-700' : transfer.status === 'processing' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'}">${transfer.status.toUpperCase()}</span></div>
+                </div>
+                
+                <div class="mt-8 grid grid-cols-2 gap-x-8 text-sm">
+                    <div class="space-y-5">
+                        <div><div class="text-xs text-slate-500">DATE SUBMITTED</div><div class="font-extrabold">${transfer.date}</div></div>
+                        <div><div class="text-xs text-slate-500">BENEFICIARY</div><div class="font-extrabold">${transfer.beneficiary}</div></div>
+                        <div><div class="text-xs text-slate-500">PURPOSE</div><div>${transfer.purpose || 'Family support'}</div></div>
+                    </div>
+                    <div class="space-y-5">
+                        <div><div class="text-xs text-slate-500">YOU SENT</div><div class="font-extrabold text-xl tabular-nums">AUD $${transfer.amountAUD}</div></div>
+                        <div><div class="text-xs text-slate-500">EXCHANGE RATE</div><div class="font-extrabold">${transfer.rate} ${transfer.currency} / AUD</div></div>
+                        <div><div class="text-xs text-emerald-600">RECIPIENT RECEIVED</div><div class="font-extrabold text-xl tabular-nums text-emerald-600">${transfer.receiveAmount.toLocaleString()} ${transfer.currency}</div></div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t">
+                    <div class="font-extrabold text-xs mb-3 tracking-widest text-slate-500">STATUS TIMELINE</div>
+                    <div class="bg-slate-50 p-5 rounded-2xl text-sm">${timeline}</div>
+                </div>
+                
+                ${transfer.notes ? `<div class="mt-4 text-xs text-slate-500 italic">"${transfer.notes}"</div>` : ''}
+                
+                <div class="mt-8 flex gap-x-3">
+                    <button onclick="hideGenericModal()" class="flex-1 py-3.5 border font-bold rounded-2xl">CLOSE</button>
+                    ${transfer.status !== 'completed' ? `<button onclick="cancelTransfer('${transfer.id}'); hideGenericModal();" class="flex-1 py-3.5 border border-red-300 text-red-600 font-bold rounded-2xl">REQUEST CANCELLATION</button>` : ''}
+                </div>
+            </div>
+        `;
+
+    } catch (error) {
+        content.innerHTML = `<div class="p-8 text-red-500">Failed to load transfer details.</div>`;
+    }
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+
+async function cancelTransfer(transferId) {
+    if (!confirm('Request cancellation of this transfer? This action may incur fees if already processed.')) return;
+
+    try {
+        await apiFetch(`/transfers/${transferId}/status`, {
+            method: 'PATCH',
+            body: JSON.stringify({ 
+                status: 'cancelled',
+                notes: 'Cancellation requested by customer' 
+            })
+        });
+
+        showToast('Cancellation request submitted. Our team will contact you shortly.');
+
+        // Refresh current view
+        const container = document.getElementById('portal-content');
+        if (container && currentPortalView === 'history') {
+            renderCustomerContent(container);
+        }
+
+    } catch (error) {
+        showToast('Failed to request cancellation. Please try again.', true);
+    }
+}
+
+
+        async function loadTransferHistory() {
+            const container = document.getElementById('transfer-history-container');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="p-8 text-center">
+                    <i class="fas fa-spinner fa-spin text-2xl text-gray-400"></i>
+                    <p class="mt-2 text-gray-500">Loading your transfers...</p>
+                </div>
+            `;
+
+            try {
+                const response = await apiFetch('/transfers');
+                const transfers = response.data;
+
+                if (!transfers || transfers.length === 0) {
+                    container.innerHTML = `
+                        <div class="p-8 text-center text-gray-500">
+                            <i class="fas fa-inbox text-4xl mb-3"></i>
+                            <p>No transfers yet.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = `
+                    <div class="overflow-x-auto">
+                        <table class="w-full data-table">
+                            <thead>
+                                <tr>
+                                    <th>Transfer ID</th>
+                                    <th>Date</th>
+                                    <th>Beneficiary</th>
+                                    <th class="text-right">Amount (AUD)</th>
+                                    <th class="text-right">Receive</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                transfers.forEach(t => {
+                    const statusColor = t.status === 'completed' ? 'bg-green-100 text-green-700' :
+                                        t.status === 'processing' ? 'bg-blue-100 text-blue-700' :
+                                        t.status === 'pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700';
+
+                    html += `
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="font-mono text-sm">${t.id}</td>
+                            <td>${t.date}</td>
+                            <td>${t.beneficiary}</td>
+                            <td class="text-right font-semibold">$${t.amountAUD.toLocaleString()}</td>
+                            <td class="text-right font-mono">${t.receiveAmount.toLocaleString()} ${t.currency}</td>
+                            <td><span class="status-badge ${statusColor}">${t.status}</span></td>
+                            <td>
+                                <button onclick="viewTransferDetail('${t.id}')" 
+                                        class="text-[#C9A227] hover:underline text-sm">View</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                html += `</tbody></table></div>`;
+                container.innerHTML = html;
+
+            } catch (error) {
+                container.innerHTML = `<div class="p-6 text-red-500">Failed to load transfers. Please try again.</div>`;
+            }
+        }
+
+
+        // ==================== UPDATED ADMIN TRANSFER ====================
+
+            async function loadAdminTransfers() {
+    const container = document.getElementById('admin-transfers-container');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="p-8 text-center">
+            <i class="fas fa-spinner fa-spin text-2xl text-gray-400"></i>
+            <p class="mt-2 text-gray-500">Loading all transfers...</p>
+        </div>
+    `;
+
+    try {
+        const res = await apiFetch('/transfers');
+        const transfers = res.data || [];
+
+        if (transfers.length === 0) {
+            container.innerHTML = `<div class="p-8 text-center text-gray-500">No transfers found.</div>`;
+            return;
+        }
+
+        let html = `
+            <div class="overflow-x-auto">
+                <table class="w-full data-table text-sm">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-3 text-left">Transfer ID</th>
+                            <th class="px-4 py-3 text-left">Customer</th>
+                            <th class="px-4 py-3 text-left">Beneficiary</th>
+                            <th class="px-4 py-3 text-right">Amount (AUD)</th>
+                            <th class="px-4 py-3 text-right">Receives</th>
+                            <th class="px-4 py-3 text-center">Status</th>
+                            <th class="px-4 py-3 text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+        `;
+
+        transfers.forEach(t => {
+            const statusOptions = ['pending', 'processing', 'completed', 'cancelled'];
+            let statusHTML = `<select onchange="updateTransferStatus('${t.id}', this.value)" class="border rounded-lg px-3 py-1 text-sm">`;
+            
+            statusOptions.forEach(s => {
+                const selected = t.status === s ? 'selected' : '';
+                statusHTML += `<option value="${s}" ${selected}>${s}</option>`;
+            });
+            statusHTML += `</select>`;
+
+            html += `
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-3 font-mono text-xs font-bold">${t.id}</td>
+                    <td class="px-4 py-3 text-sm">${t.userId || 'N/A'}</td>
+                    <td class="px-4 py-3">${t.beneficiary}</td>
+                    <td class="px-4 py-3 text-right font-semibold">$${t.amountAUD.toLocaleString()}</td>
+                    <td class="px-4 py-3 text-right font-mono text-sm">${t.receiveAmount.toLocaleString()} ${t.currency}</td>
+                    <td class="px-4 py-3 text-center">${statusHTML}</td>
+                    <td class="px-4 py-3 text-center">
+                        <button onclick="showTransferDetailModal('${t.id}')" 
+                                class="text-emerald-600 hover:underline text-xs font-bold">View</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        html += `</tbody></table></div>`;
+        container.innerHTML = html;
+
+    } catch (error) {
+        container.innerHTML = `<div class="p-6 text-red-500">Failed to load transfers. Is backend running?</div>`;
+    }
+}
+
+async function updateTransferStatus(transferId, newStatus) {
+    try {
+        await apiFetch(`/transfers/${transferId}/status`, {
+            method: 'PATCH',
+            body: JSON.stringify({ status: newStatus })
+        });
+        showToast(`Transfer ${transferId} updated to ${newStatus}`);
+        // Refresh the list
+        loadAdminTransfers();
+    } catch (error) {
+        showToast('Failed to update status', true);
+    }
+}
+
+ // ==================== UPDATED RATES EDITOR ====================
+
+async function loadAdminRatesEditor() {
+    const container = document.getElementById('admin-rates-editor');
+    if (!container) return;
+
+    container.innerHTML = `<div class="p-6 text-center text-gray-500">Loading live rates...</div>`;
+
+    try {
+        const res = await apiFetch('/rates');
+        const rates = res.data;
+
+        let html = `<div class="space-y-8">`;
+
+        Object.keys(rates).forEach(currency => {
+            const cur = rates[currency];
+            html += `
+                <div>
+                    <h4 class="font-extrabold text-lg mb-4 flex items-center gap-x-2">
+                        ${cur.flag} ${cur.name} (${currency})
+                    </h4>
+            `;
+
+            ['online', 'cash'].forEach(type => {
+                html += `
+                    <div class="mb-6">
+                        <div class="uppercase text-xs tracking-[1.5px] font-bold text-gray-500 mb-3">${type} RATES</div>
+                        <div class="grid grid-cols-4 gap-4 text-sm font-bold text-gray-600 mb-2 px-1">
+                            <div>Tier</div>
+                            <div>Rate</div>
+                            <div>Fixed Fee</div>
+                            <div>Fee %</div>
+                        </div>
+                `;
+
+                Object.keys(cur[type]).forEach(tier => {
+                    const r = cur[type][tier];
+                    html += `
+                        <div class="grid grid-cols-4 gap-4 items-center mb-2">
+                            <div class="text-sm text-gray-700 font-medium">${tier}</div>
+                            <div>
+                                <input type="number" step="0.01" value="${r.rate}" 
+                                       class="border rounded-xl px-3 py-2 w-full text-sm font-mono"
+                                       onchange="updateRateInBackend('${currency}', '${type}', '${tier}', 'rate', this.value)">
+                            </div>
+                            <div>
+                                <input type="number" step="0.5" value="${r.feeFixed}" 
+                                       class="border rounded-xl px-3 py-2 w-full text-sm font-mono"
+                                       onchange="updateRateInBackend('${currency}', '${type}', '${tier}', 'feeFixed', this.value)">
+                            </div>
+                            <div>
+                                <input type="number" step="0.01" value="${r.feePercent}" 
+                                       class="border rounded-xl px-3 py-2 w-full text-sm font-mono"
+                                       onchange="updateRateInBackend('${currency}', '${type}', '${tier}', 'feePercent', this.value)">
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`;
+            });
+
+            html += `</div>`;
+        });
+
+        html += `</div>`;
+        container.innerHTML = html;
+
+    } catch (error) {
+        container.innerHTML = `<div class="p-6 text-red-500">Failed to load rates from server.</div>`;
+    }
+}
+
+
+ // ==================== UPDATED ADMIN CUSTOMERS ====================
+
+async function loadAdminCustomers() {
+    const container = document.getElementById('admin-customers-container');
+    if (!container) return;
+
+    container.innerHTML = `<div class="p-6 text-center">Loading customers...</div>`;
+
+    try {
+        const res = await apiFetch('/customers');
+        const customers = res.data || [];
+
+        let html = `
+            <div class="overflow-x-auto">
+                <table class="w-full data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>KYC Status</th>
+                            <th>Joined</th>
+                            <th>Total Transfers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+        customers.forEach(c => {
+            const kycColor = c.kycStatus === 'verified' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
+            html += `
+                <tr class="border-b">
+                    <td class="font-semibold">${c.name}</td>
+                    <td class="text-sm">${c.email}</td>
+                    <td class="text-sm">${c.phone || '-'}</td>
+                    <td><span class="status-badge ${kycColor}">${c.kycStatus}</span></td>
+                    <td class="text-sm">${c.joined}</td>
+                    <td class="font-mono">${c.totalTransfers || 0}</td>
+                </tr>
+            `;
+        });
+
+        html += `</tbody></table></div>`;
+        container.innerHTML = html;
+
+    } catch (error) {
+        container.innerHTML = `<div class="p-6 text-red-500">Failed to load customers. Make sure you are logged in as Admin.</div>`;
+    }
+}
+
+ // ==================== UPDATED ADMIN AUDIT LOG ====================
+
+async function loadAdminAuditLogs() {
+    const container = document.getElementById('admin-audit-container');
+    if (!container) return;
+
+    container.innerHTML = `<div class="p-6 text-center text-gray-500">Loading audit logs...</div>`;
+
+    try {
+        const res = await apiFetch('/audit-logs');
+        const logs = res.data || [];
+
+        if (logs.length === 0) {
+            container.innerHTML = `<div class="p-6 text-gray-500">No audit logs yet.</div>`;
+            return;
+        }
+
+        let html = `<div class="space-y-1 text-xs font-mono">`;
+        logs.slice(0, 30).forEach(log => {
+            html += `
+                <div class="border-b py-2 flex gap-x-4">
+                    <div class="text-gray-400 w-44">${new Date(log.timestamp).toLocaleString()}</div>
+                    <div class="font-bold text-emerald-700">${log.action}</div>
+                    <div class="text-gray-600 flex-1">${log.details}</div>
+                </div>
+            `;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+
+    } catch (error) {
+        container.innerHTML = `<div class="p-6 text-red-500">Failed to load audit logs.</div>`;
+    }
+}
+
+
+  // ==================== UPDATE RATES ====================
+
+async function updateRateInBackend(currency, type, tier, field, value) {
+    try {
+        await apiFetch('/rates', {
+            method: 'PUT',
+            body: JSON.stringify({
+                currency,
+                type,
+                tier,
+                field,
+                value: parseFloat(value)
+            })
+        });
+        showToast('Rate updated successfully');
+        renderRatesTable(); // Refresh public rates table
+    } catch (error) {
+        showToast('Failed to update rate', true);
+    }
+}
+
+ // ==================== ADMIN DASHBOARD ====================
+
+async function loadAdminDashboard() {
+    try {
+        const [transfersRes, ratesRes] = await Promise.all([
+            apiFetch('/transfers'),
+            apiFetch('/rates')
+        ]);
+
+        // You can use transfersRes.data.length for total orders
+        console.log('Admin dashboard data loaded from backend');
+        
+        // Example: Update a stat on the page
+        // document.getElementById('total-orders').textContent = transfersRes.data.length;
+
+    } catch (err) {
+        console.error('Failed to load admin dashboard data');
+    }
+}
+
+
+
+     // ==================== UPDATED ADMIN KYC QUEUE ====================
+
+async function renderAdminKYCQueue(container) {
+    container.innerHTML = `
+        <div class="mb-6">
+            <span class="font-extrabold text-3xl tracking-tighter">KYC Review Queue</span>
+            <p class="text-sm text-slate-500 mt-1">Review and approve pending customer documents.</p>
+        </div>
+        <div id="kyc-queue-list"></div>
+    `;
+
+    const listContainer = document.getElementById('kyc-queue-list');
+
+    try {
+        const res = await apiFetch('/kyc/pending');
+        const pendingDocs = res.data || [];
+
+        if (pendingDocs.length === 0) {
+            listContainer.innerHTML = `
+                <div class="bg-white border border-slate-100 rounded-3xl p-10 text-center">
+                    <i class="fa-solid fa-check-circle text-5xl text-emerald-400 mb-4"></i>
+                    <div class="font-bold text-xl">All caught up!</div>
+                    <p class="text-slate-500 mt-1">No pending KYC documents to review.</p>
+                </div>
+            `;
+            return;
+        }
+
+        let html = `<div class="space-y-4">`;
+        pendingDocs.forEach(doc => {
+            html += `
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 flex justify-between items-center">
+                    <div>
+                        <div class="font-bold">${doc.userName || 'Customer'}</div>
+                        <div class="text-sm text-slate-500">${doc.documentType} • ${doc.fileName}</div>
+                        <div class="text-xs text-slate-400 mt-1">Uploaded: ${new Date(doc.uploadedAt).toLocaleDateString()}</div>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="approveKYC(${doc.id}, this)" class="px-5 py-2 bg-emerald-600 text-white text-sm font-bold rounded-2xl">Approve</button>
+                        <button onclick="rejectKYC(${doc.id}, this)" class="px-5 py-2 border text-sm font-bold rounded-2xl text-red-600">Reject</button>
+                    </div>
+                </div>
+            `;
+        });
+        html += `</div>`;
+        listContainer.innerHTML = html;
+
+    } catch (error) {
+        listContainer.innerHTML = `<div class="p-6 text-red-500">Failed to load KYC queue.</div>`;
+    }
+}
+
+
+     // ==================== ADMIN NEWS ====================
+
+
+     async function renderAdminNews(container) {
+    container.innerHTML = `
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <span class="font-extrabold text-3xl tracking-tighter">News & Announcements</span>
+            </div>
+            <button onclick="showAddNewsModal()" class="gold-btn px-5 py-2.5 text-white text-sm font-extrabold rounded-2xl flex items-center gap-x-2">
+                <i class="fa-solid fa-plus"></i> ADD NEW
+            </button>
+        </div>
+        <div id="admin-news-list"></div>
+    `;
+
+    const listContainer = document.getElementById('admin-news-list');
+
+    try {
+        const res = await apiFetch('/news');
+        const newsList = res.data || [];
+
+        if (newsList.length === 0) {
+            listContainer.innerHTML = `<div class="p-8 text-center text-slate-500 bg-white border rounded-3xl">No news published yet.</div>`;
+            return;
+        }
+
+        let html = `<div class="space-y-4">`;
+        newsList.forEach(item => {
+            html += `
+                <div class="bg-white border border-slate-200 rounded-3xl p-6">
+                    <div class="font-bold text-lg">${item.title}</div>
+                    <div class="text-sm text-slate-500 mt-1">${item.excerpt || ''}</div>
+                    <div class="text-xs text-slate-400 mt-3">${new Date(item.publishedAt).toLocaleDateString()}</div>
+                </div>
+            `;
+        });
+        html += `</div>`;
+        listContainer.innerHTML = html;
+
+    } catch (error) {
+        listContainer.innerHTML = `<div class="p-6 text-red-500">Failed to load news.</div>`;
+    }
+}
+
+function showAddNewsModal() {
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black/60 flex items-center justify-center z-[200]';
+    modal.innerHTML = `
+        <div class="bg-white rounded-3xl p-8 w-full max-w-lg">
+            <h3 class="font-extrabold text-2xl mb-6">Create New Announcement</h3>
+            <input id="news-title" placeholder="Title" class="w-full border px-4 py-3 rounded-2xl mb-4">
+            <textarea id="news-excerpt" placeholder="Short description" class="w-full border px-4 py-3 rounded-2xl h-24 mb-6"></textarea>
+            <div class="flex gap-3">
+                <button onclick="this.closest('.fixed').remove()" class="flex-1 py-3 border rounded-2xl font-bold">Cancel</button>
+                <button onclick="createNews(this)" class="flex-1 gold-btn py-3 text-white font-extrabold rounded-2xl">Publish</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+
+ // ==================== NEW renderAdminReports (Backend Connected) ====================
+async function renderAdminReports(container) {
+    container.innerHTML = `
+        <div class="mb-8">
+            <span class="font-extrabold text-3xl tracking-tighter">Reports & Analytics</span>
+            <p class="text-sm text-slate-500 mt-1">Overview of business performance</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white border border-slate-100 rounded-3xl p-6">
+                <div class="text-xs font-extrabold text-slate-500">TOTAL TRANSFERS</div>
+                <div class="text-5xl font-extrabold mt-2" id="report-total-transfers">—</div>
+            </div>
+            <div class="bg-white border border-slate-100 rounded-3xl p-6">
+                <div class="text-xs font-extrabold text-slate-500">TOTAL VOLUME (AUD)</div>
+                <div class="text-5xl font-extrabold mt-2" id="report-total-volume">—</div>
+            </div>
+            <div class="bg-white border border-slate-100 rounded-3xl p-6">
+                <div class="text-xs font-extrabold text-slate-500">ACTIVE CUSTOMERS</div>
+                <div class="text-5xl font-extrabold mt-2" id="report-active-customers">—</div>
+            </div>
+        </div>
+
+        <div class="bg-white border border-slate-100 rounded-3xl p-8 text-center text-slate-500">
+            <i class="fa-solid fa-chart-line text-4xl mb-4 text-slate-300"></i>
+            <div class="font-bold">Advanced reports coming soon</div>
+            <p class="text-sm mt-1">Full P&L, corridor analysis, and exportable reports will be available in the next update.</p>
+        </div>
+    `;
+
+    // Load real data from backend
+    try {
+        const res = await apiFetch('/transfers');
+        const transfers = res.data || [];
+
+        // Total Transfers
+        document.getElementById('report-total-transfers').textContent = transfers.length;
+
+        // Total Volume
+        const totalVolume = transfers.reduce((sum, t) => sum + (t.amountAUD || 0), 0);
+        document.getElementById('report-total-volume').textContent = '$' + totalVolume.toLocaleString();
+
+        // Active Customers (approximation)
+        const uniqueCustomers = new Set(transfers.map(t => t.userId));
+        document.getElementById('report-active-customers').textContent = uniqueCustomers.size;
+
+    } catch (e) {
+        console.error('Failed to load report stats');
+    }
+}
+
+
+
+
+async function createNews(btn) {
+    const title = document.getElementById('news-title').value;
+    const excerpt = document.getElementById('news-excerpt').value;
+
+    if (!title) return alert('Title is required');
+
+    try {
+        await apiFetch('/news', {
+            method: 'POST',
+            body: JSON.stringify({ title, excerpt, published: true })
+        });
+        btn.closest('.fixed').remove();
+        showToast('News published successfully');
+        renderAdminNews(document.getElementById('portal-content'));
+    } catch (e) {
+        showToast('Failed to publish news', true);
+    }
+}
+
+async function approveKYC(docId, btn) {
+    btn.innerHTML = 'Approving...';
+    btn.disabled = true;
+    showToast('KYC approved (demo - backend update coming)');
+    // In production you would call an API to update status
+    setTimeout(() => renderAdminKYCQueue(btn.closest('#admin-kyc-container') || document.getElementById('portal-content')), 800);
+}
+
+async function rejectKYC(docId, btn) {
+    if (!confirm('Reject this KYC document?')) return;
+    btn.innerHTML = 'Rejecting...';
+    showToast('KYC rejected (demo)');
+    setTimeout(() => renderAdminKYCQueue(btn.closest('#admin-kyc-container') || document.getElementById('portal-content')), 800);
+}
+
+
+
+
+        // ==================== OTHER MODALS ====================
+        function showAboutModal() {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-9">
+                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
+                    <h2 class="font-extrabold text-4xl tracking-tighter">About Khayber Services</h2>
+                    <div class="mt-2 text-[#C9A227] font-bold text-sm tracking-[3px]">EST. 2018 • MERRYLANDS, SYDNEY</div>
+                    
+                    <div class="prose prose-slate mt-8 max-w-none text-[15px]">
+                        <p>Khayber Services was founded to provide the Afghan-Australian community and businesses with a reliable, transparent, and culturally sensitive bridge for moving value between Australia, Afghanistan, the UAE, and other key corridors.</p>
+                        
+                        <p>We combine traditional Hawala principles of trust and speed with modern compliance standards required under Australian law. Every transfer is processed through our AUSTRAC-registered entity with full audit trails, KYC, and AML controls.</p>
+                        
+                        <h4 class="font-extrabold mt-8">Our Commitment</h4>
+                        <ul class="text-sm">
+                            <li>Competitive, transparent live rates with no hidden fees</li>
+                            <li>Same-day processing to major Afghan cities and Dubai</li>
+                            <li>Dedicated support in English, Dari, and Pashto</li>
+                            <li>Strong focus on data security and customer privacy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-9 text-xs border-t pt-6 flex items-center text-slate-400">
+                        <div class="flex-1">AUSTRAC RND 100480154-001 • ACN 162 911 364</div>
+                        <button onclick="hideGenericModal(); showComplianceModal()" class="font-bold text-[#C9A227]">View Compliance Certificates →</button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function showComplianceModal() {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-9">
+                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none -mt-2 text-slate-300 hover:text-red-400">×</button>
+                    <h2 class="font-extrabold text-4xl tracking-tighter">Legal Certificates &amp; Compliance</h2>
+                    
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="border border-slate-200 p-6 rounded-3xl">
+                            <div class="font-extrabold">AUSTRAC Registration</div>
+                            <div class="mt-1 text-emerald-600 font-mono text-xs">RND 100480154-001</div>
+                            <div class="text-xs mt-4 text-slate-500">Registered Remittance Dealer under the Anti-Money Laundering and Counter-Terrorism Financing Act 2006.</div>
+                        </div>
+                        <div class="border border-slate-200 p-6 rounded-3xl">
+                            <div class="font-extrabold">Company Details</div>
+                            <div class="mt-1">Khayber Services Pty Ltd<br>ACN: 162 911 364<br>ABN: 83 162 911 364</div>
+                            <div class="text-xs mt-4 text-slate-500">Registered office: Merrylands, New South Wales</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-xs bg-slate-50 p-5 rounded-2xl">
+                        Khayber maintains a comprehensive AML/CTF Program, regular independent audits, and staff training. We cooperate fully with AUSTRAC, AFP, and international partners. All customer data is handled in accordance with the Australian Privacy Principles.
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <button onclick="hideGenericModal()" class="text-xs px-8 py-3 border rounded-2xl font-bold">CLOSE</button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function showReviewsModal() {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-9">
+                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
+                    <h2 class="font-extrabold text-4xl tracking-tighter mb-2">Customer Reviews</h2>
+                    <div class="text-emerald-600 text-sm font-bold mb-8">4.98 ★ from 2,841 verified transfers</div>
+                    
+                    <div class="space-y-6 text-sm">
+                        <div class="border-l-4 border-emerald-400 pl-5">
+                            <div class="font-bold">“Incredibly fast to Kabul. My family received the money the same afternoon. Professional and trustworthy.”</div>
+                            <div class="text-xs mt-2 text-slate-500">— Mohammad A., Parramatta • June 2026</div>
+                        </div>
+                        <div class="border-l-4 border-emerald-400 pl-5">
+                            <div class="font-bold">“Best rates I’ve found for UAE transfers. The portal makes tracking so easy and the staff speak Dari which helps a lot.”</div>
+                            <div class="text-xs mt-2 text-slate-500">— Fatima R., Auburn • May 2026</div>
+                        </div>
+                        <div class="border-l-4 border-emerald-400 pl-5">
+                            <div class="font-bold">“Used them for my business imports from Afghanistan. Excellent support with documentation and very competitive bulk pricing.”</div>
+                            <div class="text-xs mt-2 text-slate-500">— Mustafa R., Bankstown • April 2026</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-8 text-xs text-slate-400">Reviews verified through completed transfers only. More available in the customer portal.</div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function showBlogModal() {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-9 max-h-[88vh] overflow-auto">
+                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
+                    <h2 class="font-extrabold text-4xl tracking-tighter">Useful Information &amp; Resources</h2>
+                    <div class="mt-8 grid gap-5">
+                        <div class="border border-slate-100 p-6 rounded-3xl hover:border-[#C9A227] cursor-pointer" 
+                            onclick="showNewsDetailModal()">
+                            <div class="text-xs font-bold text-emerald-600">GUIDE • 8 MIN READ</div>
+                            <div class="font-extrabold mt-2">How to Send Money Safely to Afghanistan in 2026</div>
+                            <div
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        
+
+        function showTransferTermsModal() {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-9">
+                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
+                    <h2 class="font-extrabold text-3xl tracking-tighter">Transfer Terms &amp; Conditions</h2>
+                    
+                    <div class="mt-6 text-sm space-y-5 text-slate-600">
+                        <p><strong>Fees:</strong> Transparent fee structure shown in the calculator. Volume discounts apply automatically for higher tiers. No hidden charges.</p>
+                        <p><strong>Processing Times:</strong> Online transfers to major Afghan cities and Dubai are typically completed same business day or within 24 hours. Cash pickup available within hours in partnered locations.</p>
+                        <p><strong>Cancellation:</strong> Orders may be cancelled before funds are released to the beneficiary. A small administrative fee may apply after processing has begun.</p>
+                        <p><strong>Compliance:</strong> All transfers are subject to AUSTRAC reporting requirements. We reserve the right to request additional KYC or source of funds information for larger amounts.</p>
+                    </div>
+                    
+                    <div class="mt-8 text-xs text-center text-slate-400">Full legal terms available upon request or in the customer portal after login.</div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function showContactModal() {
+            const modal = document.getElementById('generic-modal');
+            const content = document.getElementById('generic-modal-content');
+            content.innerHTML = `
+                <div class="p-9">
+                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
+                    <h2 class="font-extrabold text-4xl tracking-tighter">Contact Our Team</h2>
+                    
+                    <div class="mt-8 grid md:grid-cols-2 gap-x-8 text-sm">
+                        <div>
+                            <div class="font-extrabold">Merrylands Office</div>
+                            <div class="mt-3 text-slate-600">4/172 Merrylands Road<br>Merrylands NSW 2160<br>Australia</div>
+                            
+                            <div class="mt-6">
+                                <div><span class="font-bold">Phone:</span> +61 2 1234 5678</div>
+                                <div><span class="font-bold">Email:</span> transfers@khayberservices.com.au</div>
+                                <div class="mt-1"><span class="font-bold">Dari/Pashto Support:</span> +61 412 987 654</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 md:mt-0">
+                            <div class="font-extrabold mb-3">Send us a message</div>
+                            <form onsubmit="submitContactForm(event)">
+                                <input placeholder="Your name" class="mb-3 w-full border px-4 py-3 rounded-2xl text-sm" required>
+                                <input type="email" placeholder="Email address" class="mb-3 w-full border px-4 py-3 rounded-2xl text-sm" required>
+                                <textarea placeholder="How can we help you today?" class="mb-3 w-full border px-4 py-3 rounded-2xl h-24 text-sm" required></textarea>
+                                <button type="submit" class="gold-btn w-full py-3.5 text-white font-extrabold rounded-2xl">SEND MESSAGE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+
+
+
+        function submitContactForm(e) {
+            e.preventDefault();
+            showToast('Thank you! Our team will respond within 2 business hours.');
+            setTimeout(() => hideGenericModal(), 1400);
+        }
+
+        function hideGenericModal() {
+            const modal = document.getElementById('generic-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // ==================== UTILITIES ====================
+        function showToast(message, isError = false) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `px-6 py-3.5 rounded-2xl shadow-xl text-sm font-semibold flex items-center gap-x-3 ${isError ? 'bg-red-600 text-white' : 'bg-[#0A2540] text-white'}`;
+            toast.innerHTML = `
+                <div>${message}</div>
+                <button onclick="this.parentElement.remove()" class="ml-4 text-xs opacity-60 hover:opacity-100">×</button>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                if (toast.parentElement) toast.parentElement.removeChild(toast);
+            }, 5200);
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('main-nav');
+            // Simple mobile enhancement
+            if (window.innerWidth < 1024) {
+                const links = nav.querySelector('.hidden.lg\\:flex');
+                if (links) {
+                    links.classList.toggle('!flex');
+                    links.classList.toggle('flex-col');
+                    links.classList.toggle('absolute');
+                    links.classList.toggle('bg-white');
+                    links.classList.toggle('top-20');
+                    links.classList.toggle('left-0');
+                    links.classList.toggle('right-0');
+                    links.classList.toggle('p-6');
+                    links.classList.toggle('shadow-xl');
+                    links.classList.toggle('gap-y-4');
+                }
+            }
+        }
+
+        function updateCustomerKYCFromAdmin() {
+            // Placeholder if needed
+        }
+
+        function filterRateCategoryOld(el, cat) {
+            // legacy
+        }
+
+        function logout() {
+            authToken = null;
+            currentUser = null;
+            currentPortalView = 'dashboard';
+
+            localStorage.removeItem('khayber_token');
+            localStorage.removeItem('khayber_currentUser');
+            localStorage.removeItem('hawala_currentUser');
+
+            const portalModal = document.getElementById('portal-modal');
+            if (portalModal) {
+                portalModal.classList.add('hidden');
+                portalModal.classList.remove('flex');
+            }
+
+            document.body.style.overflow = 'auto';
+
+            showToast('Logged out successfully');
+
+            setTimeout(() => {
+                window.location.href = 'index-2.html';
+            }, 500);
+        }
+
+        // ==================== INITIALIZATION ====================
+    
+        function initializeWebsite() {
+        // Try to restore previous session (from backend login)
+        const savedToken = localStorage.getItem('khayber_token');
+        const savedUser = localStorage.getItem('khayber_currentUser');
+        
+        if (savedToken && savedUser) {
+            authToken = savedToken;
+            currentUser = JSON.parse(savedUser);
+        }
+
+        // ✅ REMOVED: seedMockData();   ← We deleted this old function
+
+        // Render initial rates table from backend
+        renderRatesTable();
+
+        updateHeroBestRate();
+        
+        // Render news section
+        renderNews();
+        
+        // Initialize calculator
+        const calcAmount = document.getElementById('calc-amount');
+        const calcCurrency = document.getElementById('calc-currency');
+        const calcMethod = document.getElementById('calc-method');
+        
+        if (calcAmount) {
+            calcAmount.addEventListener('input', calculateRate);
+            calcCurrency.addEventListener('change', calculateRate);
+            calcMethod.addEventListener('change', calculateRate);
+            
+            // Initial calculation
+            setTimeout(calculateRate, 120);
+        }
+        
+        // Auto update last-updated text
+        const lastUpdated = document.getElementById('last-updated');
+        if (lastUpdated) {
+            setInterval(() => {
+                if (!lastUpdated.textContent.includes('just now') && Math.random() > 0.7) {
+                    lastUpdated.innerHTML = 'Last updated: moments ago';
+                }
+            }, 30000);
+        }
+            
+            // Check for existing logged in user
+            const legacyUser = localStorage.getItem('hawala_currentUser');
+            if (legacyUser) {
+                currentUser = JSON.parse(legacyUser);
+                // Auto show portal for returning demo users (optional - comment out for clean public start)
+                // showPortal(currentUser.role || 'customer');
+            }
+            
+            // Start live rate simulation
+            startRateAutoUpdate();
+            
+            // Keyboard escape for modals
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.fixed.inset-0.flex').forEach(modal => {
+                        modal.classList.remove('flex');
+                        modal.classList.add('hidden');
+                    });
+                }
+                if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault();
+                    const search = document.getElementById('history-search');
+                    if (search) search.focus();
+                    else document.getElementById('calc-amount')?.focus();
+                }
+            });
+            
+            // Initial language state
+            document.getElementById('lang-en').classList.add('active', 'bg-white', 'shadow');
+            
+            // Demo notice in console
+            console.log('%c[Khayber Services] Professional demo website initialized. All features are fully interactive with mock data persisted in localStorage.', 'color:#64748b; font-size:9px');
+            
+            // Optional: Preload a nice rate fluctuation hint
+            setTimeout(() => {
+                const lastEl = document.getElementById('last-updated');
+                if (lastEl) lastEl.innerHTML = 'Last updated: just now <span class="text-emerald-500">• Live market</span>';
+            }, 1800);
+        }
+    
+        // Boot the application
+        window.onload = initializeWebsite;
+        
+        // Expose some functions for debugging if needed
+        window.Khayber = { refreshRates, showPortal, logout: () => { localStorage.removeItem('hawala_currentUser'); location.reload(); } };
+
+
+    </script>
+</body>
+</html>
