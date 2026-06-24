@@ -93,7 +93,7 @@ function seedData() {
     console.log('✅ Mock data seeded');
 }
 
-seedData();
+//seedData();
 
 module.exports = {
     getUsers: () => users,
