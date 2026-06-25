@@ -981,16 +981,13 @@ async function renderRatesTable(filter = 'all') {
                         <span class="px-3 py-1 text-xs font-medium bg-amber-100 text-amber-700 rounded-full mt-1 inline-block">Cash</span>
                     </td>
                     <td class="text-right font-mono text-sm">
-                        <div>${cur.online?.rate ?? '-'}</div>
-                        <div class="text-[10px] text-gray-500">${cur.cash?.rate ?? '-'}</div>
+                        <div>${cur.online?.['below-3000']?.rate ?? '-'}</div>
                     </td>
                     <td class="text-right font-mono text-sm">
-                        <div>${cur.online?.rate ?? '-'}</div>
-                        <div class="text-[10px] text-gray-500">${cur.cash?.rate ?? '-'}</div>
+                        <div>${cur.online?.['3000-10000']?.rate ?? '-'}</div>
                     </td>
                     <td class="text-right font-mono text-sm">
-                        <div>${cur.online?.rate ?? '-'}</div>
-                        <div class="text-[10px] text-gray-500">${cur.cash?.rate ?? '-'}</div>
+                        <div>${cur.online?.['above-10000']?.rate ?? '-'}</div>
                     </td>
                 </tr>
             `;
