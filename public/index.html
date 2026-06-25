@@ -1716,7 +1716,7 @@ function renderBeneficiariesSection(container, beneficiaries) {
             card.innerHTML = `
                 <div class="flex justify-between">
                     <div>
-                        <div class="font-extrabold text-lg">${b.name || b.fullName || 'Unnamed'}</div>
+                        <div class="font-extrabold text-lg">${b.full_name || b.name || b.fullName || 'Unnamed'}</div>
                         <div class="text-sm text-slate-500 mt-1">${b.bankName || b.cashAgent || ''}</div>
                         <div class="font-mono text-xs mt-2 text-slate-600">${b.accountNumber || b.phone || ''}</div>
                     </div>
@@ -1745,7 +1745,7 @@ function showAddBeneficiaryModal(editBenef = null) {
             <div class="space-y-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div><label class="text-xs font-extrabold text-slate-500">FULL NAME / BUSINESS</label>
-                        <input id="ben-name" value="${b.name || ''}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
+                        <input id="ben-name" value="${b.full_name || b.name || ''}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
                     <div><label class="text-xs font-extrabold text-slate-500">CITY</label>
                         <input id="ben-city" value="${b.city || 'Kabul'}" class="custom-input mt-1 w-full border px-4 py-3 rounded-2xl"></div>
                 </div>
@@ -1786,7 +1786,7 @@ function showAddBeneficiaryModal(editBenef = null) {
 async function saveBeneficiaryFromModal(editId) {
     try {
         const payload = {
-            name: document.getElementById('ben-name').value.trim(),
+            full_name: document.getElementById('ben-name').value.trim(),
             city: document.getElementById('ben-city').value.trim(),
             country: document.getElementById('ben-country').value,
             type: document.getElementById('ben-type').value,
@@ -2476,7 +2476,7 @@ async function startTransferWizard(container) {
                     <div onclick="selectBeneficiaryForTransfer(${b.id}, this)" 
                          class="beneficiary-option cursor-pointer border border-slate-200 hover:border-[#C9A227] p-4 rounded-2xl flex justify-between items-center">
                         <div>
-                            <div class="font-bold">${b.name || b.fullName || 'Unnamed Beneficiary'}</div>
+                            <div class="font-bold">${b.full_name || b.name || b.fullName || 'Unnamed Beneficiary'}</div>
                             <div class="text-xs text-slate-500">${b.city || ''}${b.country ? ', ' + b.country : ''} • ${b.type || 'Bank Transfer'}</div>
                         </div>
                         <i class="fa-solid fa-chevron-right text-slate-300"></i>
