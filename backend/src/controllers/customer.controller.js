@@ -30,10 +30,15 @@ function updateCustomer(req, res) {
     const updatedData = req.body;
     delete updatedData.password; // Prevent password update this way
 
-    users = { ...users , ...updatedData };
+   users[userIndex] = {
+    ...users[userIndex],
+    ...updatedData
+    };
+
     store.setUsers(users);
 
-    const { password, ...safeUser } = users ;
+    const { password, ...safeUser } = users[userIndex];
+
 
     res.json({
         success: true,
