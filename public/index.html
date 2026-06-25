@@ -2172,7 +2172,7 @@ async function handleKYCUpload(e) {
 async function updateHeroBestRate() {
     try {
         const res = await apiFetch('/rates');
-        const afnRate = res.data?.AFN?.online?.rate;
+        const afnRate = res.data?.AFN?.online?.['below-3000']?.rate;
 
         if (!afnRate) return;
 
