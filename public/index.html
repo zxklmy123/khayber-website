@@ -2586,7 +2586,7 @@ function updateWizardSummary() {
     let fee = amount * 0.02; // 2% transfer fee
 
     if (liveRates && liveRates[currency] && liveRates[currency].online) {
-        rate = liveRates[currency].online.rate;
+        rate = liveRates[currency].online['below-3000']?.rate || 1;
     }
 
     if (!rate || rate <= 0) {
@@ -2654,7 +2654,7 @@ function updateWizardSummary() {
             liveRates[currency] &&
             liveRates[currency][method]
         ) {
-            rate = liveRates[currency][method].rate;
+            rate = liveRates[currency][method][tier]?.rate || 1;
         }
 
          if (!beneficiaryObj) {
