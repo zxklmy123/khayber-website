@@ -1344,11 +1344,11 @@ async function handleRegister(e) {
                 badge.className = `px-3.5 py-px text-xs font-extrabold rounded-2xl bg-emerald-100 text-emerald-700 flex items-center`;
             }
             
-            renderSidebar(role);
-            renderPortalContent(role);
-            
-            // Auto open dashboard
+            // Auto open dashboard first
             currentPortalView = 'dashboard';
+
+            renderSidebar(role);
+            renderPortalContent(role);d';
         }
 
         function renderSidebar(role) {
@@ -1424,7 +1424,7 @@ async function handleRegister(e) {
             currentPortalView = view;
 
             // Re-render sidebar (to highlight active menu item)
-            const isAdmin = currentUser.role === 'admin' || currentUser.email.includes('admin');
+            const isAdmin = currentUser.role === 'admin';
             renderSidebar(isAdmin ? 'admin' : 'customer');
 
             // Re-render main content based on current view
