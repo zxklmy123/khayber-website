@@ -968,41 +968,47 @@ async function renderRatesTable(filter = 'all') {
         const response = await apiFetch('/rates');
         const ratesData = response.data || {};
 
+        const labels = {
+            AFN: 'Afghan Afghani',
+            AED: 'UAE Dirham',
+            USD: 'US Dollar',
+            PKR: 'Pakistani Rupee',
+            INR: 'Indian Rupee',
+            IRR: 'Iranian Rial'
+        };
+
         let html = '';
 
         Object.keys(ratesData).forEach(currency => {
-            const cur = ratesData[currency];
+            const online = ratesData[currency]?.online || {};
 
             html += `
-                <tr class="border-b">
-                    <td class="font-semibold">${cur.country || currency} (${currency})</td>
-                    <td class="text-center">
-                        <span class="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full">Online</span><br>
-                        <span class="px-3 py-1 text-xs font-medium bg-amber-100 text-amber-700 rounded-full mt-1 inline-block">Cash</span>
+                <tr class="border-b hover:bg-slate-50">
+                    <td class="font-semibold py-4">${labels[currency] || currency} (${currency})</td>
+                    <td class="text-center py-4">
+                        <span class="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full">Online</span>
                     </td>
-                    <td class="text-right font-mono text-sm">
-                        <div>${cur.online?.['below-3000']?.rate ?? '-'}</div>
-                    </td>
-                    <td class="text-right font-mono text-sm">
-                        <div>${cur.online?.['3000-10000']?.rate ?? '-'}</div>
-                    </td>
-                    <td class="text-right font-mono text-sm">
-                        <div>${cur.online?.['above-10000']?.rate ?? '-'}</div>
-                    </td>
+                    <td class="text-right font-mono text-sm py-4">${online['below-3000']?.rate ?? '-'}</td>
+                    <td class="text-right font-mono text-sm py-4">${online['3000-10000']?.rate ?? '-'}</td>
+                    <td class="text-right font-mono text-sm py-4">${online['above-10000']?.rate ?? '-'}</td>
                 </tr>
             `;
         });
+
+        if (!html) {
+            html = `<tr><td colspan="5" class="p-8 text-center text-gray-500">No rates available.</td></tr>`;
+        }
 
         container.innerHTML = html;
 
     } catch (error) {
         console.error('Rates load error:', error);
-        container.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-red-500">Failed to load rates. Is backend running?</td></tr>`;
+        container.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-red-500">Failed to load live rates.</td></tr>`;
     }
 }
 
 
-        function filterRateCategory(element, category) {
+function filterRateCategory(element, category) {
             // Deselect all
             document.querySelectorAll('.rate-tab').forEach(el => {
                 el.classList.remove('active', 'bg-[#0A2540]', 'text-white');
