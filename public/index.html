@@ -1039,8 +1039,8 @@ async function calculateRate() {
             liveRates = res.data;
         }
 
-        if (liveRates && liveRates[currency] && liveRates[currency][method]) {
-            rate = liveRates[currency][method].rate;
+        if (liveRates && liveRates[currency] && liveRates[currency][method] && liveRates[currency][method][tier]) {
+            rate = Number(liveRates[currency][method][tier].rate) || 1;
         }
     } catch (e) {
         console.warn('Using fallback rates');
