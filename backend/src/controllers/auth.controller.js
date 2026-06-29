@@ -4,12 +4,26 @@ const { JWT_SECRET } = require('../middleware/auth');
 const pool = require('../database/db');
 
 const login = async (req, res) => {
-    const { email, password } = req.body;
+    const passwordOk = bcrypt.compareSync(password, user.password_hash);
+
+        if (!passwordOk) {
+            return res.status(401).json({
+                success: false,
+                message: 'Invalid email or password'
+            });
+        }
 
     if (!email || !password) {
         return res.status(400).json({
             success: false,
             message: 'Email and password are required'
+        });
+    }
+
+        if (loginMode === 'admin' && user.role !== 'admin') {
+        return res.status(403).json({
+            success: false,
+            message: 'Administrator access required'
         });
     }
 

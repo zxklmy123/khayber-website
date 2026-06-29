@@ -1263,9 +1263,13 @@ async function handleLogin(e) {
     try {
         const result = await apiFetch('/auth/login', {
             method: 'POST',
-            body: JSON.stringify({ email, password })
-        });
+            body: JSON.stringify({
+                email,
+                password,
+                loginMode: window.location.pathname === '/admin' ? 'admin' : 'customer'
+             })
 
+});
         authToken = result.token;
         localStorage.setItem('khayber_token', authToken);
 
@@ -2388,7 +2392,7 @@ async function rejectKYC(docId, btn) {
 
         // ==================== TRANSFER WIZARD & CREATION ====================
 
-        function showLoginModal() {
+  function showLoginModal() {
     hideRegisterModal();
 
     const modal = document.getElementById('login-modal');
@@ -2401,22 +2405,27 @@ async function rejectKYC(docId, btn) {
         const headerTitle = modal.querySelector('.font-extrabold.text-2xl');
         const headerSubtitle = modal.querySelector('.text-xs.text-slate-500');
         const roleLabel = modal.querySelector('.mb-5 .text-xs.font-extrabold');
+        const registerSection = modal.querySelector('.text-center.mt-6');
 
         if (isAdminURL) {
             window.selectedLoginRole = 'admin';
 
-            if (headerTitle) headerTitle.textContent = 'Admin Login';
-            if (headerSubtitle) headerSubtitle.textContent = 'Sign in to manage Khayber Services operations';
+            if (headerTitle) headerTitle.textContent = 'Administrator Login';
+            if (headerSubtitle) headerSubtitle.textContent = 'Authorized personnel only';
             if (roleLabel) roleLabel.textContent = 'ADMIN LOGIN';
+            if (registerSection) registerSection.classList.add('hidden');
         } else {
             window.selectedLoginRole = 'customer';
 
             if (headerTitle) headerTitle.textContent = 'Welcome back';
             if (headerSubtitle) headerSubtitle.textContent = 'Sign in to manage transfers & track orders';
             if (roleLabel) roleLabel.textContent = 'CUSTOMER LOGIN';
+            if (registerSection) registerSection.classList.remove('hidden');
         }
     }, 80);
 }
+
+
 
         function createNewTransferFromHero() {
             if (!currentUser) {
