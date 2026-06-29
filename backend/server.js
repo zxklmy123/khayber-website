@@ -74,11 +74,17 @@ app.get('/api/audit-logs', (req, res) => {
 
 
 // ================= SERVE FRONTEND =================
-app.use(express.static(path.join(__dirname, 'public')));
 
-// Catch-all route (Important for SPA)
+const publicPath = path.join(__dirname, '..', 'public');
+
+app.use(express.static(publicPath));
+
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 
