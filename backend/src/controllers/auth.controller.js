@@ -4,26 +4,12 @@ const { JWT_SECRET } = require('../middleware/auth');
 const pool = require('../database/db');
 
 const login = async (req, res) => {
-    const passwordOk = bcrypt.compareSync(password, user.password_hash);
-
-        if (!passwordOk) {
-            return res.status(401).json({
-                success: false,
-                message: 'Invalid email or password'
-            });
-        }
+    const { email, password, loginMode } = req.body;
 
     if (!email || !password) {
         return res.status(400).json({
             success: false,
             message: 'Email and password are required'
-        });
-    }
-
-        if (loginMode === 'admin' && user.role !== 'admin') {
-        return res.status(403).json({
-            success: false,
-            message: 'Administrator access required'
         });
     }
 
@@ -50,6 +36,13 @@ const login = async (req, res) => {
             });
         }
 
+        if (loginMode === 'admin' && user.role !== 'admin') {
+            return res.status(403).json({
+                success: false,
+                message: 'Administrator access required'
+            });
+        }
+
         await pool.query(
             'UPDATE users SET last_login = NOW(), updated_at = NOW() WHERE id = $1',
             [user.id]
@@ -64,7 +57,7 @@ const login = async (req, res) => {
 
         const token = jwt.sign(tokenUser, JWT_SECRET, { expiresIn: '1d' });
 
-        res.json({
+        return res.json({
             success: true,
             message: 'Login successful',
             token,
@@ -83,7 +76,8 @@ const login = async (req, res) => {
 
     } catch (error) {
         console.error('Login error:', error);
-        res.status(500).json({
+
+        return res.status(500).json({
             success: false,
             message: 'Login failed'
         });
@@ -135,7 +129,7 @@ const register = async (req, res) => {
 
         const token = jwt.sign(tokenUser, JWT_SECRET, { expiresIn: '1d' });
 
-        res.status(201).json({
+        return res.status(201).json({
             success: true,
             message: 'Registration successful',
             token,
@@ -154,7 +148,8 @@ const register = async (req, res) => {
 
     } catch (error) {
         console.error('Registration error:', error);
-        res.status(500).json({
+
+        return res.status(500).json({
             success: false,
             message: 'Registration failed'
         });
