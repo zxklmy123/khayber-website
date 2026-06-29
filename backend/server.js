@@ -74,35 +74,7 @@ app.get('/api/audit-logs', (req, res) => {
 
 
 
-app.get('/api/create-admin-once', async (req, res) => {
-  const token = req.query.token;
 
-  if (token !== 'CREATE-KHAYBER-ADMIN-2026') {
-    return res.status(403).json({ success: false, message: 'Forbidden' });
-  }
-
-  const bcrypt = require('bcryptjs');
-  const pool = require('./src/database/db');
-
-  const hash = bcrypt.hashSync('Admin@12345', 10);
-
-  const result = await pool.query(`
-    INSERT INTO users
-      (name, email, phone, password_hash, role, kyc_status, status)
-    VALUES
-      ('Khayber Admin', 'admin@khayberservices.com.au', '+61400000000', $1, 'admin', 'verified', 'active')
-    ON CONFLICT (email)
-    DO UPDATE SET
-      password_hash = EXCLUDED.password_hash,
-      role = 'admin',
-      status = 'active',
-      kyc_status = 'verified',
-      updated_at = NOW()
-    RETURNING id, name, email, role, status
-  `, [hash]);
-
-  res.json({ success: true, admin: result.rows[0] });
-});
 
 // ================= SERVE FRONTEND =================
 
