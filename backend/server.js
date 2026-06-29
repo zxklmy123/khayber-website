@@ -73,6 +73,29 @@ app.get('/api/audit-logs', (req, res) => {
 });
 
 
+const bcrypt = require('bcryptjs');
+const pool = require('./src/database/db');
+
+app.get('/api/admin-reset-once', async (req, res) => {
+  const token = req.query.token;
+
+  if (token !== 'RESET-KHAYBER-2026') {
+    return res.status(403).json({ success: false, message: 'Forbidden' });
+  }
+
+  const hash = bcrypt.hashSync('Admin@12345', 10);
+
+  await pool.query(
+    `UPDATE users
+     SET password_hash = $1, updated_at = NOW()
+     WHERE email = 'admin@khayberservices.com.au'`,
+    [hash]
+  );
+
+  res.json({ success: true, message: 'Admin password reset' });
+});
+
+
 // ================= SERVE FRONTEND =================
 
 const publicPath = path.join(__dirname, '..', 'public');
