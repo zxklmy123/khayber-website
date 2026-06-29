@@ -74,6 +74,19 @@ app.get('/api/audit-logs', (req, res) => {
 
 
 
+app.get('/api/debug-admin', async (req, res) => {
+    const pool = require('./src/database/db');
+
+    const result = await pool.query(
+        `SELECT id, name, email, role, status
+         FROM users
+         WHERE role='admin'`
+    );
+
+    res.json(result.rows);
+});
+
+
 // ================= SERVE FRONTEND =================
 
 const publicPath = path.join(__dirname, '..', 'public');
