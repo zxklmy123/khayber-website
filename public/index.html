@@ -1231,20 +1231,7 @@ function showNewsDetailModal(newsItem) {
             window.selectedLoginRole = role;
         }
 
-        function showLoginModal() {
-            hideRegisterModal();
-            const modal = document.getElementById('login-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
-            // Default role
-            setTimeout(() => {
-                const customerOption = document.querySelector('.login-role-option');
-                if (customerOption && !window.selectedLoginRole) {
-                    selectLoginRole(customerOption, 'customer');
-                }
-            }, 80);
-        }
+       
         
         function hideLoginModal() {
             const modal = document.getElementById('login-modal');
@@ -2400,19 +2387,36 @@ async function rejectKYC(docId, btn) {
        
 
         // ==================== TRANSFER WIZARD & CREATION ====================
-        function proceedToNewTransfer() {
-            if (!currentUser) {
-                showLoginModal();
-                // After login it will continue if we store intent, but for simplicity:
-                showToast('Please log in to create a transfer order.');
-                return;
-            }
-            // Show portal and switch to new-transfer view
-            showPortal(currentUser.role || 'customer');
-            setTimeout(() => {
-                switchPortalView('new-transfer');
-            }, 180);
+
+        function showLoginModal() {
+    hideRegisterModal();
+
+    const modal = document.getElementById('login-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+
+    const isAdminURL = window.location.pathname === '/admin';
+
+    setTimeout(() => {
+        const headerTitle = modal.querySelector('.font-extrabold.text-2xl');
+        const headerSubtitle = modal.querySelector('.text-xs.text-slate-500');
+        const roleLabel = modal.querySelector('.mb-5 .text-xs.font-extrabold');
+
+        if (isAdminURL) {
+            window.selectedLoginRole = 'admin';
+
+            if (headerTitle) headerTitle.textContent = 'Admin Login';
+            if (headerSubtitle) headerSubtitle.textContent = 'Sign in to manage Khayber Services operations';
+            if (roleLabel) roleLabel.textContent = 'ADMIN LOGIN';
+        } else {
+            window.selectedLoginRole = 'customer';
+
+            if (headerTitle) headerTitle.textContent = 'Welcome back';
+            if (headerSubtitle) headerSubtitle.textContent = 'Sign in to manage transfers & track orders';
+            if (roleLabel) roleLabel.textContent = 'CUSTOMER LOGIN';
         }
+    }, 80);
+}
 
         function createNewTransferFromHero() {
             if (!currentUser) {
