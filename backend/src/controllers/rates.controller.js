@@ -7,7 +7,7 @@ const currencies = {
   PKR: { country: 'Pakistan', margin: 2.00 },
   INR: { country: 'India', margin: 1.00 },
   AED: { country: 'UAE', margin: 0 },
-  USD: { country: 'USA', margin: 0 },
+  USD: { country: 'USA', margin: 0.01 },
   IRR: { country: 'Iran', percent: 1 },
   AUD: { country: 'Australia', margin: 0.01 }
 };
