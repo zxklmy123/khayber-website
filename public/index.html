@@ -447,12 +447,10 @@
                             <label class="block text-xs font-extrabold tracking-widest text-slate-500 mb-1.5">TO CURRENCY</label>
                             <select id="calc-currency" onchange="calculateRate()" 
                                     class="custom-input w-full border border-slate-300 rounded-2xl px-4 py-[17px] font-semibold bg-white">
-                                <option value="AFN">🇦🇫 AFN - Afghan Afghani</option>
                                 <option value="USD">🇺🇸 USD - US Dollar</option>
                                 <option value="AED">🇦🇪 AED - UAE Dirham</option>
                                 <option value="PKR">🇵🇰 PKR - Pakistani Rupee</option>
                                 <option value="INR">🇮🇳 INR - Indian Rupee</option>
-                                <option value="IRR">🇮🇷 IRR - Iranian Rial</option>
                                 <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
 
 
@@ -565,7 +563,7 @@
                     <i class="fa-solid fa-shield-halved fa-2x"></i>
                 </div>
                 <h4 class="font-extrabold text-xl mb-3">Compliance &amp; Advisory</h4>
-                <p class="text-sm text-slate-600 leading-relaxed">Full KYC/AML support, document preparation assistance, and guidance on Australian &amp; Afghan regulatory requirements.</p>
+                <p class="text-sm text-slate-600 leading-relaxed">Full KYC/AML support, document preparation assistance, and guidance on Australian regulatory requirements.</p>
                 <div class="mt-5 text-xs font-bold text-violet-600">AUSTRAC LICENSED</div>
             </div>
         </div>
@@ -2556,7 +2554,6 @@ async function startTransferWizard(container) {
                 <div>
                     <label class="text-xs font-extrabold text-slate-500">CURRENCY / METHOD</label>
                     <select id="wizard-currency" class="custom-input w-full border px-5 py-3.5 rounded-2xl mt-1 font-semibold" onchange="updateWizardSummary()">
-                        <option value="AFN">🇦🇫 AFN - Afghan Afghani (Online)</option>
                         <option value="AED">🇦🇪 AED - UAE Dirham (Online)</option>
                     </select>
                 </div>
@@ -2594,7 +2591,9 @@ async function startTransferWizard(container) {
     if (window.currentCalc) {
         setTimeout(() => {
             const currSelect = document.getElementById('wizard-currency');
-            if (currSelect) currSelect.value = window.currentCalc.currency === 'AFN' ? 'AFN' : 'AED';
+            if (currSelect) {
+                currSelect.value = window.currentCalc.currency || 'USD';
+            }
             updateWizardSummary();
         }, 80);
     }
@@ -3435,8 +3434,8 @@ async function rejectKYC(docId, btn) {
                         <h4 class="font-extrabold mt-8">Our Commitment</h4>
                         <ul class="text-sm">
                             <li>Competitive, transparent live rates with no hidden fees</li>
-                            <li>Same-day processing to major Afghan cities and Dubai</li>
-                            <li>Dedicated support in English, Dari, and Pashto</li>
+                            <li>Same-day processing to major trade hubs</li>
+                            <li>Dedicated language support</li>
                             <li>Strong focus on data security and customer privacy</li>
                         </ul>
                     </div>
@@ -3676,7 +3675,7 @@ async function rejectKYC(docId, btn) {
                     
                     <div class="mt-6 text-sm space-y-5 text-slate-600">
                         <p><strong>Fees:</strong> Transparent fee structure shown in the calculator. Volume discounts apply automatically for higher tiers. No hidden charges.</p>
-                        <p><strong>Processing Times:</strong> Online transfers to major Afghan cities and Dubai are typically completed same business day or within 24 hours. Cash pickup available within hours in partnered locations.</p>
+                        <p><strong>Processing Times:</strong> Online transfers to major trade cities and Dubai are typically completed same business day or within 24 hours. Cash pickup available within hours in partnered locations.</p>
                         <p><strong>Cancellation:</strong> Orders may be cancelled before funds are released to the beneficiary. A small administrative fee may apply after processing has begun.</p>
                         <p><strong>Compliance:</strong> All transfers are subject to AUSTRAC reporting requirements. We reserve the right to request additional KYC or source of funds information for larger amounts.</p>
                     </div>
