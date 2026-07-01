@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khyber Services • Premium Remittance &amp; Currency Exchange</title>
-    <meta name="description" content="Fast, secure, and compliant international remittances and currency exchange. Specializing in transfers to Afghanistan, UAE, and global corridors from Sydney. AUSTRAC registered.">
+    <meta name="description" content="Fast, secure, and compliant international remittances and currency exchange. Specializing in transfers to UAE, and global corridors from Sydney. AUSTRAC registered.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -233,7 +233,7 @@
                             <span class="text-3xl font-extrabold tracking-tighter text-[#0A2540]">KHYBER</span>
                             <span class="text-3xl font-extrabold tracking-tighter text-[#C9A227]">Services</span>
                         </div>
-                        <div class="text-[10px] font-semibold text-slate-500 -mt-1.5 tracking-[1.5px]">HAWALA-REMMITTANCE-EXCHANGE</div>
+                        <div class="text-[10px] font-semibold text-slate-500 -mt-1.5 tracking-[1.5px]"> REMMITTANCE-MONEY EXCHANGE</div>
                     </div>
                 </div>
 
@@ -243,7 +243,7 @@
                     <a href="#services" onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })" class="nav-link text-slate-700 hover:text-[#0A2540]">Services</a>
                     <button onclick="showAboutModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">About Us</button>
                     <button onclick="showComplianceModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Compliance</button>
-                    <button onclick="showReviewsModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Reviews</button>
+                    <button onclick="showReviewsModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Privacy</button>
                     <button onclick="showBlogModal()" class="nav-link text-slate-700 hover:text-[#0A2540]">Resources</button>
                 </div>
 
@@ -290,8 +290,8 @@
                     </h1>
                     
                     <p class="max-w-lg text-xl text-slate-300 mb-9">
-                        Professional Hawala and bank remittance services from Sydney. 
-                        Competitive live rates, full compliance, and dedicated Dari &amp; Pashto support.
+                        Professional remittance services from Sydney. 
+                        Competitive live rates, full compliance, and dedicated support team.
                     </p>
                     
                     <div class="flex flex-wrap gap-4">
@@ -631,7 +631,7 @@
                     <div class="space-y-[7px] text-xs">
                         <button onclick="showAboutModal()" class="block hover:text-white transition-colors">About Us</button>
                         <button onclick="showComplianceModal()" class="block hover:text-white transition-colors">Legal &amp; Compliance</button>
-                        <button onclick="showReviewsModal()" class="block hover:text-white transition-colors">Customer Stories</button>
+                        <button onclick="showReviewsModal()" class="block hover:text-white transition-colors">Privacy Policy</button>
                     </div>
                 </div>
                 
@@ -893,7 +893,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'nav_services': 'Services',
                 'nav_about': 'About Us',
                 'nav_compliance': 'Compliance',
-                'nav_reviews': 'Reviews',
+                'nav_reviews': 'Privacy Policy',
                 'nav_resources': 'Resources',
                 'portal_access': 'Portal Access',
                 'create_transfer': 'CREATE TRANSFER ORDER',
@@ -2171,7 +2171,7 @@ async function updateHeroBestRate() {
             Number(afnRate).toFixed(2);
 
         document.getElementById('hero-best-rate-label').textContent =
-            'per 1 AUD • Transfer to Afghanistan';
+            'per 1 AUD • Transfer';
 
     } catch (e) {
         console.warn('Could not update hero best rate');
@@ -3393,9 +3393,9 @@ async function rejectKYC(docId, btn) {
                     <div class="mt-2 text-[#C9A227] font-bold text-sm tracking-[3px]">EST. 2018 • MERRYLANDS, SYDNEY</div>
                     
                     <div class="prose prose-slate mt-8 max-w-none text-[15px]">
-                        <p>Khayber Services was founded to provide the Afghan-Australian community and businesses with a reliable, transparent, and culturally sensitive bridge for moving value between Australia, Afghanistan, the UAE, and other key corridors.</p>
+                        <p>Khayber Services was founded to provide businesse communities with a reliable, transparent, and culturally sensitive bridge for moving value between Australia, the UAE, and other key corridors.</p>
                         
-                        <p>We combine traditional Hawala principles of trust and speed with modern compliance standards required under Australian law. Every transfer is processed through our AUSTRAC-registered entity with full audit trails, KYC, and AML controls.</p>
+                        <p>We combine traditional money transfer principles of trust and speed with modern compliance standards required under Australian law. Every transfer is processed through our AUSTRAC-registered entity with full audit trails, KYC, and AML controls.</p>
                         
                         <h4 class="font-extrabold mt-8">Our Commitment</h4>
                         <ul class="text-sm">
@@ -3450,36 +3450,166 @@ async function rejectKYC(docId, btn) {
             modal.classList.add('flex');
         }
 
-        function showReviewsModal() {
-            const modal = document.getElementById('generic-modal');
-            const content = document.getElementById('generic-modal-content');
-            content.innerHTML = `
-                <div class="p-9">
-                    <button onclick="hideGenericModal()" class="float-right text-4xl leading-none text-slate-300 hover:text-red-400">×</button>
-                    <h2 class="font-extrabold text-4xl tracking-tighter mb-2">Customer Reviews</h2>
-                    <div class="text-emerald-600 text-sm font-bold mb-8">4.98 ★ from 2,841 verified transfers</div>
-                    
-                    <div class="space-y-6 text-sm">
-                        <div class="border-l-4 border-emerald-400 pl-5">
-                            <div class="font-bold">“Incredibly fast to Kabul. My family received the money the same afternoon. Professional and trustworthy.”</div>
-                            <div class="text-xs mt-2 text-slate-500">— Mohammad A., Parramatta • June 2026</div>
-                        </div>
-                        <div class="border-l-4 border-emerald-400 pl-5">
-                            <div class="font-bold">“Best rates I’ve found for UAE transfers. The portal makes tracking so easy and the staff speak Dari which helps a lot.”</div>
-                            <div class="text-xs mt-2 text-slate-500">— Fatima R., Auburn • May 2026</div>
-                        </div>
-                        <div class="border-l-4 border-emerald-400 pl-5">
-                            <div class="font-bold">“Used them for my business imports from Afghanistan. Excellent support with documentation and very competitive bulk pricing.”</div>
-                            <div class="text-xs mt-2 text-slate-500">— Mustafa R., Bankstown • April 2026</div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center mt-8 text-xs text-slate-400">Reviews verified through completed transfers only. More available in the customer portal.</div>
+       function showReviewsModal() {
+    const modal = document.getElementById('generic-modal');
+    const content = document.getElementById('generic-modal-content');
+
+    content.innerHTML = `
+        <div class="max-h-[90vh] overflow-y-auto">
+            <div class="p-10">
+
+                <button onclick="hideGenericModal()"
+                    class="float-right text-4xl leading-none text-slate-300 hover:text-red-500">
+                    ×
+                </button>
+
+                <h2 class="text-4xl font-extrabold tracking-tight mb-2">
+                    Privacy Policy
+                </h2>
+
+                <div class="text-sm text-slate-500 mb-8">
+                    Effective Date: 1 July 2026
                 </div>
-            `;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
+
+                <div class="space-y-8 text-sm leading-7 text-slate-700">
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">1. Introduction</h3>
+
+                        <p>
+                            Khyber Services Pty Ltd is committed to protecting the privacy,
+                            confidentiality and security of our customers' personal information.
+                            This Privacy Policy explains how we collect, use, disclose and
+                            safeguard information when you use our website, customer portal,
+                            mobile services and money transfer services.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            2. Information We Collect
+                        </h3>
+
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Full name</li>
+                            <li>Date of birth</li>
+                            <li>Residential address</li>
+                            <li>Email address</li>
+                            <li>Telephone number</li>
+                            <li>Government identification documents</li>
+                            <li>Transaction history</li>
+                            <li>Payment information</li>
+                            <li>Device and browser information</li>
+                            <li>IP address and website activity</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            3. How We Use Your Information
+                        </h3>
+
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Provide international money transfer services.</li>
+                            <li>Verify customer identity.</li>
+                            <li>Meet Anti-Money Laundering (AML) and Counter Terrorism Financing obligations.</li>
+                            <li>Prevent fraud and financial crime.</li>
+                            <li>Improve our products and customer experience.</li>
+                            <li>Respond to enquiries and customer support requests.</li>
+                            <li>Send important service notifications.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            4. Regulatory Compliance
+                        </h3>
+
+                        <p>
+                            As a registered remittance service provider, Khayber Services may
+                            collect and retain information required under Australian law,
+                            including customer identification, transaction records and
+                            compliance documentation. Information may be disclosed where
+                            legally required by regulators or law enforcement agencies.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            5. Data Security
+                        </h3>
+
+                        <p>
+                            We implement administrative, technical and physical safeguards
+                            designed to protect customer information from unauthorised access,
+                            disclosure, alteration or destruction. Access to customer data is
+                            restricted to authorised personnel only.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            6. Information Sharing
+                        </h3>
+
+                        <p>
+                            We do not sell customer information. Personal information may only
+                            be shared with authorised payment partners, banking institutions,
+                            regulators or government authorities where required for providing
+                            our services or complying with applicable laws.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            7. Cookies
+                        </h3>
+
+                        <p>
+                            Our website uses cookies and similar technologies to improve
+                            website performance, security and customer experience.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            8. Your Rights
+                        </h3>
+
+                        <p>
+                            You may request access to your personal information, request
+                            corrections where appropriate, or contact us regarding any privacy
+                            concerns. Certain information may be retained where required by
+                            law.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold mb-3">
+                            9. Contact Us
+                        </h3>
+
+                        <p>
+                            If you have questions regarding this Privacy Policy or the handling
+                            of your personal information, please contact Khayber Services
+                            Customer Support through our official website or customer portal.
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="mt-10 pt-6 border-t text-xs text-slate-500">
+                    © 2026 Khayber Services Pty Ltd. All rights reserved.
+                </div>
+
+            </div>
+        </div>
+    `;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
 
         function showBlogModal() {
             const modal = document.getElementById('generic-modal');
@@ -3492,7 +3622,7 @@ async function rejectKYC(docId, btn) {
                         <div class="border border-slate-100 p-6 rounded-3xl hover:border-[#C9A227] cursor-pointer" 
                             onclick="showNewsDetailModal()">
                             <div class="text-xs font-bold text-emerald-600">GUIDE • 8 MIN READ</div>
-                            <div class="font-extrabold mt-2">How to Send Money Safely to Afghanistan in 2026</div>
+                            <div class="font-extrabold mt-2">How to Send Money Safely in 2026</div>
                             <div
             `;
             modal.classList.remove('hidden');
