@@ -979,7 +979,9 @@ async function renderRatesTable(filter = 'all') {
 
         let html = '';
 
-        Object.keys(ratesData).forEach(currency => {
+        Object.keys(ratesData)
+        .filter(currency => !['AFN', 'IRR'].includes(currency))
+        .forEach(currency => {
             const online = ratesData[currency]?.online || {};
 
             html += `
@@ -2115,9 +2117,6 @@ async function handleKYCUpload(e) {
         document.getElementById('admin-today-volume').textContent = '$0.00';
     }
 }
-
-else if (view === 'admin-transfers') {
-
     else if (view === 'admin-transfers') {
         container.innerHTML = `
             <div class="mb-6">
