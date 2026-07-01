@@ -332,11 +332,11 @@
 
                                     <div class="text-5xl font-extrabold text-[#0A2540] tabular-nums mt-2">
                                         <span id="hero-best-rate">--</span>
-                                        <span class="text-xl align-super font-bold text-emerald-600">AFN</span>
+                                        <span class="text-xl align-super font-bold text-emerald-600">USD</span>
                                     </div>
 
                                     <div id="hero-best-rate-label" class="text-sm text-slate-500 mt-2">
-                                        per 1 AUD • Online to Kabul
+                                        USD per 1 AUD • Online transfer
                                     </div>
                                 </div>
 
@@ -2043,7 +2043,7 @@ async function handleKYCUpload(e) {
                 </div>
                 <div class="bg-white border border-slate-100 p-6 rounded-3xl">
                     <div class="text-xs font-extrabold text-slate-500">TODAY'S VOLUME</div>
-                    <div class="text-4xl font-extrabold mt-2">$124,800</div>
+                    <div id="admin-today-volume" class="text-4xl font-extrabold mt-2">$0.00</div>
                 </div>
             </div>
 
@@ -2071,17 +2071,52 @@ async function handleKYCUpload(e) {
         `;
 
         try {
-            const transfersRes = await apiFetch('/transfers');
-            const customersRes = await apiFetch('/customers');
-            const kycRes = await apiFetch('/kyc/pending');
+        const transfersRes = await apiFetch('/transfers');
+        const customersRes = await apiFetch('/customers');
+        const kycRes = await apiFetch('/kyc/pending');
 
-            document.getElementById('admin-stat-transfers').textContent = (transfersRes.data || []).length;
-            document.getElementById('admin-stat-customers').textContent = (customersRes.data || []).length;
-            document.getElementById('admin-stat-kyc').textContent = (kycRes.data || []).length;
-        } catch (e) {
-            console.warn('Could not load dashboard stats');
-        }
+        const transfers = transfersRes.data || [];
+        const customers = customersRes.data || [];
+        const pendingKyc = kycRes.data || [];
+
+        const today = new Date().toISOString().slice(0, 10);
+
+        const todayVolume = transfers
+            .filter(t => {
+                const transferDate = (t.created_at || t.createdAt || t.date || '').slice(0, 10);
+                return transferDate === today;
+            })
+            .reduce((sum, t) => {
+                return sum + Number(
+                    t.amount ||
+                    t.send_amount ||
+                    t.transfer_amount ||
+                    t.amount_sent ||
+                    0
+                );
+            }, 0);
+
+        document.getElementById('admin-stat-transfers').textContent = transfers.length;
+        document.getElementById('admin-stat-customers').textContent = customers.length;
+        document.getElementById('admin-stat-kyc').textContent = pendingKyc.length;
+
+        document.getElementById('admin-today-volume').textContent =
+            new Intl.NumberFormat('en-AU', {
+                style: 'currency',
+                currency: 'AUD'
+            }).format(todayVolume);
+
+       } catch (e) {
+        console.warn('Could not load dashboard stats', e);
+
+        document.getElementById('admin-stat-transfers').textContent = '0';
+        document.getElementById('admin-stat-customers').textContent = '0';
+        document.getElementById('admin-stat-kyc').textContent = '0';
+        document.getElementById('admin-today-volume').textContent = '$0.00';
     }
+}
+
+else if (view === 'admin-transfers') {
 
     else if (view === 'admin-transfers') {
         container.innerHTML = `
@@ -2163,15 +2198,16 @@ async function handleKYCUpload(e) {
 async function updateHeroBestRate() {
     try {
         const res = await apiFetch('/rates');
-        const afnRate = res.data?.AFN?.online?.['below-3000']?.rate;
 
-        if (!afnRate) return;
+        const usdRate = res.data?.USD?.online?.['below-3000']?.rate;
+
+        if (!usdRate) return;
 
         document.getElementById('hero-best-rate').textContent =
-            Number(afnRate).toFixed(2);
+            Number(usdRate).toFixed(4);
 
         document.getElementById('hero-best-rate-label').textContent =
-            'per 1 AUD • Transfer';
+            'USD per 1 AUD • Live Exchange Rate';
 
     } catch (e) {
         console.warn('Could not update hero best rate');
