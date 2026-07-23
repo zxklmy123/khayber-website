@@ -85,12 +85,25 @@ const login = async (req, res) => {
 };
 
 const register = async (req, res) => {
-    const { name, email, phone, password } = req.body;
+    const {
+        name,
+        email,
+        phone,
+        password,
+        identityVerificationConsent
+    } = req.body;
 
     if (!name || !email || !password) {
         return res.status(400).json({
             success: false,
             message: 'Name, email and password are required'
+        });
+    }
+
+    if (identityVerificationConsent !== true) {
+        return res.status(400).json({
+            success: false,
+            message: 'Identity verification consent is required'
         });
     }
 

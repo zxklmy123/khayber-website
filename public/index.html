@@ -750,13 +750,386 @@
                         </div>
                     </div>
                     
-                    <div class="mt-4 flex items-start gap-x-2 text-xs">
-                        <input type="checkbox" checked class="mt-1 accent-[#C9A227]">
-                        <div class="text-slate-500">I agree to the <button type="button" onclick="showTransferTermsModal()" class="text-[#C9A227] underline">Transfer Terms</button> and <button type="button" onclick="showComplianceModal()" class="text-[#C9A227] underline">Privacy Policy</button>.</div>
+                    <div class="mt-4 flex items-start gap-x-3 text-xs">
+                        <input
+                            type="checkbox"
+                            id="reg-identity-consent"
+                            required
+                            class="mt-1 h-4 w-4 shrink-0 accent-[#C9A227]"
+                        >
+                        <label for="reg-identity-consent" class="text-slate-600 leading-relaxed">
+                            I consent to my personal information being checked with the document issuer or official record holder via third-party systems for the purpose of confirming my identity. I have read and agree to the
+                            <button
+                                type="button"
+                                onclick="showIdentityVerificationNoticeModal()"
+                                class="text-[#C9A227] font-semibold underline hover:no-underline"
+                            >
+                                Identity Verification Collection Notice
+                            </button>.
+                        </label>
                     </div>
                     
                     <button type="submit" class="mt-6 w-full gold-btn py-4 text-white font-extrabold rounded-2xl text-sm tracking-wider">CREATE ACCOUNT &amp; CONTINUE</button>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== IDENTITY VERIFICATION COLLECTION NOTICE ==================== -->
+    <div
+        id="identity-verification-notice-modal"
+        onclick="if (event.target.id === 'identity-verification-notice-modal') hideIdentityVerificationNoticeModal()"
+        class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[120] flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="identity-verification-notice-title"
+    >
+        <div
+            onclick="event.stopImmediatePropagation()"
+            class="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl modal"
+        >
+            <div class="sticky top-0 z-10 px-6 sm:px-8 py-5 border-b bg-slate-50 flex items-start justify-between gap-4">
+                <div>
+                    <h2
+                        id="identity-verification-notice-title"
+                        class="font-extrabold text-2xl tracking-tight"
+                    >
+                        Identity Verification Collection Notice
+                    </h2>
+                    <p class="mt-1 text-xs text-slate-500">
+                        Khyber Services Pty Ltd — ABN 17 611 922 895
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    onclick="hideIdentityVerificationNoticeModal()"
+                    aria-label="Close Identity Verification Collection Notice"
+                    class="text-3xl leading-none text-slate-300 hover:text-slate-500"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 text-sm leading-7 text-slate-700 space-y-6">
+                <p>
+                    This document explains how Khyber Services Pty Ltd
+                    [ABN: 17 611 922 895] (we, us, our) will collect, use,
+                    disclose and store your personal information to verify your
+                    identity document(s) using the Attorney-General’s Department’s
+                    Document Verification Service (DVS). This will only occur with
+                    your express consent.
+                </p>
+
+                <p>
+                    We are bound by the provisions of the Privacy Act 1988 (Cth)
+                    (Privacy Act), including the Australian Privacy Principles
+                    (APPs), as well as the Identity Verification Services Act 2023
+                    (Cth) (IVS Act). Your personal information will be handled in
+                    accordance with our obligations under this legislation.
+                </p>
+
+                <p>
+                    If individuals have any specific needs or require this notice
+                    in an alternative format, or if you need assistance due to any
+                    special circumstances, please contact us.
+                </p>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        Why is your personal information being collected?
+                    </h3>
+
+                    <p>
+                        We are required and authorised by the Anti-Money Laundering
+                        and Counter-Terrorism Financing Act 2006 (AML/CTF Act) to
+                        verify your identity before we can provide you with
+                        remittance and foreign exchange services.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        How will we handle your personal information?
+                    </h3>
+
+                    <div class="space-y-3">
+                        <p>
+                            We collect your personal information through our
+                            website, online forms, and in-person interactions.
+                        </p>
+
+                        <p>
+                            The information you provide will be sent to the DVS
+                            Hub, administered by the Attorney-General’s Department,
+                            and matched against official records held by the
+                            government agency responsible for issuing the identity
+                            document (document issuer).
+                        </p>
+
+                        <p>
+                            The DVS Hub will advise us of whether the information
+                            you provide matches official records.
+                        </p>
+
+                        <p>
+                            We do store copies of your identity documents after the
+                            DVS check is complete. This information will be retained
+                            for 7 years as prescribed by our obligations under the
+                            AML/CTF Act.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        How will the Attorney-General’s Department handle your personal information?
+                    </h3>
+
+                    <div class="space-y-3">
+                        <p>
+                            The DVS Hub facilitates information transfer between
+                            us and the document issuer. The DVS Hub itself does not
+                            retain any personal information and the
+                            Attorney-General’s Department cannot view or edit any
+                            of the personal information transmitted through the
+                            DVS Hub.
+                        </p>
+
+                        <p>
+                            The Attorney-General’s Department engages a third-party
+                            provider as a managed service provider for the DVS, who
+                            is required to adhere to the APP requirements and
+                            security standards to ensure the use and disclosure of
+                            personal information is limited to explicitly defined
+                            purposes including:
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>for the purposes of the contract with the department; and</li>
+                            <li>to comply with any request under section 95C of the Privacy Act.</li>
+                        </ul>
+
+                        <p>
+                            The Attorney-General’s Department is authorised to
+                            operate the DVS Hub for the purpose of verifying
+                            individuals’ identities under the IVS Act.
+                        </p>
+
+                        <p>
+                            For more information on how the Attorney-General’s
+                            Department may handle your personal information, see
+                            the Attorney-General’s Department’s
+                            <a
+                                href="https://www.idmatch.gov.au/resources/privacy-statement-identity-verification-services"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-[#C9A227] font-semibold underline hover:no-underline"
+                            >
+                                Privacy Statement – Identity Verification Services
+                            </a>.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        How will the document issuer handle your personal information?
+                    </h3>
+
+                    <p>
+                        Your personal information will be shared by the
+                        Attorney-General’s Department via the DVS Hub with the
+                        government agency that issued your identity document to
+                        verify it against their official records. These agencies
+                        already hold your personal information as part of their
+                        official records, in line with their own privacy policies
+                        and legal obligations.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        What happens if you don’t provide your personal information?
+                    </h3>
+
+                    <div class="space-y-3">
+                        <p>
+                            You do not have to agree to verify your identity
+                            documents through the DVS. You can choose instead to
+                            attend a branch so we can verify your identity in
+                            person using original physical documents.
+                        </p>
+
+                        <p>
+                            However, if you do not provide the personal information
+                            we require to verify your identity, we may not be able
+                            to provide you with certain products, services or
+                            offerings. Specifically, if you do not provide your
+                            personal information, we are unable to verify your
+                            identity and process your financial transactions.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        Other disclosures
+                    </h3>
+
+                    <p class="mb-2">
+                        Where necessary, we may disclose your personal information
+                        to third parties, including:
+                    </p>
+
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>
+                            the following categories of intermediary service
+                            providers involved in the use of the DVS who may
+                            receive your identification information to make or
+                            receive an information match request:
+                            <ul class="list-circle pl-6 mt-2 space-y-1">
+                                <li>outsourced service providers that connect us to the DVS Hub;</li>
+                                <li>identity service providers, such as RapidID;</li>
+                            </ul>
+                        </li>
+                        <li>law enforcement agencies in certain circumstances.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        The Attorney-General’s Department’s verification assistance service
+                    </h3>
+
+                    <div class="space-y-3">
+                        <p>
+                            There may be circumstances in which we will require
+                            assistance to verify your identity. If we request
+                            assistance from the Attorney-General’s Department to
+                            verify your identity through the DVS, the
+                            Attorney-General’s Department will collect your
+                            personal information for the purposes of verifying your
+                            identity document(s) through the DVS.
+                        </p>
+
+                        <p>
+                            The Attorney-General’s Department may also disclose
+                            your personal information to the relevant document
+                            issuer to assist them with verifying your identity
+                            documents. This collection is authorised under APP
+                            5.2(c) and section 27 of the IVS Act, which permits the
+                            collection of your personal information from someone
+                            other than yourself when it is authorised under an
+                            Australian law.
+                        </p>
+
+                        <p>
+                            The Attorney-General’s Department will handle your
+                            personal information in accordance with its obligations
+                            under the Privacy Act.
+                        </p>
+
+                        <p>
+                            Where the identity document(s) you require to be
+                            verified include information regarding other
+                            individuals, such as a Medicare card covering multiple
+                            individuals, it will be assumed that you have advised
+                            those individuals and obtained their consent to the
+                            disclosure. This information will only be used for the
+                            purposes of verifying your identity document(s) through
+                            the DVS. Any personal information of other individuals
+                            will otherwise be managed in the same way as your
+                            personal information.
+                        </p>
+
+                        <p>
+                            There may be overseas disclosure of your personal
+                            information to recipients located in New Zealand where
+                            New Zealand government agencies or private organisations
+                            request verification assistance for your identity
+                            document(s).
+                        </p>
+
+                        <p>
+                            If you don’t provide your personal information to the
+                            Attorney-General’s Department, the Department will be
+                            unable to verify your identity document(s).
+                        </p>
+
+                        <p>
+                            More information about the verification assistance
+                            service is set out in the Attorney-General’s
+                            Department’s Identity Verification Services Privacy
+                            Statement.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="font-extrabold text-base text-slate-900 mb-2">
+                        Further information
+                    </h3>
+
+                    <p>
+                        More information about how we handle your personal
+                        information is set out in our Privacy Policy available on
+                        our website. Our Privacy Policy outlines how you can access
+                        and seek correction of the personal information that we
+                        hold about you. It also contains information about our
+                        complaint handling process, including how you may complain
+                        about a breach of the APPs or a registered APP code, and
+                        how we will deal with such a complaint.
+                    </p>
+                </section>
+
+                <section class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                    <h3 class="font-extrabold text-base text-slate-900 mb-3">
+                        Contact details
+                    </h3>
+
+                    <div class="space-y-2">
+                        <p>
+                            <span class="font-bold">Email:</span>
+                            <a
+                                href="mailto:Noor.loyaltravel@hotmail.com"
+                                class="text-[#C9A227] underline hover:no-underline"
+                            >
+                                Noor.loyaltravel@hotmail.com
+                            </a>
+                        </p>
+
+                        <p>
+                            <span class="font-bold">Telephone:</span>
+                            <a
+                                href="tel:0422440440"
+                                class="text-[#C9A227] underline hover:no-underline"
+                            >
+                                0422 440 440
+                            </a>
+                        </p>
+
+                        <div>
+                            <p class="font-bold">Postal address:</p>
+                            <address class="not-italic">
+                                Privacy Officer<br>
+                                Khyber Services Pty Ltd<br>
+                                4/172 Merrylands Rd<br>
+                                Merrylands NSW 2160
+                            </address>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pt-2 flex justify-end">
+                    <button
+                        type="button"
+                        onclick="hideIdentityVerificationNoticeModal()"
+                        class="gold-btn px-7 py-3 text-white font-extrabold rounded-2xl text-xs tracking-wider"
+                    >
+                        CLOSE NOTICE
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1286,17 +1659,45 @@ async function handleLogin(e) {
     }
 }
 
+function showIdentityVerificationNoticeModal() {
+    document
+        .getElementById('identity-verification-notice-modal')
+        .classList.remove('hidden');
+}
+
+function hideIdentityVerificationNoticeModal() {
+    document
+        .getElementById('identity-verification-notice-modal')
+        .classList.add('hidden');
+}
+
 async function handleRegister(e) {
     e.preventDefault();
     const name = document.getElementById('reg-name').value.trim();
     const email = document.getElementById('reg-email').value.trim();
     const phone = document.getElementById('reg-phone').value.trim();
     const password = document.getElementById('reg-password').value;
+    const identityVerificationConsent =
+        document.getElementById('reg-identity-consent').checked;
+
+    if (!identityVerificationConsent) {
+        showToast(
+            'You must consent to identity verification before creating your account.',
+            true
+        );
+        return;
+    }
 
     try {
         const result = await apiFetch('/auth/register', {
             method: 'POST',
-            body: JSON.stringify({ name, email, phone, password })
+            body: JSON.stringify({
+                name,
+                email,
+                phone,
+                password,
+                identityVerificationConsent
+            })
         });
 
         authToken = result.token;
@@ -3490,150 +3891,604 @@ async function rejectKYC(docId, btn) {
 
     content.innerHTML = `
         <div class="max-h-[90vh] overflow-y-auto">
-            <div class="p-10">
+            <div class="p-6 sm:p-10">
 
-                <button onclick="hideGenericModal()"
-                    class="float-right text-4xl leading-none text-slate-300 hover:text-red-500">
+                <button
+                    type="button"
+                    onclick="hideGenericModal()"
+                    aria-label="Close Privacy Policy"
+                    class="float-right text-4xl leading-none text-slate-300 hover:text-red-500"
+                >
                     ×
                 </button>
 
-                <h2 class="text-4xl font-extrabold tracking-tight mb-2">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">
                     Privacy Policy
                 </h2>
 
                 <div class="text-sm text-slate-500 mb-8">
-                    Effective Date: 1 July 2026
+                    Last Updated: 18 July 2026
                 </div>
 
                 <div class="space-y-8 text-sm leading-7 text-slate-700">
 
                     <section>
-                        <h3 class="text-xl font-bold mb-3">1. Introduction</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            1. Our Commitment to Your Privacy
+                        </h3>
 
-                        <p>
-                            Khyber Services Pty Ltd is committed to protecting the privacy,
-                            confidentiality and security of our customers' personal information.
-                            This Privacy Policy explains how we collect, use, disclose and
-                            safeguard information when you use our website, customer portal,
-                            mobile services and money transfer services.
+                        <div class="space-y-3">
+                            <p>
+                                Khyber Services Pty Ltd (ABN: 17 611 922 895)
+                                (referred to as “we”, “us”, or “our”) is committed
+                                to protecting your privacy. We are bound by the
+                                Privacy Act 1988 (Cth) (Privacy Act) and the
+                                Australian Privacy Principles (APPs).
+                            </p>
+
+                            <p>
+                                This Privacy Policy outlines how we collect, use,
+                                hold, and disclose your personal information. It
+                                also covers your rights to access and correct your
+                                information and how to make a complaint.
+                            </p>
+
+                            <p>
+                                This policy is available free of charge on our
+                                website:
+                                <a
+                                    href="https://khyber.com.au"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-[#C9A227] font-semibold underline hover:no-underline"
+                                >
+                                    khyber.com.au
+                                </a>.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            2. What Personal Information We Collect
+                        </h3>
+
+                        <p class="mb-3">
+                            We collect personal information that is reasonably
+                            necessary for us to provide our products and services
+                            to you. The types of information we may collect and
+                            hold include:
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>
+                                <span class="font-bold">Identity Information:</span>
+                                for example, full name, date of birth and occupation.
+                            </li>
+                            <li>
+                                <span class="font-bold">Contact Information:</span>
+                                for example, proof of address, phone numbers and
+                                email addresses.
+                            </li>
+                            <li>
+                                <span class="font-bold">Identification Documents:</span>
+                                for example, an Australian driving licence,
+                                Australian Government-issued ID or international
+                                passport, and the information contained within.
+                            </li>
+                            <li>
+                                <span class="font-bold">Financial Information:</span>
+                                for example, beneficiary bank-account details and
+                                transaction history.
+                            </li>
+                            <li>
+                                <span class="font-bold">Technical Information:</span>
+                                for example, IP address and device type. See
+                                Section 7 on cookies.
+                            </li>
+                        </ul>
+
+                        <p class="mt-4">
+                            We will not collect sensitive information about you,
+                            such as information about your health, race or political
+                            opinions, without your consent unless an exemption in
+                            the APPs applies.
                         </p>
                     </section>
 
                     <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            2. Information We Collect
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            3. How and Why We Collect Your Information
                         </h3>
 
-                        <ul class="list-disc ml-6 space-y-2">
-                            <li>Full name</li>
-                            <li>Date of birth</li>
-                            <li>Residential address</li>
-                            <li>Email address</li>
-                            <li>Telephone number</li>
-                            <li>Government identification documents</li>
-                            <li>Transaction history</li>
-                            <li>Payment information</li>
-                            <li>Device and browser information</li>
-                            <li>IP address and website activity</li>
+                        <p class="mb-3">
+                            We collect your information in the following ways:
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-3">
+                            <li>
+                                <span class="font-bold">Directly from You:</span>
+                                When you register for an account, fill out forms,
+                                contact us by phone or email, or use our services.
+                            </li>
+
+                            <li>
+                                <span class="font-bold">From Third Parties:</span>
+                                We may collect information from third parties such
+                                as:
+                                <ul class="list-circle pl-6 mt-2 space-y-1">
+                                    <li>
+                                        Electronic verification services used to
+                                        verify your identity by matching your
+                                        information against official government or
+                                        document-issuer records.
+                                    </li>
+                                    <li>Referrers or marketing agencies.</li>
+                                    <li>Publicly available sources.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <span class="font-bold">Unsolicited Information:</span>
+                                If we receive personal information about you that
+                                we did not solicit, we will determine whether we
+                                could have lawfully collected it. If not, we will
+                                destroy or de-identify it as soon as practicable.
+                            </li>
+                        </ul>
+
+                        <p class="mt-4">
+                            If we receive information from a third party, we will
+                            take reasonable steps to ensure you are made aware of it.
+                        </p>
+
+                        <p class="mt-4 mb-3">
+                            Our primary purpose for collecting your information is
+                            to provide you with our financial exchange services.
+                            This includes:
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Verifying your identity in line with our legal obligations.</li>
+                            <li>Processing your transactions.</li>
+                            <li>Communicating with you about your account and our services.</li>
+                            <li>Managing our risks and legal obligations.</li>
+                        </ul>
+
+                        <p class="mt-4">
+                            If you do not provide the personal information we
+                            request, we may not be able to provide you with our
+                            services.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            4. Anonymity and Pseudonymity
+                        </h3>
+
+                        <p>
+                            We do not give you the option of dealing with us
+                            anonymously or under a pseudonym. This is because it is
+                            impracticable and, in most cases, illegal for us to
+                            provide our services to unidentified individuals,
+                            including because of our obligations under the
+                            Anti-Money Laundering and Counter-Terrorism Financing
+                            Act 2006.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            5. How We Use and Disclose Your Information
+                        </h3>
+
+                        <div class="space-y-4">
+                            <p>
+                                We do not sell, share or rent your personal
+                                information to third parties for their promotional
+                                purposes. We will only use or disclose your
+                                information for the purposes for which we collected
+                                it, or for a related purpose you would reasonably
+                                expect.
+                            </p>
+
+                            <p>This may include disclosure to:</p>
+
+                            <ul class="list-disc pl-6 space-y-3">
+                                <li>
+                                    <span class="font-bold">Service Providers:</span>
+                                    Third parties who help us with our business
+                                    operations, such as transaction processing, IT
+                                    support, marketing and fraud prevention. These
+                                    providers are contractually bound to protect
+                                    your information and only use it for the
+                                    services we engage them to provide.
+                                </li>
+
+                                <li>
+                                    <span class="font-bold">Law Enforcement and Regulators:</span>
+                                    We may disclose information to government
+                                    officials or law-enforcement agencies in
+                                    connection with a formal request, subpoena or
+                                    similar legal procedure, or where we believe in
+                                    good faith that disclosure is necessary to
+                                    comply with the law or report suspected illegal
+                                    activity.
+                                </li>
+
+                                <li>
+                                    <span class="font-bold">Change of Control:</span>
+                                    If our business is sold, merged or acquired,
+                                    your personal information may form part of the
+                                    transferred assets. We will notify you of any
+                                    such change.
+                                </li>
+                            </ul>
+
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Direct Marketing
+                                </h4>
+
+                                <p>
+                                    We may use your personal information to offer
+                                    you products and services we believe may
+                                    interest you.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Cross-Border (Overseas) Disclosure
+                                </h4>
+
+                                <p class="mb-3">
+                                    To process your transactions, we may need to
+                                    disclose your personal information to recipients
+                                    located outside Australia. This commonly
+                                    includes:
+                                </p>
+
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>
+                                        Beneficiary financial institutions in the
+                                        destination country of your transfer.
+                                    </li>
+                                    <li>
+                                        Our international payment processors,
+                                        correspondent banks and global settlement
+                                        network partners.
+                                    </li>
+                                    <li>
+                                        Third-party service providers who assist us
+                                        with fraud prevention, identity verification
+                                        or data storage, who may be located or
+                                        process data overseas.
+                                    </li>
+                                </ul>
+
+                                <p class="mt-3">
+                                    We will take reasonable steps to ensure that the
+                                    overseas recipient does not breach the APPs in
+                                    relation to your information. However, by using
+                                    our services, you consent to this disclosure and
+                                    acknowledge that we may not be able to ensure
+                                    the overseas recipient’s compliance with the
+                                    APPs.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Government-Related Identifiers
+                                </h4>
+
+                                <p>
+                                    We do not adopt, use or disclose
+                                    government-related identifiers, such as Tax File
+                                    Numbers or driver’s licence numbers, as our own
+                                    identifier for you. We only collect and use
+                                    these identifiers as required or authorised by
+                                    law, including for identity verification.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            6. How We Hold and Secure Your Information
+                        </h3>
+
+                        <p class="mb-3">
+                            We hold your personal information in a combination of
+                            secure computer databases and, in some cases, paper
+                            files.
+                        </p>
+
+                        <p class="mb-3">
+                            We take reasonable steps to protect your information
+                            from misuse, interference and loss, and from
+                            unauthorised access, modification or disclosure. These
+                            steps include:
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>
+                                <span class="font-bold">Technical Measures:</span>
+                                Using passwords, data encryption during
+                                transmission, firewalls and two-factor
+                                authentication.
+                            </li>
+                            <li>
+                                <span class="font-bold">Access Controls:</span>
+                                Restricting employee access to personal information
+                                on a need-to-know basis, with audit logging to track
+                                access.
+                            </li>
+                            <li>
+                                <span class="font-bold">Physical Security:</span>
+                                Storing any paper files in secure areas.
+                            </li>
+                            <li>
+                                <span class="font-bold">Remote Work Security:</span>
+                                Enforcing strict policies for employees working
+                                remotely, including device security, locked screens
+                                and prohibitions on copying or sharing data through
+                                personal accounts or devices.
+                            </li>
                         </ul>
                     </section>
 
                     <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            3. How We Use Your Information
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            7. Cookies and Website Analytics
                         </h3>
 
-                        <ul class="list-disc ml-6 space-y-2">
-                            <li>Provide international money transfer services.</li>
-                            <li>Verify customer identity.</li>
-                            <li>Meet Anti-Money Laundering (AML) and Counter Terrorism Financing obligations.</li>
-                            <li>Prevent fraud and financial crime.</li>
-                            <li>Improve our products and customer experience.</li>
-                            <li>Respond to enquiries and customer support requests.</li>
-                            <li>Send important service notifications.</li>
+                        <div class="space-y-3">
+                            <p>
+                                When you visit our website, we may use cookies and
+                                other tracking technologies. Cookies are small text
+                                files transferred to your computer that help our
+                                website recognise your browser and capture certain
+                                information.
+                            </p>
+
+                            <p>We use cookies to:</p>
+
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Facilitate your access to and use of our online platform.</li>
+                                <li>Understand how you interact with our website.</li>
+                                <li>
+                                    Compile aggregate data about site traffic and
+                                    user behaviour to improve our services.
+                                </li>
+                            </ul>
+
+                            <p>
+                                By using our website, you consent to our use of
+                                cookies. You can manage, refuse or delete cookies
+                                through your web-browser settings. However, if you
+                                refuse cookies, you may not be able to use all
+                                features of our website.
+                            </p>
+
+                            <p>
+                                Information collected by cookies is generally
+                                anonymous, but it may be combined with other
+                                information that could identify you. We handle this
+                                information with the same level of security as all
+                                other personal information.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            8. Your Rights: Access and Correction
+                        </h3>
+
+                        <p class="mb-4">
+                            You have the right to request access to and correction
+                            of the personal information we hold about you.
+                        </p>
+
+                        <div class="space-y-5">
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Access (APP 12)
+                                </h4>
+
+                                <div class="space-y-3">
+                                    <p>
+                                        You can request access to your information
+                                        by contacting our Privacy Officer using the
+                                        details below. We will require you to verify
+                                        your identity before providing access.
+                                    </p>
+
+                                    <p>
+                                        We will respond to your request within a
+                                        reasonable period, generally within 30
+                                        days. We may charge a reasonable
+                                        administrative fee for search and copying
+                                        costs. We will not refuse access unless a
+                                        valid exception under the Privacy Act
+                                        applies, such as where access would
+                                        prejudice a legal investigation. If we
+                                        refuse access, we will provide you with a
+                                        written explanation.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Correction (APP 13)
+                                </h4>
+
+                                <div class="space-y-3">
+                                    <p>
+                                        We are committed to ensuring your
+                                        information is accurate, up to date and
+                                        complete. If you believe the information we
+                                        hold is incorrect, please contact us.
+                                    </p>
+
+                                    <p>
+                                        We will take reasonable steps to correct
+                                        the information within 30 days. We will not
+                                        charge you for making a correction request.
+                                        If we have previously disclosed incorrect
+                                        information to a third party, we will notify
+                                        them of the correction.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            9. How to Make a Complaint
+                        </h3>
+
+                        <p class="mb-4">
+                            If you have a question, concern or complaint about how
+                            we have handled your personal information, please
+                            contact us first.
+                        </p>
+
+                        <div class="space-y-5">
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Step 1: Contact our Privacy Officer
+                                </h4>
+
+                                <p class="mb-3">
+                                    Please lodge your complaint in writing to our
+                                    Privacy Officer with specific details. We will
+                                    investigate the complaint and provide you with a
+                                    written response within a reasonable period.
+                                </p>
+
+                                <ul class="list-disc pl-6 space-y-1">
+                                    <li>
+                                        Email:
+                                        <a
+                                            href="mailto:Noor.loyaltravel@hotmail.com"
+                                            class="text-[#C9A227] underline hover:no-underline"
+                                        >
+                                            Noor.loyaltravel@hotmail.com
+                                        </a>
+                                    </li>
+                                    <li>
+                                        Mail: 4/172 Merrylands Rd, Merrylands NSW 2160
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-extrabold text-base text-slate-900 mb-2">
+                                    Step 2: Contact the Office of the Australian Information Commissioner
+                                </h4>
+
+                                <p class="mb-3">
+                                    If you are not satisfied with our response or
+                                    how we handled your complaint, you have the
+                                    right to lodge a complaint with the Office of
+                                    the Australian Information Commissioner (OAIC).
+                                </p>
+
+                                <ul class="list-disc pl-6 space-y-1">
+                                    <li>
+                                        Online:
+                                        <a
+                                            href="https://www.oaic.gov.au"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-[#C9A227] underline hover:no-underline"
+                                        >
+                                            www.oaic.gov.au
+                                        </a>
+                                    </li>
+                                    <li>
+                                        Phone:
+                                        <a
+                                            href="tel:1300363992"
+                                            class="text-[#C9A227] underline hover:no-underline"
+                                        >
+                                            1300 363 992
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            10. Changes to This Policy
+                        </h3>
+
+                        <p>
+                            We may review and update this Privacy Policy from time
+                            to time to account for new laws, technologies and
+                            changes to our operations. The most current version
+                            will always be available on our website.
+                        </p>
+                    </section>
+
+                    <section class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            11. Contact Us
+                        </h3>
+
+                        <p class="mb-3">
+                            For any privacy-related queries, please contact us:
+                        </p>
+
+                        <ul class="space-y-2">
+                            <li>
+                                <span class="font-bold">Email:</span>
+                                <a
+                                    href="mailto:Noor.loyaltravel@hotmail.com"
+                                    class="text-[#C9A227] underline hover:no-underline"
+                                >
+                                    Noor.loyaltravel@hotmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <span class="font-bold">Phone:</span>
+                                <a
+                                    href="tel:0422440440"
+                                    class="text-[#C9A227] underline hover:no-underline"
+                                >
+                                    0422 440 440
+                                </a>
+                            </li>
+                            <li>
+                                <span class="font-bold">Mail:</span>
+                                4/172 Merrylands Rd, Merrylands NSW 2160
+                            </li>
                         </ul>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            4. Regulatory Compliance
-                        </h3>
-
-                        <p>
-                            As a registered remittance service provider, Khayber Services may
-                            collect and retain information required under Australian law,
-                            including customer identification, transaction records and
-                            compliance documentation. Information may be disclosed where
-                            legally required by regulators or law enforcement agencies.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            5. Data Security
-                        </h3>
-
-                        <p>
-                            We implement administrative, technical and physical safeguards
-                            designed to protect customer information from unauthorised access,
-                            disclosure, alteration or destruction. Access to customer data is
-                            restricted to authorised personnel only.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            6. Information Sharing
-                        </h3>
-
-                        <p>
-                            We do not sell customer information. Personal information may only
-                            be shared with authorised payment partners, banking institutions,
-                            regulators or government authorities where required for providing
-                            our services or complying with applicable laws.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            7. Cookies
-                        </h3>
-
-                        <p>
-                            Our website uses cookies and similar technologies to improve
-                            website performance, security and customer experience.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            8. Your Rights
-                        </h3>
-
-                        <p>
-                            You may request access to your personal information, request
-                            corrections where appropriate, or contact us regarding any privacy
-                            concerns. Certain information may be retained where required by
-                            law.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold mb-3">
-                            9. Contact Us
-                        </h3>
-
-                        <p>
-                            If you have questions regarding this Privacy Policy or the handling
-                            of your personal information, please contact Khayber Services
-                            Customer Support through our official website or customer portal.
-                        </p>
                     </section>
 
                 </div>
 
-                <div class="mt-10 pt-6 border-t text-xs text-slate-500">
-                    © 2026 Khayber Services Pty Ltd. All rights reserved.
+                <div class="mt-10 pt-6 border-t flex flex-col sm:flex-row sm:items-center gap-4">
+                    <div class="text-xs text-slate-500 flex-1">
+                        © 2026 Khyber Services Pty Ltd. All rights reserved.
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="hideGenericModal()"
+                        class="px-7 py-3 border border-slate-300 rounded-2xl text-xs font-bold hover:bg-slate-50"
+                    >
+                        CLOSE
+                    </button>
                 </div>
 
             </div>
